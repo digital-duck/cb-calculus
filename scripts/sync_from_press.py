@@ -62,7 +62,7 @@ def _pick_capstone(graph_yaml: dict) -> str | None:
     return max(concepts, key=lambda k: concepts[k].get("tier", 0))
 
 
-def sync_chapter(book: str, chapter: int, domain_prefix: str, dry_run: bool) -> dict | None:
+def sync_chapter(book: str, chapter: int, domain_prefix: str, subject: str, dry_run: bool) -> dict | None:
     src_dir = PRESS_ROOT / "output" / book / f"ch{chapter}"
     graph_src = src_dir / "graph.yaml"
     if not graph_src.exists():
@@ -102,8 +102,8 @@ def sync_chapter(book: str, chapter: int, domain_prefix: str, dry_run: bool) -> 
 
     return {
         "id": domain_id,
-        "name": f"Physics Ch{chapter}: {title}",
-        "description": f"OpenStax College Physics 2e, Chapter {chapter}: {title}.",
+        "name": f"{subject} Ch{chapter}: {title}",
+        "description": f"{book}, Chapter {chapter}: {title}.",
         "capstone": capstone or "",
         **stats,
         "tags": ["science"],
@@ -130,9 +130,11 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--book", required=True, help="concept-book-press book slug, e.g. college-physics-2e")
     ap.add_argument("--prefix", required=True, help="domain id prefix, e.g. college_physics_ch")
+    ap.add_argument("--subject", default=None, help="Human-readable subject label for catalog names, e.g. Calculus. Default: title-cased --book.")
     ap.add_argument("--chapters", default=None, help="e.g. '3-34' or '1,3,5' — default: all available")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
+    subject = args.subject or args.book.replace("-", " ").title()
 
     book_dir = PRESS_ROOT / "output" / args.book
     if args.chapters:
@@ -152,7 +154,7 @@ def main():
     added, refreshed = 0, 0
 
     for ch in chapters:
-        entry = sync_chapter(args.book, ch, args.prefix, args.dry_run)
+        entry = sync_chapter(args.book, ch, args.prefix, subject, args.dry_run)
         if entry is None:
             continue
         if entry["id"] in by_id:

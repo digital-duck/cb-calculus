@@ -1,1 +1,855 @@
-[]
+[
+  {
+    "id": "calculus_ch01",
+    "name": "Calculus Ch1: Chapter 1. Functions and Graphs",
+    "description": "calculus-volume-1, Chapter 1: Chapter 1. Functions and Graphs.",
+    "capstone": "mathematical_model",
+    "nodes": 49,
+    "edges": 66,
+    "primitives": 6,
+    "concepts": 40,
+    "applications": 3,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "mathematical_model",
+        "file": "output/intro.en/sonnet/html/book_mathematical_model.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "target": "compound_interest_application",
+        "file": "output/intro.en/sonnet/html/book_compound_interest_application.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "target": "richter_scale_application",
+        "file": "output/intro.en/sonnet/html/book_richter_scale_application.html",
+        "model": "sonnet",
+        "language": "en"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "compound_interest_application",
+        "label": "Compound Interest Application",
+        "file": "output/intro.en/sonnet/html/concept_compound_interest_application.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "exponential_function",
+        "label": "Exponential Function",
+        "file": "output/intro.en/sonnet/html/concept_exponential_function.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "function",
+        "label": "Function",
+        "file": "output/intro.en/sonnet/html/concept_function.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "inverse_function",
+        "label": "Inverse Function",
+        "file": "output/intro.en/sonnet/html/concept_inverse_function.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "linear_function",
+        "label": "Linear Function",
+        "file": "output/intro.en/sonnet/html/concept_linear_function.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "logarithmic_function",
+        "label": "Logarithmic Function",
+        "file": "output/intro.en/sonnet/html/concept_logarithmic_function.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "mathematical_model",
+        "label": "Mathematical Model",
+        "file": "output/intro.en/sonnet/html/concept_mathematical_model.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "natural_exponential_function",
+        "label": "Natural Exponential Function",
+        "file": "output/intro.en/sonnet/html/concept_natural_exponential_function.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "number_e",
+        "label": "Number E",
+        "file": "output/intro.en/sonnet/html/concept_number_e.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "one_to_one_function",
+        "label": "One To One Function",
+        "file": "output/intro.en/sonnet/html/concept_one_to_one_function.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "polynomial_function",
+        "label": "Polynomial Function",
+        "file": "output/intro.en/sonnet/html/concept_polynomial_function.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "quadratic_function",
+        "label": "Quadratic Function",
+        "file": "output/intro.en/sonnet/html/concept_quadratic_function.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "relation",
+        "label": "Relation",
+        "file": "output/intro.en/sonnet/html/concept_relation.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "richter_scale_application",
+        "label": "Richter Scale Application",
+        "file": "output/intro.en/sonnet/html/concept_richter_scale_application.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "slope",
+        "label": "Slope",
+        "file": "output/intro.en/sonnet/html/concept_slope.html",
+        "model": "sonnet",
+        "language": "en"
+      }
+    ]
+  },
+  {
+    "id": "calculus_ch02",
+    "name": "Calculus Ch2: Chapter 2. Limits",
+    "description": "calculus-volume-1, Chapter 2: Chapter 2. Limits.",
+    "capstone": "integral_calculus",
+    "nodes": 25,
+    "edges": 27,
+    "primitives": 2,
+    "concepts": 19,
+    "applications": 4,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "integral_calculus",
+        "file": "output/intro.en/sonnet/html/book_integral_calculus.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "target": "intermediate_value_theorem",
+        "file": "output/intro.en/sonnet/html/book_intermediate_value_theorem.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "target": "differential_calculus",
+        "file": "output/intro.en/sonnet/html/book_differential_calculus.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "target": "multivariable_calculus",
+        "file": "output/intro.en/sonnet/html/book_multivariable_calculus.html",
+        "model": "sonnet",
+        "language": "en"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "area_problem",
+        "label": "Area Problem",
+        "file": "output/intro.en/sonnet/html/concept_area_problem.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "continuity_at_a_point",
+        "label": "Continuity At A Point",
+        "file": "output/intro.en/sonnet/html/concept_continuity_at_a_point.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "continuity_over_an_interval",
+        "label": "Continuity Over An Interval",
+        "file": "output/intro.en/sonnet/html/concept_continuity_over_an_interval.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "derivative",
+        "label": "Derivative",
+        "file": "output/intro.en/sonnet/html/concept_derivative.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "differential_calculus",
+        "label": "Differential Calculus",
+        "file": "output/intro.en/sonnet/html/concept_differential_calculus.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "integral_calculus",
+        "label": "Integral Calculus",
+        "file": "output/intro.en/sonnet/html/concept_integral_calculus.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "intermediate_value_theorem",
+        "label": "Intermediate Value Theorem",
+        "file": "output/intro.en/sonnet/html/concept_intermediate_value_theorem.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "limit",
+        "label": "Limit",
+        "file": "output/intro.en/sonnet/html/concept_limit.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "multivariable_calculus",
+        "label": "Multivariable Calculus",
+        "file": "output/intro.en/sonnet/html/concept_multivariable_calculus.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "rate_of_change",
+        "label": "Rate Of Change",
+        "file": "output/intro.en/sonnet/html/concept_rate_of_change.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "secant_line",
+        "label": "Secant Line",
+        "file": "output/intro.en/sonnet/html/concept_secant_line.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "tangent_line",
+        "label": "Tangent Line",
+        "file": "output/intro.en/sonnet/html/concept_tangent_line.html",
+        "model": "sonnet",
+        "language": "en"
+      }
+    ]
+  },
+  {
+    "id": "calculus_ch03",
+    "name": "Calculus Ch3: Chapter 3. Derivatives",
+    "description": "calculus-volume-1, Chapter 3: Chapter 3. Derivatives.",
+    "capstone": "velocity",
+    "nodes": 31,
+    "edges": 43,
+    "primitives": 3,
+    "concepts": 24,
+    "applications": 4,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "velocity",
+        "file": "output/intro.en/sonnet/html/book_velocity.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "target": "population_growth_rate",
+        "file": "output/intro.en/sonnet/html/book_population_growth_rate.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "target": "marginal_functions",
+        "file": "output/intro.en/sonnet/html/book_marginal_functions.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "target": "acceleration",
+        "file": "output/intro.en/sonnet/html/book_acceleration.html",
+        "model": "sonnet",
+        "language": "en"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "acceleration",
+        "label": "Acceleration",
+        "file": "output/intro.en/sonnet/html/concept_acceleration.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "amount_of_change_formula",
+        "label": "Amount Of Change Formula",
+        "file": "output/intro.en/sonnet/html/concept_amount_of_change_formula.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "derivative_at_a_point",
+        "label": "Derivative At A Point",
+        "file": "output/intro.en/sonnet/html/concept_derivative_at_a_point.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "derivative_function",
+        "label": "Derivative Function",
+        "file": "output/intro.en/sonnet/html/concept_derivative_function.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "difference_quotient",
+        "label": "Difference Quotient",
+        "file": "output/intro.en/sonnet/html/concept_difference_quotient.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "higher_order_derivatives",
+        "label": "Higher Order Derivatives",
+        "file": "output/intro.en/sonnet/html/concept_higher_order_derivatives.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "instantaneous_rate_of_change",
+        "label": "Instantaneous Rate Of Change",
+        "file": "output/intro.en/sonnet/html/concept_instantaneous_rate_of_change.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "limit",
+        "label": "Limit",
+        "file": "output/intro.en/sonnet/html/concept_limit.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "marginal_functions",
+        "label": "Marginal Functions",
+        "file": "output/intro.en/sonnet/html/concept_marginal_functions.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "population_growth_rate",
+        "label": "Population Growth Rate",
+        "file": "output/intro.en/sonnet/html/concept_population_growth_rate.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "velocity",
+        "label": "Velocity",
+        "file": "output/intro.en/sonnet/html/concept_velocity.html",
+        "model": "sonnet",
+        "language": "en"
+      }
+    ]
+  },
+  {
+    "id": "calculus_ch04",
+    "name": "Calculus Ch4: Chapter 4. Applications of Derivatives",
+    "description": "calculus-volume-1, Chapter 4: Chapter 4. Applications of Derivatives.",
+    "capstone": "propagated_error",
+    "nodes": 35,
+    "edges": 45,
+    "primitives": 6,
+    "concepts": 23,
+    "applications": 6,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "propagated_error",
+        "file": "output/intro.en/sonnet/html/book_propagated_error.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "target": "locating_absolute_extrema",
+        "file": "output/intro.en/sonnet/html/book_locating_absolute_extrema.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "target": "growth_rates",
+        "file": "output/intro.en/sonnet/html/book_growth_rates.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "target": "initial_value_problem",
+        "file": "output/intro.en/sonnet/html/book_initial_value_problem.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "target": "applied_optimization",
+        "file": "output/intro.en/sonnet/html/book_applied_optimization.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "target": "curve_sketching",
+        "file": "output/intro.en/sonnet/html/book_curve_sketching.html",
+        "model": "sonnet",
+        "language": "en"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "absolute_extrema",
+        "label": "Absolute Extrema",
+        "file": "output/intro.en/sonnet/html/concept_absolute_extrema.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "antiderivative",
+        "label": "Antiderivative",
+        "file": "output/intro.en/sonnet/html/concept_antiderivative.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "applied_optimization",
+        "label": "Applied Optimization",
+        "file": "output/intro.en/sonnet/html/concept_applied_optimization.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "concavity",
+        "label": "Concavity",
+        "file": "output/intro.en/sonnet/html/concept_concavity.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "critical_point",
+        "label": "Critical Point",
+        "file": "output/intro.en/sonnet/html/concept_critical_point.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "curve_sketching",
+        "label": "Curve Sketching",
+        "file": "output/intro.en/sonnet/html/concept_curve_sketching.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "derivative",
+        "label": "Derivative",
+        "file": "output/intro.en/sonnet/html/concept_derivative.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "differentials",
+        "label": "Differentials",
+        "file": "output/intro.en/sonnet/html/concept_differentials.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "end_behavior",
+        "label": "End Behavior",
+        "file": "output/intro.en/sonnet/html/concept_end_behavior.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "extreme_value_theorem",
+        "label": "Extreme Value Theorem",
+        "file": "output/intro.en/sonnet/html/concept_extreme_value_theorem.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "fermats_theorem",
+        "label": "Fermats Theorem",
+        "file": "output/intro.en/sonnet/html/concept_fermats_theorem.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "first_derivative_test",
+        "label": "First Derivative Test",
+        "file": "output/intro.en/sonnet/html/concept_first_derivative_test.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "growth_rates",
+        "label": "Growth Rates",
+        "file": "output/intro.en/sonnet/html/concept_growth_rates.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "horizontal_asymptote",
+        "label": "Horizontal Asymptote",
+        "file": "output/intro.en/sonnet/html/concept_horizontal_asymptote.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "indefinite_integral",
+        "label": "Indefinite Integral",
+        "file": "output/intro.en/sonnet/html/concept_indefinite_integral.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "indeterminate_forms",
+        "label": "Indeterminate Forms",
+        "file": "output/intro.en/sonnet/html/concept_indeterminate_forms.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "initial_value_problem",
+        "label": "Initial Value Problem",
+        "file": "output/intro.en/sonnet/html/concept_initial_value_problem.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "lhopitals_rule",
+        "label": "Lhopitals Rule",
+        "file": "output/intro.en/sonnet/html/concept_lhopitals_rule.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "limits_at_infinity",
+        "label": "Limits At Infinity",
+        "file": "output/intro.en/sonnet/html/concept_limits_at_infinity.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "local_extrema",
+        "label": "Local Extrema",
+        "file": "output/intro.en/sonnet/html/concept_local_extrema.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "locating_absolute_extrema",
+        "label": "Locating Absolute Extrema",
+        "file": "output/intro.en/sonnet/html/concept_locating_absolute_extrema.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "mean_value_theorem",
+        "label": "Mean Value Theorem",
+        "file": "output/intro.en/sonnet/html/concept_mean_value_theorem.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "mvt_corollaries",
+        "label": "Mvt Corollaries",
+        "file": "output/intro.en/sonnet/html/concept_mvt_corollaries.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "oblique_asymptote",
+        "label": "Oblique Asymptote",
+        "file": "output/intro.en/sonnet/html/concept_oblique_asymptote.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "propagated_error",
+        "label": "Propagated Error",
+        "file": "output/intro.en/sonnet/html/concept_propagated_error.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "rolles_theorem",
+        "label": "Rolles Theorem",
+        "file": "output/intro.en/sonnet/html/concept_rolles_theorem.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "second_derivative_test",
+        "label": "Second Derivative Test",
+        "file": "output/intro.en/sonnet/html/concept_second_derivative_test.html",
+        "model": "sonnet",
+        "language": "en"
+      }
+    ]
+  },
+  {
+    "id": "calculus_ch05",
+    "name": "Calculus Ch5: Chapter 5. Integration",
+    "description": "calculus-volume-1, Chapter 5: Chapter 5. Integration.",
+    "capstone": "displacement_from_velocity",
+    "nodes": 27,
+    "edges": 32,
+    "primitives": 3,
+    "concepts": 22,
+    "applications": 2,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "displacement_from_velocity",
+        "file": "output/intro.en/sonnet/html/book_displacement_from_velocity.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "target": "price_demand_application",
+        "file": "output/intro.en/sonnet/html/book_price_demand_application.html",
+        "model": "sonnet",
+        "language": "en"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "antiderivative",
+        "label": "Antiderivative",
+        "file": "output/intro.en/sonnet/html/concept_antiderivative.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "area_under_curve_limit",
+        "label": "Area Under Curve Limit",
+        "file": "output/intro.en/sonnet/html/concept_area_under_curve_limit.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "definite_integral",
+        "label": "Definite Integral",
+        "file": "output/intro.en/sonnet/html/concept_definite_integral.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "displacement_from_velocity",
+        "label": "Displacement From Velocity",
+        "file": "output/intro.en/sonnet/html/concept_displacement_from_velocity.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "fundamental_theorem_calculus_part1",
+        "label": "Fundamental Theorem Calculus Part1",
+        "file": "output/intro.en/sonnet/html/concept_fundamental_theorem_calculus_part1.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "fundamental_theorem_calculus_part2",
+        "label": "Fundamental Theorem Calculus Part2",
+        "file": "output/intro.en/sonnet/html/concept_fundamental_theorem_calculus_part2.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "integrals_exponential_functions",
+        "label": "Integrals Exponential Functions",
+        "file": "output/intro.en/sonnet/html/concept_integrals_exponential_functions.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "integration_by_substitution",
+        "label": "Integration By Substitution",
+        "file": "output/intro.en/sonnet/html/concept_integration_by_substitution.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "net_change_theorem",
+        "label": "Net Change Theorem",
+        "file": "output/intro.en/sonnet/html/concept_net_change_theorem.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "partition",
+        "label": "Partition",
+        "file": "output/intro.en/sonnet/html/concept_partition.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "price_demand_application",
+        "label": "Price Demand Application",
+        "file": "output/intro.en/sonnet/html/concept_price_demand_application.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "riemann_sum",
+        "label": "Riemann Sum",
+        "file": "output/intro.en/sonnet/html/concept_riemann_sum.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "sigma_notation",
+        "label": "Sigma Notation",
+        "file": "output/intro.en/sonnet/html/concept_sigma_notation.html",
+        "model": "sonnet",
+        "language": "en"
+      }
+    ]
+  },
+  {
+    "id": "calculus_ch06",
+    "name": "Calculus Ch6: Chapter 6. Applications of Integration",
+    "description": "calculus-volume-1, Chapter 6: Chapter 6. Applications of Integration.",
+    "capstone": "exponential_growth_model",
+    "nodes": 32,
+    "edges": 33,
+    "primitives": 8,
+    "concepts": 20,
+    "applications": 4,
+    "tags": [
+      "science"
+    ],
+    "has_navigator": true,
+    "has_book": true,
+    "books": [
+      {
+        "target": "exponential_growth_model",
+        "file": "output/intro.en/sonnet/html/book_exponential_growth_model.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "target": "exponential_decay_model",
+        "file": "output/intro.en/sonnet/html/book_exponential_decay_model.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "target": "newtons_law_of_cooling",
+        "file": "output/intro.en/sonnet/html/book_newtons_law_of_cooling.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "target": "catenary",
+        "file": "output/intro.en/sonnet/html/book_catenary.html",
+        "model": "sonnet",
+        "language": "en"
+      }
+    ],
+    "generated_concepts": [
+      {
+        "name": "catenary",
+        "label": "Catenary",
+        "file": "output/intro.en/sonnet/html/concept_catenary.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "exponential_decay_model",
+        "label": "Exponential Decay Model",
+        "file": "output/intro.en/sonnet/html/concept_exponential_decay_model.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "exponential_function_def",
+        "label": "Exponential Function Def",
+        "file": "output/intro.en/sonnet/html/concept_exponential_function_def.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "exponential_growth_model",
+        "label": "Exponential Growth Model",
+        "file": "output/intro.en/sonnet/html/concept_exponential_growth_model.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "hyperbolic_functions",
+        "label": "Hyperbolic Functions",
+        "file": "output/intro.en/sonnet/html/concept_hyperbolic_functions.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "natural_logarithm_integral_def",
+        "label": "Natural Logarithm Integral Def",
+        "file": "output/intro.en/sonnet/html/concept_natural_logarithm_integral_def.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "newtons_law_of_cooling",
+        "label": "Newtons Law Of Cooling",
+        "file": "output/intro.en/sonnet/html/concept_newtons_law_of_cooling.html",
+        "model": "sonnet",
+        "language": "en"
+      }
+    ]
+  }
+]
