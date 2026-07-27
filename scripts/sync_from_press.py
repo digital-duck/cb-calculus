@@ -27,6 +27,14 @@ DOMAINS_ROOT = REPO_ROOT / "public" / "domains"
 CATALOG_PATH = DOMAINS_ROOT / "catalog.json"
 GRAPH_TOOL = REPO_ROOT / "scripts" / "concept_graph.py"
 
+# concept-book-press's level_map.py is the single source of truth for which
+# academic level a known source book targets (see that module's docstring
+# for why this is a maintained lookup table rather than a title-keyword
+# heuristic). Every book synced by this script so far is college-level;
+# derive_level() falls back to "college" for any source not yet in the table.
+sys.path.insert(0, str(PRESS_ROOT))
+from pipeline.level_map import derive_level  # noqa: E402
+
 
 def _graph_stats(graph_yaml: dict) -> dict:
     primitives = graph_yaml.get("primitives", {}) or {}
@@ -104,6 +112,7 @@ def sync_chapter(book: str, chapter: int, domain_prefix: str, subject: str, dry_
         "id": domain_id,
         "name": f"{subject} Ch{chapter}: {title}",
         "description": f"{book}, Chapter {chapter}: {title}.",
+        "default_level": derive_level(book),
         "capstone": capstone or "",
         **stats,
         "tags": ["science"],
