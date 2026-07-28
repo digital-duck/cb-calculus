@@ -48,6 +48,9 @@ instead, as shown below.
 
 ```bash
 python scripts/batch_generate.py [OPTIONS]
+
+# example
+python scripts/batch_generate.py --level college --language en
 ```
 
 | Option | Default | Description |
