@@ -51,6 +51,7 @@ python scripts/batch_generate.py [OPTIONS]
 
 # example
 python scripts/batch_generate.py --level college --language en
+python scripts/batch_generate.py --level research --language en
 ```
 
 | Option | Default | Description |
