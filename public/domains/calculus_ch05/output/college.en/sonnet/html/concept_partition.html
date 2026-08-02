@@ -35,34 +35,21 @@ section:first-of-type{border-top:none;padding-top:0}
 <div class="page">
   <main>
     <h2 id="partition">Partition</h2>
-<p><strong>Definition.</strong> Let $S$ be a non-empty set. A <em>partition</em> of $S$ is a collection of subsets $\{A_1, A_2, \ldots, A_k\}$ (finite case) or $\{A_i\}_{i \in I}$ (general case) satisfying three conditions:</p>
-<li><strong>Non-emptiness:</strong> $A_i \neq \emptyset$ for all $i$.</li>
-<li><strong>Mutual disjointness:</strong> $A_i \cap A_j = \emptyset$ whenever $i \neq j$.</li>
-<li><strong>Exhaustiveness:</strong> $\displaystyle\bigcup_{i \in I} A_i = S$.</li>
-<p>Each $A_i$ is called a <em>block</em> (or <em>cell</em>) of the partition. Partitions arise whenever a set is classified by some equivalence relation: the blocks are precisely the equivalence classes.</p>
-<p><strong>Worked Example.</strong> Consider $S = \{1, 2, 3, 4, 5, 6\}$ and the relation "same remainder modulo 3." The remainder classes are:</p>
-$$A_0 = \{3, 6\}, \quad A_1 = \{1, 4\}, \quad A_2 = \{2, 5\}.$$
-<p>We verify: (1) each block is non-empty; (2) $A_0 \cap A_1 = A_0 \cap A_2 = A_1 \cap A_2 = \emptyset$; (3) $A_0 \cup A_1 \cup A_2 = S$. Hence $\{A_0, A_1, A_2\}$ is a partition of $S$ into three blocks of equal size 2.</p>
-<p><strong>Counting partitions — Bell numbers.</strong> The number of distinct partitions of an $n$-element set is the $n$-th <em>Bell number</em> $B_n$. These satisfy the recurrence</p>
-$$B_{n+1} = \sum_{k=0}^{n} \binom{n}{k} B_k, \qquad B_0 = 1.$$
-<p>The first few values are $B_0=1,\; B_1=1,\; B_2=2,\; B_3=5,\; B_4=15$. The growth is super-exponential; a closed-form expression uses the <em>Bell triangle</em> or Dobinski's formula $B_n = e^{-1}\sum_{k=0}^{\infty} k^n / k!$.</p>
-<p><strong>Theorem (Partition–Equivalence Correspondence).</strong> There is a bijection between partitions of $S$ and equivalence relations on $S$: given a partition, define $a \sim b$ iff $a$ and $b$ belong to the same block; conversely, given an equivalence relation, its equivalence classes form a partition.</p>
-<p><strong>Lab cell.</strong></p>
-<pre><code>from sympy.combinatorics import Partition
-from sympy import bell, symbols
-
-# Bell numbers B_0 through B_6
-n = symbols('n')
-print([bell(k) for k in range(7)])
-
-# Verify the partition example
-S = {1, 2, 3, 4, 5, 6}
-blocks = [{x for x in S if x % 3 == r} for r in range(3)]
-assert set().union(*blocks) == S
-assert all(b for b in blocks)                          # non-empty
-assert all(blocks[i] &amp; blocks[j] == set()
-           for i in range(3) for j in range(3) if i != j)
-print("Partition verified:", blocks)</code></pre>
+<p><strong>Definition.</strong> A <em>partition</em> of a set $S$ is a collection of non-empty subsets $\{A_1, A_2, \ldots, A_k\}$ satisfying two conditions:</p>
+<li><strong>Disjoint:</strong> $A_i \cap A_j = \emptyset$ for all $i \neq j$.</li>
+<li><strong>Exhaustive:</strong> $A_1 \cup A_2 \cup \cdots \cup A_k = S$.</li>
+<p>Each $A_i$ is called a <em>block</em> of the partition. The two conditions together mean every element of $S$ belongs to <em>exactly one</em> block — no element is missed and none is double-counted.</p>
+<p><strong>Worked example: integers modulo 3.</strong> Let $S = \{0, 1, 2, 3, 4, 5, 6, 7, 8\}$. Group elements by their remainder when divided by 3:</p>
+$$A_0 = \{0, 3, 6\},\quad A_1 = \{1, 4, 7\},\quad A_2 = \{2, 5, 8\}.$$
+<p>Every element appears in exactly one block and $A_0 \cup A_1 \cup A_2 = S$, so $\{A_0, A_1, A_2\}$ is a valid partition. This particular construction — grouping by remainder — is called a <em>residue class</em> partition and underlies modular arithmetic.</p>
+<p><strong>Problem-solving application: the Law of Total Probability.</strong> Partitions are the engine behind one of the most powerful probability tools. If $\{A_1, \ldots, A_k\}$ partitions a sample space $\Omega$, then for any event $B$:</p>
+$$P(B) = \sum_{i=1}^{k} P(B \mid A_i)\,P(A_i).$$
+<p>The partition guarantee makes this exact: every outcome in $B$ falls in one and only one block, so the sum captures all of $B$ with no overlap.</p>
+<p><strong>Concrete scenario.</strong> A factory has three production lines contributing 50 %, 30 %, and 20 % of daily output, with defect rates of 2 %, 4 %, and 6 % respectively. What share of all items is defective?</p>
+<p>The three lines partition total output, so:</p>
+$$P(\text{defective}) = (0.02)(0.50) + (0.04)(0.30) + (0.06)(0.20) = 0.010 + 0.012 + 0.012 = 0.034.$$
+<p>Overall, 3.4 % of items are defective. The calculation is valid precisely because the lines are disjoint and exhaustive — every item comes from exactly one line.</p>
+<p><strong>Checking your work.</strong> When building a partition, always verify both conditions explicitly. Overlapping blocks cause double-counting; missing elements leave gaps. Either mistake breaks the total-probability formula and corrupts the result. The habit of checking disjointness and exhaustiveness separately takes ten seconds and catches most partition errors before they propagate.</p>
   </main>
   <footer class="spl-credit">Generated by SPL &middot; Powered by SPL.py</footer>
 </div>

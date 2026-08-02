@@ -35,29 +35,19 @@ section:first-of-type{border-top:none;padding-top:0}
 <div class="page">
   <main>
     <h2 id="multivariable-calculus">Multivariable Calculus</h2>
-<p><strong>Definition.</strong> Let $f : \mathbb{R}^n \to \mathbb{R}$ be a real-valued function of $n$ variables. The <em>partial derivative</em> of $f$ with respect to the $i$-th variable $x_i$, evaluated at a point $\mathbf{a} = (a_1, \ldots, a_n)$, is defined as</p>
-$$\frac{\partial f}{\partial x_i}(\mathbf{a}) = \lim_{h \to 0} \frac{f(a_1, \ldots, a_i + h, \ldots, a_n) - f(\mathbf{a})}{h},$$
-<p>provided the limit exists. The <em>gradient</em> of $f$ is the vector field $\nabla f = \left(\frac{\partial f}{\partial x_1}, \ldots, \frac{\partial f}{\partial x_n}\right)$, which points in the direction of steepest ascent of $f$ at each point.</p>
-<p><strong>Worked Example.</strong> Let $f(x, y) = x^2 y + e^y \sin x$. To find $\nabla f$, treat each variable in turn while holding the other constant:</p>
-$$\frac{\partial f}{\partial x} = 2xy + e^y \cos x, \qquad \frac{\partial f}{\partial y} = x^2 + e^y \sin x.$$
-<p>At the point $(0, 0)$: $\nabla f(0,0) = (0 + 1 \cdot 1,\; 0 + 1 \cdot 0) = (1, 0)$. The function increases most steeply in the positive $x$-direction at the origin.</p>
-<p><strong>Key Theorem (Clairaut's Theorem).</strong> If $f : \mathbb{R}^2 \to \mathbb{R}$ has continuous second partial derivatives in a neighbourhood of $(a, b)$, then the mixed partials commute:</p>
-$$\frac{\partial^2 f}{\partial x \, \partial y}(a,b) = \frac{\partial^2 f}{\partial y \, \partial x}(a,b).$$
-<p><em>Proof sketch.</em> Both mixed partials equal the same symmetric limit involving four-point differences of $f$; continuity guarantees the order of the limiting operations is interchangeable. $\square$</p>
-<p>This symmetry is not merely algebraic convenience — it underlies the integrability conditions in differential geometry and the exactness criteria for differential forms.</p>
-<p><strong>Lab Cell (SymPy).</strong></p>
-<pre><code>from sympy import symbols, exp, sin, diff
-
-x, y = symbols('x y')
-f = x**2 * y + exp(y) * sin(x)
-
-f_xy = diff(f, x, y)
-f_yx = diff(f, y, x)
-
-print("f_xy =", f_xy)
-print("f_yx =", f_yx)
-print("Equal:", f_xy == f_yx)   # True — Clairaut confirmed</code></pre>
-<p>Running this cell prints identical expressions for both mixed partials, providing a computational verification of Clairaut's theorem for this particular function. Experimenting with other choices of $f$ builds intuition for when the hypothesis — continuity of second partials — is essential.</p>
+<p>Single-variable calculus asks how a function changes along one axis. Multivariable calculus extends that question to functions of two or more inputs — the kind that describe almost every real system. Temperature across a metal plate, profit as a function of price and quantity, the elevation of a mountain terrain — all depend on several variables simultaneously.</p>
+<p><strong>The central tool: partial derivatives.</strong> For a function $f(x, y)$, the partial derivative $\frac{\partial f}{\partial x}$ measures the rate of change in the $x$-direction while holding $y$ fixed. Formally,</p>
+$$\frac{\partial f}{\partial x} = \lim_{h \to 0} \frac{f(x+h,\, y) - f(x,\, y)}{h}$$
+<p>and $\frac{\partial f}{\partial y}$ is defined symmetrically. Both are computed with ordinary differentiation rules — you just treat the other variable as a constant.</p>
+<p><strong>Worked example.</strong> Let $f(x, y) = 3x^2 y + y^3$. Compute the partial derivatives.</p>
+$$\frac{\partial f}{\partial x} = 6xy, \qquad \frac{\partial f}{\partial y} = 3x^2 + 3y^2$$
+<p>The <strong>gradient</strong> $\nabla f = \left\langle \frac{\partial f}{\partial x},\, \frac{\partial f}{\partial y} \right\rangle = \langle 6xy,\; 3x^2 + 3y^2 \rangle$ packages both partial derivatives into a vector that points in the direction of steepest increase.</p>
+<p><strong>Applying it: optimization.</strong> To find local extrema of $f(x, y)$, set both partial derivatives to zero and solve the resulting system — this is the multivariable analogue of setting $f'(x) = 0$.</p>
+<p>Find the critical points of $g(x, y) = x^2 + y^2 - 4x - 6y + 13$.</p>
+$$\frac{\partial g}{\partial x} = 2x - 4 = 0 \;\Rightarrow\; x = 2$$
+$$\frac{\partial g}{\partial y} = 2y - 6 = 0 \;\Rightarrow\; y = 3$$
+<p>The single critical point is $(2, 3)$. Since $g$ is a paraboloid opening upward, this is a global minimum: $g(2, 3) = 0$.</p>
+<p><strong>Why this matters.</strong> Gradient descent — the engine behind neural network training — is multivariable calculus in action: compute $\nabla f$ at the current point, step in the direction $-\nabla f$, repeat. Every modern machine learning library computes partial derivatives automatically using this same mathematical foundation. Mastering partial derivatives and gradients gives you direct access to how optimization works under the hood.</p>
   </main>
   <footer class="spl-credit">Generated by SPL &middot; Powered by SPL.py</footer>
 </div>

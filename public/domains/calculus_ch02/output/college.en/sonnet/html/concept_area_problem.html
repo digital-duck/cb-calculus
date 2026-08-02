@@ -35,29 +35,19 @@ section:first-of-type{border-top:none;padding-top:0}
 <div class="page">
   <main>
     <h2 id="area-problem">Area Problem</h2>
-<p><strong>Definition.</strong> The <em>area problem</em> asks: given a continuous function $f : [a, b] \to \mathbb{R}$ with $f(x) \geq 0$, what is the exact area of the region bounded above by the graph of $f$, below by the $x$-axis, and laterally by the vertical lines $x = a$ and $x = b$? For straight-edged regions this question is elementary, but when $f$ is nonlinear, no finite collection of rectangles or triangles covers the region without error. The area problem is the geometric motivation for the <em>definite integral</em> $\displaystyle\int_a^b f(x)\,dx$.</p>
-<p><strong>Worked Example.</strong> Estimate the area under $f(x) = x^2$ on $[0, 1]$ using $n = 4$ equal subintervals of width $\Delta x = \tfrac{1}{4}$, taking right endpoints $x_k = k/4$ for $k = 1, 2, 3, 4$.</p>
-$$R_4 = \sum_{k=1}^{4} f\!\left(\tfrac{k}{4}\right)\Delta x = \frac{1}{4}\left[\left(\tfrac{1}{4}\right)^2 + \left(\tfrac{2}{4}\right)^2 + \left(\tfrac{3}{4}\right)^2 + \left(\tfrac{4}{4}\right)^2\right] = \frac{1}{4}\cdot\frac{1+4+9+16}{16} = \frac{30}{64} = \frac{15}{32} \approx 0.469.$$
-<p>The true area is $1/3 \approx 0.333$, so $R_4$ overestimates by roughly $41\%$. As $n \to \infty$ the error vanishes, because the maximum subinterval width $\|\Delta x\| \to 0$ and the oscillation of $f$ on each piece becomes negligible.</p>
-<p><strong>Key Theorem (Existence of the Definite Integral).</strong> If $f$ is continuous on $[a, b]$, then for any sequence of Riemann sums</p>
-$$S_n = \sum_{k=1}^{n} f(x_k^*)\,\Delta x_k, \qquad x_k^* \in [x_{k-1}, x_k],$$
-<p>the limit $\lim_{n \to \infty} S_n$ exists, is finite, and is independent of the choice of sample points $x_k^*$. This common limit is defined to be $\displaystyle\int_a^b f(x)\,dx$.</p>
-<p><em>Proof sketch.</em> Continuity on a closed interval implies uniform continuity, so the oscillation $\omega_k = \max f - \min f$ on each subinterval satisfies $\omega_k \leq \epsilon$ for all $k$ once $\|\Delta x\|$ is small enough. The difference between any two Riemann sums is then bounded by $\epsilon(b-a)$, which can be made arbitrarily small, establishing convergence by the Cauchy criterion.</p>
-<p><strong>Lab Cell.</strong></p>
-<pre><code>from sympy import symbols, integrate, Rational, summation, oo
-
-x, k, n = symbols('x k n', positive=True)
-
-# Exact area via definite integral
-exact = integrate(x**2, (x, 0, 1))
-print("Exact area:", exact)          # 1/3
-
-# Right-endpoint Riemann sum for general n
-dx   = Rational(1) / n
-xk   = k * dx
-Rn   = summation(xk**2 * dx, (k, 1, n))
-print("R_n =", Rn.simplify())        # (2n^2 + 3n + 1)/(6n^2)
-print("Limit:", Rn.limit(n, oo))     # 1/3</code></pre>
+<p>The <strong>area problem</strong> asks: given a function $f(x) \geq 0$ on a closed interval $[a, b]$, what is the exact area of the region bounded above by the curve $y = f(x)$, below by the $x$-axis, and on the sides by $x = a$ and $x = b$?</p>
+<p>For geometric shapes like rectangles and triangles, area is straightforward. For an arbitrary curve, the boundary is irregular — so the strategy is to approximate the region with many thin rectangles, then take a limit as the rectangles become infinitely narrow.</p>
+<p><strong>Riemann Sum Approximation.</strong> Divide $[a, b]$ into $n$ equal subintervals of width $\Delta x = \dfrac{b - a}{n}$. On each subinterval $[x_{i-1}, x_i]$, erect a rectangle with height $f(x_i^<em>)$, where $x_i^</em>$ is any sample point in that subinterval (right endpoint, left endpoint, or midpoint are common choices). The total rectangle area is the <strong>Riemann sum</strong>:</p>
+$$R_n = \sum_{i=1}^{n} f(x_i^*)\,\Delta x$$
+<p>As $n \to \infty$ the rectangles thin out and the approximation improves. When $f$ is continuous, the limit exists and gives the exact area:</p>
+$$A = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i^*)\,\Delta x = \int_a^b f(x)\,dx$$
+<p>This limit is the <strong>definite integral</strong> — the formal resolution of the area problem.</p>
+<p><strong>Worked Example.</strong> Find the area under $f(x) = x^2$ on $[0, 1]$ using right-endpoint rectangles. With $\Delta x = 1/n$ and $x_i = i/n$:</p>
+$$R_n = \sum_{i=1}^{n} \left(\frac{i}{n}\right)^2 \frac{1}{n} = \frac{1}{n^3} \sum_{i=1}^{n} i^2 = \frac{1}{n^3} \cdot \frac{n(n+1)(2n+1)}{6} = \frac{(n+1)(2n+1)}{6n^2}$$
+<p>Taking the limit: $\displaystyle\lim_{n \to \infty} \frac{(n+1)(2n+1)}{6n^2} = \frac{2}{6} = \frac{1}{3}$.</p>
+<p><strong>Problem-Solving Application.</strong> The area problem appears whenever a rate accumulates over time. Suppose a car's velocity is $v(t) = 3t^2$ m/s over $0 \leq t \leq 2$ s. Distance equals the area under the velocity curve. Using a right-endpoint Riemann sum with $n = 4$ rectangles ($\Delta t = 0.5$):</p>
+$$R_4 = 3(0.5)^2(0.5) + 3(1)^2(0.5) + 3(1.5)^2(0.5) + 3(2)^2(0.5) = 0.375 + 1.5 + 3.375 + 6 = 11.25 \text{ m}$$
+<p>The exact answer via the integral is $\displaystyle\int_0^2 3t^2\,dt = \bigl[t^3\bigr]_0^2 = 8$ m. The Riemann sum overestimates because $v(t)$ is increasing and right endpoints pick the largest value on each subinterval — a useful sanity check when you set up the approximation.</p>
   </main>
   <footer class="spl-credit">Generated by SPL &middot; Powered by SPL.py</footer>
 </div>

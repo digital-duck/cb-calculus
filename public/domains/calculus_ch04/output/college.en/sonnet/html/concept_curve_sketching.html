@@ -35,26 +35,14 @@ section:first-of-type{border-top:none;padding-top:0}
 <div class="page">
   <main>
     <h2 id="curve-sketching">Curve Sketching</h2>
-<p><strong>Definition.</strong> <em>Curve sketching</em> is the systematic process of determining the qualitative and quantitative features of the graph of a function $f : D \subseteq \mathbb{R} \to \mathbb{R}$ using calculus, without plotting individual points exhaustively. The standard checklist comprises: domain and range, intercepts, symmetry, asymptotes, intervals of increase/decrease (from $f'$), local extrema (from the First or Second Derivative Test), concavity and inflection points (from $f''$).</p>
-<p><strong>Worked Example.</strong> Sketch $f(x) = \dfrac{x^2 - 1}{x^2 - 4}$.</p>
-<li><strong>Domain.</strong> $f$ is undefined where $x^2 - 4 = 0$, so $D = \mathbb{R} \setminus \{-2, 2\}$.</li>
-<li><strong>Intercepts.</strong> $f(0) = \tfrac{1}{4}$ (y-intercept); $f(x)=0 \Rightarrow x = \pm 1$ (x-intercepts).</li>
-<li><strong>Symmetry.</strong> $f(-x) = f(x)$, so the graph is symmetric about the y-axis.</li>
-<li><strong>Asymptotes.</strong> Vertical: $x = \pm 2$. Horizontal: $\lim_{x\to\pm\infty} f(x) = 1$, so $y = 1$.</li>
-<li><strong>First derivative.</strong></li>
-$$f'(x) = \frac{2x(x^2-4) - 2x(x^2-1)}{(x^2-4)^2} = \frac{-6x}{(x^2-4)^2}.$$
-<p>$f'(x) > 0$ for $x < 0$ (excluding $x=-2$) and $f'(x) < 0$ for $x > 0$ (excluding $x=2$). Local maximum at $x = 0$: $f(0) = \tfrac{1}{4}$.</p>
-<li><strong>Second derivative and concavity.</strong> Computing $f''$ and analyzing its sign confirms concavity changes at $x = 0$ and the behavior near each vertical asymptote.</li>
-<p><strong>Key Theorem (First Derivative Test).</strong> Let $c$ be a critical point of $f$ where $f'(c) = 0$. If $f'$ changes from positive to negative at $c$, then $f(c)$ is a local maximum; if from negative to positive, a local minimum; if no sign change occurs, $c$ is neither.</p>
-<p><em>Proof sketch.</em> By the Mean Value Theorem, the sign of $f'$ on an interval controls whether $f$ is increasing or decreasing there. A sign change at $c$ therefore implies the function reverses monotonicity, producing an extremum. $\square$</p>
-<p><strong>Lab Cell (SymPy).</strong></p>
-<pre><code>from sympy import *
-x = symbols('x')
-f = (x**2 - 1) / (x**2 - 4)
-print("f'  =", simplify(diff(f, x)))
-print("f'' =", simplify(diff(f, x, 2)))
-print("Critical pts:", solve(diff(f, x), x))
-plot(f, (x, -5, 5), ylim=(-5, 5))</code></pre>
+<p>Curve sketching is the practice of producing an accurate qualitative graph of a function by systematically extracting information from the function itself and its derivatives — without plotting dozens of points. The goal is to reveal the function's essential shape: where it rises or falls, where it bends, and where it has peaks, valleys, or asymptotes.</p>
+<p>The standard checklist runs in roughly this order: (1) <strong>domain</strong> — where is $f$ defined? (2) <strong>intercepts</strong> — solve $f(x) = 0$ and evaluate $f(0)$; (3) <strong>symmetry</strong> — odd ($f(-x) = -f(x)$) or even ($f(-x) = f(x)$)?; (4) <strong>asymptotes</strong> — check limits as $x \to \pm\infty$ and at any discontinuities; (5) <strong>first derivative</strong> — where $f'(x) > 0$ the graph rises, where $f'(x) < 0$ it falls, and sign changes in $f'$ mark local extrema; (6) <strong>second derivative</strong> — where $f''(x) > 0$ the graph is concave up, where $f''(x) < 0$ it is concave down, and zeros of $f''$ are candidate inflection points.</p>
+<p><strong>Worked example.</strong> Sketch $f(x) = x^3 - 3x$.</p>
+<p><em>Domain:</em> all reals. <em>Symmetry:</em> $f(-x) = -f(x)$, so the graph is odd — symmetric about the origin. <em>Intercepts:</em> $f(0)=0$; $x^3 - 3x = x(x^2-3) = 0$ gives $x = 0,\pm\sqrt{3}$.</p>
+<p><em>First derivative:</em> $f'(x) = 3x^2 - 3 = 3(x-1)(x+1)$.   Sign chart: $f' > 0$ on $(-\infty,-1)$, $f' < 0$ on $(-1,1)$, $f' > 0$ on $(1,\infty)$.   Local max at $x=-1$: $f(-1) = 2$. Local min at $x=1$: $f(1) = -2$.</p>
+<p><em>Second derivative:</em> $f''(x) = 6x$.   Concave down for $x < 0$, concave up for $x > 0$. Inflection point at $(0,0)$ — confirmed because $f''$ changes sign there.</p>
+<p>Putting this together: the graph rises to a peak at $(-1,2)$, falls through the origin (an inflection point), reaches a trough at $(1,-2)$, then rises again, crossing the $x$-axis at $\pm\sqrt{3}$.</p>
+<p><strong>Applying the method.</strong> A common problem asks you to find all values of $x$ where $f$ has a local minimum without a calculator. The strategy: compute $f'$, find its zeros, then use either the first-derivative sign test (does $f'$ change from negative to positive?) or the second-derivative test ($f''(x) > 0$?). For $f(x) = x^4 - 8x^2$, you get $f'(x) = 4x^3 - 16x = 4x(x-2)(x+2)$, with sign changes from $-$ to $+$ at $x = -2$ and $x = 2$, so those are the two local minima. The sketch then confirms the W-shaped profile you would expect from a quartic with a negative middle section.</p>
   </main>
   <footer class="spl-credit">Generated by SPL &middot; Powered by SPL.py</footer>
 </div>

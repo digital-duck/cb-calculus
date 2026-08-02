@@ -35,30 +35,18 @@ section:first-of-type{border-top:none;padding-top:0}
 <div class="page">
   <main>
     <h2 id="propagated-error">Propagated Error</h2>
-<p><strong>Definition.</strong> When a quantity $y$ is computed from one or more measured inputs $x_1, x_2, \ldots, x_n$, each carrying its own uncertainty $\delta x_i$, the <em>propagated error</em> $\delta y$ is the resulting uncertainty in $y$ induced by those input uncertainties. For a differentiable function $y = f(x_1, x_2, \ldots, x_n)$, the standard formula for propagated error is</p>
-$$
-\delta y = \sqrt{\sum_{i=1}^{n} \left(\frac{\partial f}{\partial x_i}\right)^2 (\delta x_i)^2},
-$$
-<p>assuming the input errors are independent and random. This expression follows from a first-order Taylor expansion of $f$ about the measured values, retaining only the linear terms and combining contributions in quadrature.</p>
-<p><strong>Worked Example.</strong> Suppose the period of a simple pendulum is measured as $T = 2.00 \pm 0.02\ \text{s}$, and we wish to determine the gravitational acceleration from $g = 4\pi^2 L / T^2$, where the length $L = 1.00 \pm 0.005\ \text{m}$ is also measured. The partial derivatives are</p>
-$$
-\frac{\partial g}{\partial L} = \frac{4\pi^2}{T^2}, \qquad \frac{\partial g}{\partial T} = -\frac{8\pi^2 L}{T^3}.
-$$
-<p>Evaluating at the measured values ($T = 2.00\ \text{s}$, $L = 1.00\ \text{m}$) gives $g \approx 9.87\ \text{m/s}^2$. The propagated error is</p>
-$$
-\delta g = \sqrt{\left(\frac{4\pi^2}{T^2}\right)^2 (\delta L)^2 + \left(\frac{8\pi^2 L}{T^3}\right)^2 (\delta T)^2} \approx \sqrt{(9.87)^2(0.005)^2 + (9.87)^2(0.02)^2} \approx 0.20\ \text{m/s}^2.
-$$
-<p>The fractional uncertainty $\delta g / g \approx 2\%$ is dominated by the timing error, as expected from the squared $T$ dependence.</p>
-<p><strong>Key Theorem.</strong> If $f$ is linear in each $x_i$, the propagated error formula is exact. For nonlinear $f$, the formula is a first-order approximation valid when $\delta x_i \ll \left|\partial f / \partial x_i\right|^{-1} \cdot f$; higher-order terms become significant only when input uncertainties are large relative to the scale over which $f$ curves.</p>
-<p><strong>Lab Cell.</strong></p>
-<pre><code>from sympy import *
-
-L, T, dL, dT = symbols('L T dL dT', positive=True)
-g = 4 * pi**2 * L / T**2
-
-dg = sqrt((diff(g, L)**2 * dL**2 + diff(g, T)**2 * dT**2))
-dg_val = dg.subs({L: 1.00, T: 2.00, dL: 0.005, dT: 0.02})
-print("Propagated error in g:", float(dg_val.evalf()))</code></pre>
+<p>When you measure a physical quantity, you always carry some uncertainty—a ruler might be precise to ±1 mm, a stopwatch to ±0.01 s. The trouble begins when you <em>combine</em> measurements in a formula. Each individual uncertainty bleeds into the final result, and the total uncertainty in that result is called the <strong>propagated error</strong> (or <strong>propagation of uncertainty</strong>).</p>
+<p>The core rule: if a quantity $Q$ depends on independently measured variables $x_1, x_2, \ldots, x_n$, each with uncertainty $\delta x_i$, then the uncertainty in $Q$ is</p>
+$$\delta Q = \sqrt{\left(\frac{\partial Q}{\partial x_1}\delta x_1\right)^2 + \left(\frac{\partial Q}{\partial x_2}\delta x_2\right)^2 + \cdots + \left(\frac{\partial Q}{\partial x_n}\delta x_n\right)^2}$$
+<p>Each partial derivative captures how sensitive $Q$ is to a small change in that variable. The square-root-of-sum-of-squares form assumes the errors are independent and random; it prevents worst-case pessimism from simply adding all errors together.</p>
+<p><strong>Worked example.</strong> You measure a rectangular table to find its area $A = L \times W$. You get $L = 2.00 \pm 0.02\ \text{m}$ and $W = 1.50 \pm 0.01\ \text{m}$.</p>
+<p>The partial derivatives are $\frac{\partial A}{\partial L} = W = 1.50$ and $\frac{\partial A}{\partial W} = L = 2.00$. Plugging in:</p>
+$$\delta A = \sqrt{(1.50 \times 0.02)^2 + (2.00 \times 0.01)^2} = \sqrt{(0.030)^2 + (0.020)^2} = \sqrt{0.0013} \approx 0.036\ \text{m}^2$$
+<p>So the area is $A = 3.00 \pm 0.04\ \text{m}^2$ (rounded to one significant figure in the uncertainty).</p>
+<p><strong>Problem-solving application.</strong> A practical shortcut for products and quotients: the <em>relative</em> uncertainty in $Q = x^a y^b$ is</p>
+$$\frac{\delta Q}{Q} = \sqrt{\left(a\frac{\delta x}{x}\right)^2 + \left(b\frac{\delta y}{y}\right)^2}$$
+<p>Suppose you compute kinetic energy $K = \frac{1}{2}mv^2$ with $m = 5.0 \pm 0.1\ \text{kg}$ and $v = 10.0 \pm 0.3\ \text{m/s}$. The relative uncertainties are $\frac{0.1}{5.0} = 2\%$ for mass and $2 \times \frac{0.3}{10.0} = 6\%$ for velocity (the exponent 2 doubles $v$'s contribution). Combined: $\sqrt{(2\%)^2 + (6\%)^2} \approx 6.3\%$. With $K = 250\ \text{J}$, the propagated error is about $\pm 16\ \text{J}$.</p>
+<p>The key insight: variables that appear with higher powers—or that already carry large relative uncertainties—dominate the final error budget. Identifying that dominant term tells you exactly where to invest effort in taking more careful measurements.</p>
   </main>
   <footer class="spl-credit">Generated by SPL &middot; Powered by SPL.py</footer>
 </div>

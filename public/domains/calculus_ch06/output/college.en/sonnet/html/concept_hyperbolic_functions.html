@@ -35,35 +35,19 @@ section:first-of-type{border-top:none;padding-top:0}
 <div class="page">
   <main>
     <h2 id="hyperbolic-functions">Hyperbolic Functions</h2>
-<p><strong>Definition.</strong> The <em>hyperbolic sine</em> and <em>hyperbolic cosine</em> are defined for all $x \in \mathbb{R}$ by</p>
-$$\sinh x = \frac{e^x - e^{-x}}{2}, \qquad \cosh x = \frac{e^x + e^{-x}}{2}.$$
-<p>The remaining hyperbolic functions are derived analogously to their trigonometric counterparts:</p>
-$$\tanh x = \frac{\sinh x}{\cosh x}, \quad \coth x = \frac{\cosh x}{\sinh x}, \quad \operatorname{sech} x = \frac{1}{\cosh x}, \quad \operatorname{csch} x = \frac{1}{\sinh x}.$$
-<p>The name <em>hyperbolic</em> reflects the geometric fact that $(\cosh t,\, \sinh t)$ parametrises the right branch of the unit hyperbola $x^2 - y^2 = 1$, in direct analogy with $(\cos t,\, \sin t)$ parametrising the unit circle.</p>
-<p><strong>Worked Example.</strong> Verify the fundamental identity $\cosh^2 x - \sinh^2 x = 1$.</p>
-$$\cosh^2 x - \sinh^2 x = \left(\frac{e^x+e^{-x}}{2}\right)^2 - \left(\frac{e^x - e^{-x}}{2}\right)^2$$
-$$= \frac{(e^x+e^{-x})^2 - (e^x-e^{-x})^2}{4} = \frac{4e^x e^{-x}}{4} = \frac{4}{4} = 1.$$
-<p>Here the cross terms cancel: expanding the numerator gives $e^{2x} + 2 + e^{-2x} - e^{2x} + 2 - e^{-2x} = 4$.</p>
-<p><strong>Key Theorem (Derivatives).</strong> The derivatives of the principal hyperbolic functions are</p>
-$$\frac{d}{dx}\sinh x = \cosh x, \qquad \frac{d}{dx}\cosh x = \sinh x, \qquad \frac{d}{dx}\tanh x = \operatorname{sech}^2 x.$$
-<p><em>Proof sketch.</em> Differentiate the exponential definitions term by term:</p>
-$$\frac{d}{dx}\sinh x = \frac{e^x + e^{-x}}{2} = \cosh x.$$
-<p>The result for $\cosh x$ follows identically, and $\tanh x$ is obtained via the quotient rule combined with $\cosh^2 x - \sinh^2 x = 1$. $\square$</p>
-<p>Note the contrast with circular trigonometry: $\tfrac{d}{dx}\cos x = -\sin x$, whereas $\tfrac{d}{dx}\cosh x = +\sinh x$ — the sign flip is absent.</p>
-<p><strong>Lab Cell.</strong></p>
-<pre><code>from sympy import symbols, sinh, cosh, tanh, diff, simplify, sech
-
-x = symbols('x')
-
-# Verify the fundamental identity
-identity = simplify(cosh(x)**2 - sinh(x)**2)
-print("cosh²x − sinh²x =", identity)          # 1
-
-# Confirm derivatives
-print(diff(sinh(x), x))   # cosh(x)
-print(diff(cosh(x), x))   # sinh(x)
-print(diff(tanh(x), x))   # sech(x)**2</code></pre>
-<p>Running this cell confirms all three derivative rules symbolically and establishes the Pythagorean identity as an algebraic fact rather than a numerical approximation.</p>
+<p>Hyperbolic functions are exponential counterparts to the circular trigonometric functions. The two foundational definitions are:</p>
+$$\sinh x = \frac{e^x - e^{-x}}{2}, \qquad \cosh x = \frac{e^x + e^{-x}}{2}$$
+<p>The remaining four follow the same pattern as their trig analogs:</p>
+$$\tanh x = \frac{\sinh x}{\cosh x}, \qquad \operatorname{sech} x = \frac{1}{\cosh x}, \qquad \operatorname{csch} x = \frac{1}{\sinh x}, \qquad \coth x = \frac{\cosh x}{\sinh x}$$
+<p>The name "hyperbolic" reflects the parametric identity $\cosh^2 t - \sinh^2 t = 1$, which traces the unit hyperbola $x^2 - y^2 = 1$, just as $(\cos t, \sin t)$ traces the unit circle. The key algebraic identities mirror circular trig almost exactly — with one critical sign flip. For derivatives: $\frac{d}{dx}\sinh x = \cosh x$ and $\frac{d}{dx}\cosh x = \sinh x$ (positive, unlike the $-\sin x$ of circular trig). This sign difference is the source of most errors, so notice it once and remember it always.</p>
+<p><strong>Worked example.</strong> A hanging power cable forms a <em>catenary</em> with shape $y = a\cosh(x/a)$. Find the arc length from $x = -L$ to $x = L$.</p>
+<p>Arc length requires $\int_{-L}^{L}\sqrt{1 + (y')^2}\,dx$. Since $y' = \sinh(x/a)$, the Pythagorean identity gives:</p>
+$$1 + \sinh^2(x/a) = \cosh^2(x/a)$$
+<p>so the integrand simplifies to $\cosh(x/a)$, and the arc length is $2a\sinh(L/a)$. The identity did the heavy lifting; no messy exponential algebra was needed.</p>
+<p><strong>Problem-solving application.</strong> Hyperbolic functions are the natural solution to differential equations of the form $y'' = k^2 y$ (positive right-hand side). These arise in heat transfer, structural mechanics, and electrical transmission lines — anywhere exponential growth and decay combine with boundary conditions at both ends.</p>
+<p>Consider a cooling fin with base temperature $T_0$, length $L$, and an insulated tip ($T'(L)=0$). The temperature satisfies $T'' = m^2 T$, giving solution:</p>
+$$T(x) = T_0\frac{\cosh(m(L-x))}{\cosh(mL)}$$
+<p>The heat flux at the base is $q = kAT_0 m\tanh(mL)$. The factor $\tanh(mL) \in (0,1)$ is the <em>fin efficiency</em> — it tells you what fraction of an ideal fin's heat transfer you actually get. Long fins ($mL \gg 1$) saturate at $\tanh \approx 1$; short fins waste little material but transfer proportionally less heat. Recognizing the ODE structure immediately tells you the solution involves $\cosh$ and $\sinh$, letting you apply boundary conditions without guessing exponential forms separately.</p>
   </main>
   <footer class="spl-credit">Generated by SPL &middot; Powered by SPL.py</footer>
 </div>

@@ -35,31 +35,19 @@ section:first-of-type{border-top:none;padding-top:0}
 <div class="page">
   <main>
     <h2 id="first-derivative-test">First Derivative Test</h2>
-<p><strong>Definition.</strong> Let $f$ be a function continuous on an open interval $I$ containing a critical point $c$, where $f'(c) = 0$ or $f'(c)$ does not exist. The <em>First Derivative Test</em> classifies $c$ as follows:</p>
-<li>If $f'(x) > 0$ for $x < c$ and $f'(x) < 0$ for $x > c$ (in a punctured neighbourhood of $c$), then $f(c)$ is a <strong>local maximum</strong>.</li>
-<li>If $f'(x) < 0$ for $x < c$ and $f'(x) > 0$ for $x > c$, then $f(c)$ is a <strong>local minimum</strong>.</li>
-<li>If $f'$ does not change sign at $c$, then $f(c)$ is <strong>neither</strong> a local extremum.</li>
-<p>Geometrically, a sign change from positive to negative indicates the function rises then falls — a peak — while the reverse pattern indicates a valley.</p>
-<p><strong>Worked Example.</strong> Consider $f(x) = x^3 - 3x + 2$. Differentiating gives $f'(x) = 3x^2 - 3 = 3(x-1)(x+1)$, so the critical points are $x = -1$ and $x = 1$.</p>
-<p>Construct a sign chart for $f'$:</p>
-<p>| Interval | $(−\infty,\,-1)$ | $(−1,\,1)$ | $(1,\,\infty)$ | |---|---|---|---| | Sign of $f'$ | $+$ | $-$ | $+$ |</p>
-<p>At $x = -1$: sign changes from $+$ to $-$, so $f(-1) = 4$ is a <strong>local maximum</strong>.   At $x = 1$: sign changes from $-$ to $+$, so $f(1) = 0$ is a <strong>local minimum</strong>.</p>
-<p><strong>Theorem (First Derivative Test).</strong> <em>Let $f$ be continuous on $(a,b)$ and differentiable on $(a,b) \setminus \{c\}$, where $c \in (a,b)$ is a critical point. If there exists $\delta > 0$ such that $f'$ has constant sign on $(c-\delta,c)$ and the opposite sign on $(c,c+\delta)$, then $f(c)$ is a strict local extremum.</em></p>
-<p><em>Proof sketch.</em> By the Mean Value Theorem, on any subinterval of $(c-\delta, c)$ where $f' > 0$, the function is strictly increasing; hence $f(x) < f(c)$ for all $x \in (c-\delta, c)$. The decreasing condition on $(c, c+\delta)$ yields the same inequality on the right. Together these give $f(c) > f(x)$ in a punctured neighbourhood, confirming a local maximum. The minimum case is symmetric. $\blacksquare$</p>
-<pre><code>from sympy import symbols, diff, solve, factor
-
-x = symbols('x')
-f = x**3 - 3*x + 2
-fp = diff(f, x)
-critical_pts = solve(fp, x)
-
-for c in critical_pts:
-    left  = fp.subs(x, c - 0.01)
-    right = fp.subs(x, c + 0.01)
-    nature = ("local max" if left &gt; 0 and right &lt; 0
-              else "local min" if left &lt; 0 and right &gt; 0
-              else "neither")
-    print(f"x = {c}: f'  changes sign {float(left):+.3f} → {float(right):+.3f}  → {nature}")</code></pre>
+<p>A <strong>critical point</strong> of a function $f$ is any $x = c$ in its domain where either $f'(c) = 0$ or $f'(c)$ does not exist. Critical points are <em>candidates</em> for local maxima and minima, but not every critical point is one. The First Derivative Test gives you a systematic way to decide which.</p>
+<p><strong>The test.</strong> Suppose $c$ is a critical point of $f$.</p>
+<li>If $f'$ changes from <strong>positive to negative</strong> at $c$ (the function rises to the left of $c$, then falls to the right), then $f$ has a <strong>local maximum</strong> at $c$.</li>
+<li>If $f'$ changes from <strong>negative to positive</strong> at $c$ (the function falls, then rises), then $f$ has a <strong>local minimum</strong> at $c$.</li>
+<li>If $f'$ does <strong>not change sign</strong> at $c$, then $f$ has <strong>neither</strong> a local maximum nor a local minimum there — the critical point is a "flat" inflection point.</li>
+<p>The logic is geometric: a function can only switch from increasing to decreasing (or vice versa) by passing through a moment where its slope is zero or undefined. The sign change of $f'$ is exactly the fingerprint of that switch.</p>
+<p><strong>Worked example.</strong> Let $f(x) = x^3 - 3x$.</p>
+<p>Find the derivative: $f'(x) = 3x^2 - 3 = 3(x-1)(x+1)$.</p>
+<p>Set $f'(x) = 0$: critical points at $x = -1$ and $x = 1$.</p>
+<p>Build a sign chart by testing one value in each interval:</p>
+<p>| Interval | Test value | $f'$ | $f$ | |---|---|---|---| | $x < -1$ | $x = -2$ | $3(9) - 3 > 0$ | increasing | | $-1 < x < 1$ | $x = 0$ | $-3 < 0$ | decreasing | | $x > 1$ | $x = 2$ | $9 > 0$ | increasing |</p>
+<p>At $x = -1$: $f'$ goes $+ \to -$, so <strong>local maximum</strong> at $f(-1) = 2$. At $x = 1$: $f'$ goes $- \to +$, so <strong>local minimum</strong> at $f(1) = -2$.</p>
+<p><strong>Applying it.</strong> When solving optimization problems, the workflow is always the same: differentiate, find where the derivative is zero or undefined, then run the sign chart. The sign chart turns an algebraic calculation into a visual story about the function's behavior. Practice building the chart carefully — choosing test points just inside each interval, not at the boundaries — and you will rarely misclassify a critical point.</p>
   </main>
   <footer class="spl-credit">Generated by SPL &middot; Powered by SPL.py</footer>
 </div>

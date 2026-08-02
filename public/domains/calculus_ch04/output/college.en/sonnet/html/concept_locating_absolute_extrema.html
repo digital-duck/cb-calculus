@@ -35,35 +35,22 @@ section:first-of-type{border-top:none;padding-top:0}
 <div class="page">
   <main>
     <h2 id="locating-absolute-extrema">Locating Absolute Extrema</h2>
-<p><strong>Definition.</strong> Let $f$ be a real-valued function defined on a set $D \subseteq \mathbb{R}$. A value $f(c)$ is the <strong>absolute maximum</strong> of $f$ on $D$ if $f(c) \geq f(x)$ for every $x \in D$. Similarly, $f(c)$ is the <strong>absolute minimum</strong> if $f(c) \leq f(x)$ for every $x \in D$. Collectively, these are called <strong>absolute extrema</strong> (or <strong>global extrema</strong>). Unlike local extrema, which compare $f$ only in a neighborhood of $c$, absolute extrema make a global comparison across the entire domain.</p>
-<p>The theoretical foundation is provided by the <strong>Extreme Value Theorem</strong>: if $f$ is continuous on a closed, bounded interval $[a, b]$, then $f$ attains both an absolute maximum and an absolute minimum on $[a, b]$. Continuity and the closed interval are both essential; either condition alone is insufficient to guarantee the existence of extrema.</p>
-<p><strong>Locating absolute extrema on $[a,b]$ — the closed-interval method.</strong></p>
-<li>Find all <strong>critical numbers</strong> of $f$ in $(a, b)$: values where $f'(c) = 0$ or $f'(c)$ does not exist.</li>
-<li>Evaluate $f$ at each critical number and at the <strong>endpoints</strong> $a$ and $b$.</li>
+<p>An <strong>absolute maximum</strong> of a function $f$ on an interval is the single largest output value $f$ achieves there; an <strong>absolute minimum</strong> is the single smallest. Together these are called <strong>absolute extrema</strong> (or global extrema). Unlike local extrema — which are merely the highest or lowest points in some small neighborhood — absolute extrema compare every point in the domain at once.</p>
+<p><strong>When are we guaranteed they exist?</strong> The Extreme Value Theorem answers this directly.</p>
+<p>> <strong>Extreme Value Theorem.</strong> If $f$ is continuous on a closed interval $[a, b]$, then $f$ attains both an absolute maximum and an absolute minimum on $[a, b]$.</p>
+<p>The theorem does <em>not</em> tell you where those values occur — only that they must. Finding them requires a systematic search. The key insight is that on a closed interval, an absolute extremum can only occur at one of two kinds of points:</p>
+<li>A <strong>critical point</strong> in $(a, b)$ — where $f'(x) = 0$ or $f'(x)$ does not exist.</li>
+<li>An <strong>endpoint</strong> — $x = a$ or $x = b$.</li>
+<p>This gives the <strong>Closed Interval Method</strong>:</p>
+<li>Find all critical points of $f$ in $(a, b)$.</li>
+<li>Evaluate $f$ at each critical point and at both endpoints.</li>
 <li>The largest value is the absolute maximum; the smallest is the absolute minimum.</li>
-<p><strong>Worked Example.</strong> Find the absolute extrema of $f(x) = 2x^3 - 9x^2 + 12x - 4$ on $[0, 3]$.</p>
-<p><em>Step 1 — Critical numbers.</em> Compute $f'(x) = 6x^2 - 18x + 12 = 6(x-1)(x-2)$. Setting $f'(x) = 0$ gives $x = 1$ and $x = 2$, both in $(0,3)$.</p>
-<p><em>Step 2 — Evaluate candidates.</em></p>
-$$f(0) = -4, \quad f(1) = 1, \quad f(2) = 0, \quad f(3) = 5.$$
-<p><em>Step 3 — Compare.</em> The absolute maximum is $f(3) = 5$ and the absolute minimum is $f(0) = -4$.</p>
-<p>Note that the endpoint $x = 3$ yields the global maximum even though $f' > 0$ there; this illustrates why endpoints must always be included as candidates.</p>
-<p><strong>Key Theorem (Fermat's Theorem).</strong> If $f$ has a local extremum at an interior point $c$ and $f'(c)$ exists, then $f'(c) = 0$. Equivalently, every interior absolute extremum that occurs at a differentiable point is a critical number—but the converse fails: a critical number need not be an extremum (e.g., $f(x) = x^3$ at $x = 0$).</p>
-<p><strong>Lab Cell (SymPy).</strong></p>
-<pre><code>from sympy import symbols, diff, solve, Rational
-
-x = symbols('x')
-f = 2*x**3 - 9*x**2 + 12*x - 4
-a, b = 0, 3
-
-fp = diff(f, x)
-critical = solve(fp, x)
-candidates = [c for c in critical if a &lt; c &lt; b] + [a, b]
-
-values = {c: f.subs(x, c) for c in candidates}
-print("Candidate values:", values)
-print("Absolute max:", max(values, key=values.get), "=", max(values.values()))
-print("Absolute min:", min(values, key=values.get), "=", min(values.values()))</code></pre>
-<p>Running this cell reproduces the worked example exactly, and students may substitute any polynomial and interval to explore how the location of extrema shifts with the domain.</p>
+<p><strong>Worked example.</strong> Find the absolute extrema of $f(x) = x^3 - 3x^2 + 1$ on $[-1, 3]$.</p>
+<p><em>Step 1.</em> Differentiate: $f'(x) = 3x^2 - 6x = 3x(x-2)$. Setting $f'(x) = 0$ gives critical points $x = 0$ and $x = 2$, both inside $(-1, 3)$.</p>
+<p><em>Step 2.</em> Evaluate at all candidates:</p>
+<p>| $x$ | $f(x)$ | |-----|--------| | $-1$ | $(-1)^3 - 3(1) + 1 = -3$ | | $0$ | $0 - 0 + 1 = 1$ | | $2$ | $8 - 12 + 1 = -3$ | | $3$ | $27 - 27 + 1 = 1$ |</p>
+<p><em>Step 3.</em> The absolute maximum is $\mathbf{1}$, achieved at $x = 0$ and $x = 3$. The absolute minimum is $\mathbf{-3}$, achieved at $x = -1$ and $x = 2$.</p>
+<p><strong>Problem-solving note.</strong> A common mistake is to stop after finding critical points and skip the endpoints — this guarantees a wrong answer whenever the extreme value occurs at a boundary. Always include the endpoints in your candidate list. Also watch for critical points where $f'$ is undefined (cusps, corners), which are easy to miss when differentiating only algebraically. If the interval is open or unbounded, the Extreme Value Theorem no longer applies, and you must analyze limits at the boundary to determine whether the extremum is attained.</p>
   </main>
   <footer class="spl-credit">Generated by SPL &middot; Powered by SPL.py</footer>
 </div>

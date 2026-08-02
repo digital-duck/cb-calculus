@@ -35,24 +35,13 @@ section:first-of-type{border-top:none;padding-top:0}
 <div class="page">
   <main>
     <h2 id="applied-optimization">Applied Optimization</h2>
-<p><strong>Definition.</strong> Applied optimization is the process of finding the value of an independent variable that maximizes or minimizes a real-valued objective function subject to constraints derived from a physical or economic model. Formally, given a differentiable function $f : D \subseteq \mathbb{R} \to \mathbb{R}$, a <em>local minimum</em> at $c \in D$ satisfies $f(c) \le f(x)$ for all $x$ in some open interval containing $c$; a <em>global minimum</em> satisfies this inequality over all of $D$. The analogous inequalities with $\ge$ define local and global maxima.</p>
-<p>The <strong>Closed Interval Method</strong> guarantees a global extremum when $f$ is continuous on a closed interval $[a, b]$: evaluate $f$ at every critical point (where $f'(c) = 0$ or $f'(c)$ is undefined) and at the endpoints $a$ and $b$; the largest value is the global maximum and the smallest is the global minimum.</p>
-<p><strong>Worked Example.</strong> A farmer has 400 m of fencing and wishes to enclose a rectangular field against a straight barn wall, so only three sides require fencing. Let $x$ denote the length of the side perpendicular to the barn and $y$ the side parallel to it. The constraint is $2x + y = 400$, giving $y = 400 - 2x$. The enclosed area is</p>
-$$A(x) = x \cdot y = x(400 - 2x) = 400x - 2x^2, \quad x \in [0,\, 200].$$
-<p>Setting $A'(x) = 400 - 4x = 0$ yields the critical point $x = 100$ m. Evaluating: $A(0) = 0$, $A(200) = 0$, and $A(100) = 20{,}000\ \text{m}^2$. The maximum enclosed area is $\boxed{20{,}000\ \text{m}^2}$, achieved with dimensions $100\ \text{m} \times 200\ \text{m}$.</p>
-<p><strong>Theorem (Second Derivative Test).</strong> If $f'(c) = 0$ and $f''(c) > 0$, then $f$ has a local minimum at $c$; if $f''(c) < 0$, then $f$ has a local maximum at $c$. If $f''(c) = 0$, the test is inconclusive. In the example above, $A''(x) = -4 < 0$, confirming $x = 100$ is a maximum.</p>
-<p><strong>Lab Cell.</strong></p>
-<pre><code>from sympy import symbols, diff, solve, simplify
-
-x = symbols('x', positive=True)
-A = 400*x - 2*x**2
-
-critical = solve(diff(A, x), x)
-area_max = A.subs(x, critical[0])
-
-print("Critical point:", critical)      # [100]
-print("Maximum area:", area_max)        # 20000
-print("Second derivative:", diff(A, x, 2))  # -4  (confirms maximum)</code></pre>
+<p><strong>Definition.</strong> Applied optimization is the process of finding the input value that produces the largest or smallest output of a function modeling a real-world quantity. Unlike pure function analysis, you start with a word problem, build a function from it, then use calculus to locate its extreme values. The core tool is the fact that a differentiable function can only switch from increasing to decreasing (or vice versa) where its derivative equals zero or is undefined — those are the <em>critical points</em> worth examining.</p>
+<p>The general procedure is: (1) identify what you are maximizing or minimizing and express it as a function of one variable; (2) determine the domain from physical constraints; (3) find critical points by setting the derivative to zero; (4) use the first or second derivative test — or simply evaluate the function at the critical points and endpoints — to confirm which gives the extreme value.</p>
+<p><strong>Worked Example.</strong> A farmer has 240 meters of fencing to enclose a rectangular pen against a barn wall (the wall forms one side, so only three sides need fencing). What dimensions maximize the enclosed area?</p>
+<p>Let $w$ be the width (the two sides perpendicular to the barn) and $\ell$ the length (the side parallel to the barn). The fencing constraint gives $2w + \ell = 240$, so $\ell = 240 - 2w$. Area is</p>
+$$A(w) = w\ell = w(240 - 2w) = 240w - 2w^2, \quad w \in (0,\, 120).$$
+<p>Differentiating: $A'(w) = 240 - 4w$. Setting this to zero gives $w = 60$ m. Since $A''(w) = -4 < 0$, this is a maximum. The optimal length is $\ell = 240 - 2(60) = 120$ m, and the maximum area is $A(60) = 7200\ \text{m}^2$.</p>
+<p><strong>Problem-Solving Application.</strong> The same four-step template handles a wide range of scenarios. For cost minimization problems, the objective function is typically a cost formula combining a fixed component and a variable one (e.g., material cost plus shipping cost), with a volume or weight constraint linking the variables. For profit maximization in economics, you set marginal revenue equal to marginal cost — which is exactly the condition $P'(q) = 0$ in disguise. The critical discipline is <strong>reducing to one variable</strong>: if your objective has two unknowns, the constraint equation lets you substitute and eliminate one before differentiating. Missing this step is the single most common error. Always state the domain explicitly and verify your critical point actually lies inside it — a calculus minimum outside the feasible range is physically meaningless.</p>
   </main>
   <footer class="spl-credit">Generated by SPL &middot; Powered by SPL.py</footer>
 </div>
