@@ -1,0 +1,195 @@
+domain: calculus_ch03
+primitives:
+  limit:
+    defines: The value a function approaches as its input approaches a given point, used as the foundational
+      tool for computing rates of change.
+    tier: 0
+  continuity:
+    defines: A function is continuous at a point if its limit there equals its function value; assumed
+      as background knowledge used to relate differentiability to continuity.
+    tier: 0
+  difference_quotient:
+    defines: The ratio (f(x) − f(a))/(x − a), or equivalently (f(a+h) − f(a))/h, used to measure average
+      rate of change over an interval.
+    tier: 0
+concepts:
+  secant_line:
+    defines: A line through two points on a curve whose slope is given by the difference quotient and
+      which estimates the rate of change of the function.
+    composed_of:
+    - difference_quotient
+    tier: 1
+  derivative_at_a_point:
+    defines: The value f'(a), defined as the limit of the difference quotient as x approaches a (or h
+      approaches 0), equal to the slope of the tangent line at a.
+    composed_of:
+    - limit
+    - difference_quotient
+    tier: 1
+  derivative_function:
+    defines: The function f'(x) whose value at each x is the derivative of f at that point, defined via
+      the limit of the difference quotient as h approaches 0.
+    composed_of:
+    - limit
+    - difference_quotient
+    tier: 1
+  tangent_line:
+    defines: The limiting position of secant lines as the second point approaches the first, with slope
+      given by the limit of the difference quotient.
+    composed_of:
+    - limit
+    - secant_line
+    tier: 2
+  instantaneous_rate_of_change:
+    defines: The derivative of a function at a value a, interpreted as the rate at which the function
+      is changing at that exact point.
+    composed_of:
+    - derivative_at_a_point
+    tier: 2
+  differentiability:
+    defines: A function is differentiable at a point if its derivative exists there; differentiability
+      implies continuity but not conversely.
+    composed_of:
+    - derivative_function
+    - continuity
+    tier: 2
+  higher_order_derivatives:
+    defines: Derivatives obtained by repeatedly differentiating a function, such as the second derivative
+      (e.g., acceleration) and beyond.
+    composed_of:
+    - derivative_function
+    tier: 2
+  constant_rule:
+    defines: The derivative of a constant function is zero.
+    composed_of:
+    - derivative_function
+    tier: 2
+  power_rule:
+    defines: The derivative of x^n is n·x^(n-1), used to differentiate power functions without the limit
+      definition.
+    composed_of:
+    - derivative_function
+    tier: 2
+  sum_difference_rule:
+    defines: The derivative of a sum or difference of functions is the sum or difference of their derivatives.
+    composed_of:
+    - derivative_function
+    tier: 2
+  constant_multiple_rule:
+    defines: The derivative of a constant times a function equals the constant times the function's derivative.
+    composed_of:
+    - derivative_function
+    tier: 2
+  product_rule:
+    defines: The derivative of a product of two functions equals the derivative of the first times the
+      second plus the derivative of the second times the first.
+    composed_of:
+    - derivative_function
+    tier: 2
+  quotient_rule:
+    defines: The derivative of a quotient of two functions, expressed in terms of the derivatives and
+      values of the numerator and denominator functions, divided by the square of the denominator.
+    composed_of:
+    - derivative_function
+    tier: 2
+  amount_of_change_formula:
+    defines: An approximation f(a+h) ≈ f(a) + f'(a)h used to estimate a function's value from a known
+      value and its derivative.
+    composed_of:
+    - derivative_at_a_point
+    tier: 2
+  derivatives_of_trig_functions:
+    defines: Formulas for the derivatives of sine, cosine, tangent, cotangent, secant, and cosecant, derived
+      from the limit definition and trigonometric identities.
+    composed_of:
+    - limit
+    - derivative_function
+    tier: 2
+  chain_rule:
+    defines: The derivative of a composite function h(x)=f(g(x)) equals f'(g(x))·g'(x), the derivative
+      of the outer function times the derivative of the inner function.
+    composed_of:
+    - derivative_function
+    tier: 2
+  derivative_of_exponential_function:
+    defines: The derivative of e^x is e^x, and more generally the derivative of b^x involves b^x·ln(b),
+      derived from limit assumptions on exponential functions.
+    composed_of:
+    - limit
+    - derivative_function
+    tier: 2
+  power_rule_for_composition:
+    defines: The chain rule applied to h(x) = (g(x))^n, giving h'(x) = n(g(x))^(n-1)g'(x).
+    composed_of:
+    - chain_rule
+    - power_rule
+    tier: 3
+  inverse_function_theorem:
+    defines: A formula relating the derivative of an invertible function's inverse to the derivative of
+      the original function evaluated at the inverse.
+    composed_of:
+    - derivative_function
+    - differentiability
+    tier: 3
+  implicit_differentiation:
+    defines: A technique for finding dy/dx for a function y defined implicitly by an equation, by differentiating
+      both sides with respect to x and solving for dy/dx.
+    composed_of:
+    - chain_rule
+    - derivative_function
+    tier: 3
+  extended_power_rule:
+    defines: The power rule extended to negative integer and rational exponents using the quotient rule
+      and inverse function theorem.
+    composed_of:
+    - power_rule
+    - quotient_rule
+    - inverse_function_theorem
+    tier: 4
+  derivatives_of_inverse_trig_functions:
+    defines: Formulas for the derivatives of inverse sine, cosine, tangent, cotangent, secant, and cosecant,
+      derived using the inverse function theorem.
+    composed_of:
+    - inverse_function_theorem
+    - derivatives_of_trig_functions
+    tier: 4
+  derivative_of_logarithmic_function:
+    defines: The derivative of ln(x) is 1/x, obtained via implicit differentiation of its inverse relationship
+      with e^x, extended to logarithms of other bases.
+    composed_of:
+    - implicit_differentiation
+    - derivative_of_exponential_function
+    tier: 4
+  logarithmic_differentiation:
+    defines: A technique for differentiating functions of the form g(x)^f(x) or complex products/quotients
+      by taking the natural logarithm of both sides before differentiating.
+    composed_of:
+    - derivative_of_logarithmic_function
+    - chain_rule
+    tier: 5
+applications:
+  velocity:
+    defines: The instantaneous rate of change of an object's position function, obtained by differentiating
+      position with respect to time.
+    needs:
+    - instantaneous_rate_of_change
+    tier: 3
+  population_growth_rate:
+    defines: The derivative of a population size function with respect to time, used to estimate future
+      population values.
+    needs:
+    - instantaneous_rate_of_change
+    tier: 3
+  marginal_functions:
+    defines: The derivatives of cost, revenue, and profit functions, approximating the change in each
+      from producing or selling one additional item.
+    needs:
+    - amount_of_change_formula
+    tier: 3
+  acceleration:
+    defines: The rate of change of velocity with respect to time, computed as the second derivative of
+      the position function.
+    needs:
+    - velocity
+    - higher_order_derivatives
+    tier: 4
