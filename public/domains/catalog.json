@@ -1,8 +1,8 @@
 [
   {
     "id": "calculus_ch01",
-    "name": "Calculus Ch1: Chapter\u00a01.\u00a0Functions and Graphs",
-    "description": "calculus-volume-1, Chapter 1: Chapter\u00a01.\u00a0Functions and Graphs.",
+    "name": "Calculus Ch1: Chapter 1. Functions and Graphs",
+    "description": "calculus-volume-1, Chapter 1: Chapter 1. Functions and Graphs.",
     "capstone": "mathematical_model",
     "nodes": 49,
     "edges": 66,
@@ -437,8 +437,8 @@
   },
   {
     "id": "calculus_ch02",
-    "name": "Calculus Ch2: Chapter\u00a02.\u00a0Limits",
-    "description": "calculus-volume-1, Chapter 2: Chapter\u00a02.\u00a0Limits.",
+    "name": "Calculus Ch2: Chapter 2. Limits",
+    "description": "calculus-volume-1, Chapter 2: Chapter 2. Limits.",
     "capstone": "integral_calculus",
     "nodes": 25,
     "edges": 27,
@@ -813,8 +813,8 @@
   },
   {
     "id": "calculus_ch03",
-    "name": "Calculus Ch3: Chapter\u00a03.\u00a0Derivatives",
-    "description": "calculus-volume-1, Chapter 3: Chapter\u00a03.\u00a0Derivatives.",
+    "name": "Calculus Ch3: Chapter 3. Derivatives",
+    "description": "calculus-volume-1, Chapter 3: Chapter 3. Derivatives.",
     "capstone": "velocity",
     "nodes": 31,
     "edges": 43,
@@ -1168,8 +1168,8 @@
   },
   {
     "id": "calculus_ch04",
-    "name": "Calculus Ch4: Chapter\u00a04.\u00a0Applications of Derivatives",
-    "description": "calculus-volume-1, Chapter 4: Chapter\u00a04.\u00a0Applications of Derivatives.",
+    "name": "Calculus Ch4: Chapter 4. Applications of Derivatives",
+    "description": "calculus-volume-1, Chapter 4: Chapter 4. Applications of Derivatives.",
     "capstone": "propagated_error",
     "nodes": 35,
     "edges": 45,
@@ -1907,8 +1907,8 @@
   },
   {
     "id": "calculus_ch05",
-    "name": "Calculus Ch5: Chapter\u00a05.\u00a0Integration",
-    "description": "calculus-volume-1, Chapter 5: Chapter\u00a05.\u00a0Integration.",
+    "name": "Calculus Ch5: Chapter 5. Integration",
+    "description": "calculus-volume-1, Chapter 5: Chapter 5. Integration.",
     "capstone": "displacement_from_velocity",
     "nodes": 27,
     "edges": 32,
@@ -2256,8 +2256,8 @@
   },
   {
     "id": "calculus_ch06",
-    "name": "Calculus Ch6: Chapter\u00a06.\u00a0Applications of Integration",
-    "description": "calculus-volume-1, Chapter 6: Chapter\u00a06.\u00a0Applications of Integration.",
+    "name": "Calculus Ch6: Chapter 6. Applications of Integration",
+    "description": "calculus-volume-1, Chapter 6: Chapter 6. Applications of Integration.",
     "capstone": "exponential_growth_model",
     "nodes": 32,
     "edges": 33,
@@ -2363,6 +2363,12 @@
       {
         "target": "newtons_law_of_cooling",
         "file": "output/intro.zh/sonnet/html/book_newtons_law_of_cooling_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "target": "natural_logarithm_integral_def",
+        "file": "output/college.zh/sonnet/html/book_natural_logarithm_integral_def_zh.html",
         "model": "sonnet",
         "language": "zh"
       }
@@ -2488,6 +2494,13 @@
         "language": "en"
       },
       {
+        "name": "natural_logarithm_integral_def",
+        "label": "Natural Logarithm Integral Def",
+        "file": "output/college.zh/sonnet/html/concept_natural_logarithm_integral_def_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "natural_logarithm_integral_def_zh",
         "label": "Natural Logarithm Integral Def Zh",
         "file": "output/intro.zh/sonnet/html/concept_natural_logarithm_integral_def_zh.html",
@@ -2523,6 +2536,15 @@
       "url": "https://openstax.org/details/books/calculus-volume-1",
       "attribution": "Access for free at openstax.org."
     },
-    "default_level": "college"
+    "default_level": "college",
+    "pdfs": [
+      {
+        "target": "natural_logarithm_integral_def",
+        "level": "college",
+        "language": "en",
+        "model": "sonnet",
+        "file": "output/college.en/sonnet/pdf/concept_natural_logarithm_integral_def.pdf"
+      }
+    ]
   }
 ]

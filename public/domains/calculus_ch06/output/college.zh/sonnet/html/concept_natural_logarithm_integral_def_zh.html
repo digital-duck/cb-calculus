@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Natural Logarithm Integral Def | Calculus Ch06</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="natural-logarithm-integral-def">Natural Logarithm Integral Def</h2>
+<p><strong>定义</strong></p>
+<p>自然对数 $\ln x$（$x>0$）可以定义为如下定积分：</p>
+$$
+\ln x = \int_1^x \frac{1}{t}\,dt
+$$
+<p>这个定义与"指数函数 $e^x$ 的反函数"这一常见说法是等价的，但它的优势在于完全不依赖 $e$ 的存在性——它直接把 $\ln x$ 当作曲线 $y = 1/t$（在区间 $[1, x]$ 上）下方的有符号面积来构造。当 $x > 1$ 时，面积为正；当 $0 < x < 1$ 时，积分方向反转，面积为负；当 $x = 1$ 时，区间退化为一点，故 $\ln 1 = 0$。这个性质直接给出了 $\ln$ 函数的一个自然锚点。</p>
+<p>由微积分基本定理，这个定义立刻蕴含了一个关键事实：</p>
+$$
+\frac{d}{dx}\ln x = \frac{1}{x}
+$$
+<p>因为被积函数就是 $1/t$，把上限从 $x$ 改为变量后求导，正好"取消"了积分号，留下 $1/x$。这是这个积分定义最重要的用途：它不需要先知道指数函数的存在，就能严格证明 $\ln x$ 的导数是 $1/x$。</p>
+<p><strong>具体例子</strong></p>
+<p>估算 $\ln 2$ 的一个下界：在区间 $[1,2]$ 上，函数 $1/t$ 是单调递减的，所以用左端点矩形（高度为 $1/1=1$）来"外接"这块面积会高估，而用右端点矩形（高度为 $1/2$）来"内接"会低估。于是</p>
+$$
+\frac12 = \int_1^2 \frac12\,dt \;<\; \int_1^2 \frac{1}{t}\,dt \;<\; \int_1^2 1\,dt = 1
+$$
+<p>也就是 $0.5 < \ln 2 < 1$，与实际值 $\ln 2 \approx 0.693$ 吻合。这种"矩形夹逼"手法正是数值积分（如梯形法则）思想的雏形。</p>
+<p><strong>解决问题的应用</strong></p>
+<p>这个积分定义的真正力量在于证明对数的乘法性质 $\ln(ab) = \ln a + \ln b$，而不必借助指数函数。做换元 $t = as$（$a>0$ 为常数）：</p>
+$$
+\ln(ab) = \int_1^{ab} \frac{1}{t}\,dt = \int_1^b \frac{1}{s}\,ds + \int_1^a \frac{1}{t}\,dt = \ln a + \ln b
+$$
+<p>这展示了积分定义如何把"对数把乘法变加法"这一核心性质，从一个纯粹的面积/换元论证中自然地推导出来，而无需预先假设指数函数的任何性质。</p>
+  </main>
+  <footer class="spl-credit">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></footer>
+</div>
+</body>
+</html>
