@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Instantaneous Rate Of Change | Calculus Ch03</title>
+<title>Secant Line | Calculus Ch03</title>
 <script>
 MathJax = {
   tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
@@ -42,18 +42,22 @@ section:first-of-type{border-top:none;padding-top:0}
 <body>
 <div class="page">
   <main>
-    <h2 id="instantaneous-rate-of-change">Instantaneous Rate Of Change</h2>
-<p>The average rate of change of a function $f$ over an interval $[a, a+h]$ is the familiar slope of a secant line:</p>
-$$\frac{f(a+h) - f(a)}{h}.$$
-<p>This tells you how much $f$ changes <em>on average</em> across that interval — but it says nothing about the behavior at any single instant. To capture the rate of change exactly at $x = a$, we shrink the interval to zero width by taking a limit:</p>
-$$f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}.$$
-<p>This quantity, the <strong>instantaneous rate of change</strong> (equivalently, the derivative of $f$ at $a$), is the slope of the tangent line to the graph of $f$ at the point $(a, f(a))$. It exists only if the limit exists — if the secant slopes settle down to a single value as $h \to 0$ from both directions.</p>
-<p><strong>Worked example.</strong> Let $f(x) = x^2$, and find the instantaneous rate of change at $a = 3$.</p>
-$$f'(3) = \lim_{h \to 0} \frac{(3+h)^2 - 3^2}{h} = \lim_{h \to 0} \frac{9 + 6h + h^2 - 9}{h} = \lim_{h \to 0} (6 + h) = 6.$$
-<p>So at $x = 3$, $f$ is instantaneously increasing at a rate of 6 units of output per unit of input — much faster than at, say, $a = 0.5$, where $f'(0.5) = 1$. The derivative varies with $a$, reflecting how steepness changes across the curve.</p>
-<p><strong>Problem-solving application.</strong> Suppose $f(t) = -4.9t^2 + 20t$ gives the height (in meters) of a projectile $t$ seconds after launch. The average velocity over $[1,2]$ is $\frac{f(2)-f(1)}{1} = \frac{20.4 - 15.1}{1} = 5.3$ m/s — but the object's <em>actual</em> speed is constantly changing due to gravity. To find the instantaneous velocity at $t=1$ (the reading a speedometer would show at that exact moment), compute</p>
-$$f'(1) = \lim_{h\to 0} \frac{f(1+h)-f(1)}{h} = -9.8(1) + 20 = 10.2 \text{ m/s}.$$
-<p>This distinction — average versus instantaneous rate — is the reason derivatives are indispensable: velocity, marginal cost, population growth rate, and reaction rate are all instantaneous rates of change, not averages, and the limit definition is what makes them mathematically precise rather than approximate.</p>
+    <h2 id="secant-line">Secant Line</h2>
+<p>A secant line is a line that passes through two distinct points on a curve. Given a function $f$ and two points $x = a$ and $x = a+h$ on its domain (with $h \neq 0$), the secant line connects $(a, f(a))$ and $(a+h, f(a+h))$. Its slope is given by the <strong>difference quotient</strong>:</p>
+$$
+m_{\text{sec}} = \frac{f(a+h) - f(a)}{h}
+$$
+<p>This slope represents the <strong>average rate of change</strong> of $f$ over the interval $[a, a+h]$ — how much the function's output changes, on average, per unit change in input. Unlike a tangent line, which touches the curve at a single point and captures instantaneous behavior, a secant line always requires two points and describes change over an interval.</p>
+<p><strong>Worked example.</strong> Let $f(x) = x^2$, with $a = 1$ and $h = 2$, so the second point is $x = 3$.</p>
+$$
+m_{\text{sec}} = \frac{f(3) - f(1)}{3 - 1} = \frac{9 - 1}{2} = 4
+$$
+<p>The secant line through $(1, 1)$ and $(3, 9)$ has slope 4. Using point-slope form, its equation is $y - 1 = 4(x - 1)$, or $y = 4x - 3$. This line approximates how steeply the parabola rises between $x=1$ and $x=3$, though the curve itself is steeper near $x=3$ and less steep near $x=1$ — the secant slope is an <em>average</em>, smoothing out that variation.</p>
+<p><strong>Problem-solving application.</strong> Secant lines are the foundation for computing instantaneous rates of change. If you shrink the interval — letting $h \to 0$ — the secant line's slope approaches the slope of the tangent line at $x = a$, which is the derivative $f'(a)$. This is precisely why the difference quotient appears in the formal definition of the derivative:</p>
+$$
+f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}
+$$
+<p>In practice, secant lines are useful even without taking a limit: physicists use them to estimate average velocity from position data at two times, and economists use them to estimate average growth rate between two data points. Whenever you only have discrete measurements rather than a continuous formula, the secant slope is often the best rate-of-change estimate available — and computing it well is a prerequisite skill before tackling limits and derivatives.</p>
   </main>
   <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch3: Chapter 3. Derivatives (Level: College &middot; Language: EN &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
 </div>

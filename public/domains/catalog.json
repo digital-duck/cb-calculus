@@ -928,14 +928,14 @@
       {
         "name": "acceleration",
         "label": "Acceleration",
-        "file": "output/college.en/sonnet/html/concept_acceleration.html",
+        "file": "output/intro.en/sonnet/html/concept_acceleration.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "acceleration",
         "label": "Acceleration",
-        "file": "output/intro.en/sonnet/html/concept_acceleration.html",
+        "file": "output/college.en/sonnet/html/concept_acceleration.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -949,14 +949,14 @@
       {
         "name": "amount_of_change_formula",
         "label": "Amount Of Change Formula",
-        "file": "output/college.en/sonnet/html/concept_amount_of_change_formula.html",
+        "file": "output/intro.en/sonnet/html/concept_amount_of_change_formula.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "amount_of_change_formula",
         "label": "Amount Of Change Formula",
-        "file": "output/intro.en/sonnet/html/concept_amount_of_change_formula.html",
+        "file": "output/college.en/sonnet/html/concept_amount_of_change_formula.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -970,14 +970,14 @@
       {
         "name": "derivative_at_a_point",
         "label": "Derivative At A Point",
-        "file": "output/college.en/sonnet/html/concept_derivative_at_a_point.html",
+        "file": "output/intro.en/sonnet/html/concept_derivative_at_a_point.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "derivative_at_a_point",
         "label": "Derivative At A Point",
-        "file": "output/intro.en/sonnet/html/concept_derivative_at_a_point.html",
+        "file": "output/college.en/sonnet/html/concept_derivative_at_a_point.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -991,14 +991,14 @@
       {
         "name": "derivative_function",
         "label": "Derivative Function",
-        "file": "output/college.en/sonnet/html/concept_derivative_function.html",
+        "file": "output/intro.en/sonnet/html/concept_derivative_function.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "derivative_function",
         "label": "Derivative Function",
-        "file": "output/intro.en/sonnet/html/concept_derivative_function.html",
+        "file": "output/college.en/sonnet/html/concept_derivative_function.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1012,14 +1012,14 @@
       {
         "name": "difference_quotient",
         "label": "Difference Quotient",
-        "file": "output/college.en/sonnet/html/concept_difference_quotient.html",
+        "file": "output/intro.en/sonnet/html/concept_difference_quotient.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "difference_quotient",
         "label": "Difference Quotient",
-        "file": "output/intro.en/sonnet/html/concept_difference_quotient.html",
+        "file": "output/college.en/sonnet/html/concept_difference_quotient.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1033,14 +1033,14 @@
       {
         "name": "higher_order_derivatives",
         "label": "Higher Order Derivatives",
-        "file": "output/college.en/sonnet/html/concept_higher_order_derivatives.html",
+        "file": "output/intro.en/sonnet/html/concept_higher_order_derivatives.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "higher_order_derivatives",
         "label": "Higher Order Derivatives",
-        "file": "output/intro.en/sonnet/html/concept_higher_order_derivatives.html",
+        "file": "output/college.en/sonnet/html/concept_higher_order_derivatives.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1054,14 +1054,14 @@
       {
         "name": "instantaneous_rate_of_change",
         "label": "Instantaneous Rate Of Change",
-        "file": "output/college.en/sonnet/html/concept_instantaneous_rate_of_change.html",
+        "file": "output/intro.en/sonnet/html/concept_instantaneous_rate_of_change.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "instantaneous_rate_of_change",
         "label": "Instantaneous Rate Of Change",
-        "file": "output/intro.en/sonnet/html/concept_instantaneous_rate_of_change.html",
+        "file": "output/college.en/sonnet/html/concept_instantaneous_rate_of_change.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1075,14 +1075,14 @@
       {
         "name": "limit",
         "label": "Limit",
-        "file": "output/college.en/sonnet/html/concept_limit.html",
+        "file": "output/intro.en/sonnet/html/concept_limit.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "limit",
         "label": "Limit",
-        "file": "output/intro.en/sonnet/html/concept_limit.html",
+        "file": "output/college.en/sonnet/html/concept_limit.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1096,14 +1096,14 @@
       {
         "name": "marginal_functions",
         "label": "Marginal Functions",
-        "file": "output/college.en/sonnet/html/concept_marginal_functions.html",
+        "file": "output/intro.en/sonnet/html/concept_marginal_functions.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "marginal_functions",
         "label": "Marginal Functions",
-        "file": "output/intro.en/sonnet/html/concept_marginal_functions.html",
+        "file": "output/college.en/sonnet/html/concept_marginal_functions.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1117,14 +1117,14 @@
       {
         "name": "population_growth_rate",
         "label": "Population Growth Rate",
-        "file": "output/college.en/sonnet/html/concept_population_growth_rate.html",
+        "file": "output/intro.en/sonnet/html/concept_population_growth_rate.html",
         "model": "sonnet",
         "language": "en"
       },
       {
         "name": "population_growth_rate",
         "label": "Population Growth Rate",
-        "file": "output/intro.en/sonnet/html/concept_population_growth_rate.html",
+        "file": "output/college.en/sonnet/html/concept_population_growth_rate.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1136,9 +1136,16 @@
         "language": "zh"
       },
       {
-        "name": "velocity",
-        "label": "Velocity",
-        "file": "output/college.en/sonnet/html/concept_velocity.html",
+        "name": "secant_line",
+        "label": "Secant Line",
+        "file": "output/college.en/sonnet/html/concept_secant_line.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "tangent_line",
+        "label": "Tangent Line",
+        "file": "output/college.en/sonnet/html/concept_tangent_line.html",
         "model": "sonnet",
         "language": "en"
       },
@@ -1146,6 +1153,13 @@
         "name": "velocity",
         "label": "Velocity",
         "file": "output/intro.en/sonnet/html/concept_velocity.html",
+        "model": "sonnet",
+        "language": "en"
+      },
+      {
+        "name": "velocity",
+        "label": "Velocity",
+        "file": "output/college.en/sonnet/html/concept_velocity.html",
         "model": "sonnet",
         "language": "en"
       },

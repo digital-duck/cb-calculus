@@ -11,6 +11,8 @@ MathJax = {
 };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
@@ -26,6 +28,12 @@ p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
 footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
       font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
 footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
 .page{max-width:780px;margin:0 auto;padding:40px 32px}
 section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
 section:first-of-type{border-top:none;padding-top:0}
@@ -35,21 +43,19 @@ section:first-of-type{border-top:none;padding-top:0}
 <div class="page">
   <main>
     <h2 id="limit">Limit</h2>
-<p>A <strong>limit</strong> describes the value a function approaches as its input gets arbitrarily close to some point — not necessarily the value <em>at</em> that point. Formally, we write</p>
-$$\lim_{x \to a} f(x) = L$$
-<p>and mean: for every $\varepsilon > 0$, there exists $\delta > 0$ such that $0 < |x - a| < \delta$ implies $|f(x) - L| < \varepsilon$. In plain terms: we can make $f(x)$ as close to $L$ as we like by keeping $x$ close enough to $a$. The $\varepsilon$-$\delta$ definition is not just bookkeeping — it is what allows limits to exist at points where the function is undefined or discontinuous, which is exactly the situation that makes limits useful.</p>
-<p><strong>Worked example.</strong> Consider</p>
-$$f(x) = \frac{x^2 - 1}{x - 1}$$
-<p>At $x = 1$, the denominator is zero, so $f(1)$ is undefined. But we can factor:</p>
-$$\frac{x^2 - 1}{x - 1} = \frac{(x-1)(x+1)}{x-1} = x + 1, \quad x \neq 1.$$
-<p>As $x \to 1$, $f(x)$ approaches $1 + 1 = 2$. The limit exists and equals 2 even though the function has a hole at that point. The graph would look like the line $y = x + 1$ with a single missing dot at $(1, 2)$.</p>
-<p><strong>Problem-solving application.</strong> Limits are the engine behind derivatives and integrals. When you compute a derivative,</p>
+<p>The limit formalizes what it means for a function's output to get arbitrarily close to a value $L$ as the input $x$ approaches a point $a$, written</p>
+$$\lim_{x \to a} f(x) = L.$$
+<p>Formally, this means: for every $\varepsilon > 0$, there exists a $\delta > 0$ such that whenever $0 < |x - a| < \delta$, it follows that $|f(x) - L| < \varepsilon$. In words, we can force $f(x)$ to lie within any tolerance $\varepsilon$ of $L$ by restricting $x$ to lie close enough (within $\delta$) to $a$ — without ever requiring $x = a$. This last point is essential: a limit describes behavior <em>near</em> $a$, not the value <em>at</em> $a$, which is what makes limits the right tool for handling points where a function is undefined or discontinuous, such as division by zero in a difference quotient.</p>
+<p><strong>Worked example.</strong> Consider $f(x) = \dfrac{x^2 - 4}{x - 2}$, which is undefined at $x = 2$. Direct substitution gives $\frac{0}{0}$, an indeterminate form — but the limit still exists. Factor the numerator:</p>
+$$\frac{x^2-4}{x-2} = \frac{(x-2)(x+2)}{x-2} = x+2, \quad x \neq 2.$$
+<p>Since the simplified expression agrees with $f$ everywhere except at $x=2$, and limits ignore the value at the point itself,</p>
+$$\lim_{x \to 2} \frac{x^2-4}{x-2} = \lim_{x\to 2}(x+2) = 4.$$
+<p>Graphically, $f$ has a "hole" at $(2,4)$, but the limit exists and equals 4 anyway.</p>
+<p><strong>Problem-solving application.</strong> Limits are the gateway to the derivative. The instantaneous rate of change of $f$ at $a$ is defined as</p>
 $$f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h},$$
-<p>you are asking what the difference quotient <em>approaches</em> as $h$ shrinks, not what it equals at $h = 0$ (where it is $\tfrac{0}{0}$). The practical move is always the same: simplify algebraically to cancel the offending factor, then evaluate. For instance, $f(x) = x^2$ gives</p>
-$$\lim_{h \to 0} \frac{(a+h)^2 - a^2}{h} = \lim_{h \to 0} \frac{2ah + h^2}{h} = \lim_{h \to 0}(2a + h) = 2a.$$
-<p>When algebra alone does not cancel the singularity, tools like L'Hôpital's rule or Taylor series take over. The key habit: before reaching for those tools, always try factoring or rationalizing — most limit problems at this level collapse with one algebraic step.</p>
+<p>which is itself a $\frac{0}{0}$ indeterminate form resolved by algebraic simplification before taking the limit — exactly the technique practiced above. Whenever a limit produces $\frac{0}{0}$ or a similar indeterminate form, the same instinct applies: manipulate the expression algebraically (factor, expand, rationalize) until the offending term cancels, then substitute. Mastering this evaluation skill — recognizing indeterminate forms and clearing them through algebra — is therefore not an isolated exercise but the computational foundation on which the derivative, and everything built from it, depends.</p>
   </main>
-  <footer class="spl-credit">Generated by SPL &middot; Powered by SPL.py</footer>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch3: Chapter 3. Derivatives (Level: College &middot; Language: EN &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
 </div>
 </body>
 </html>

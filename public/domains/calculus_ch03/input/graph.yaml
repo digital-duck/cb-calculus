@@ -20,6 +20,9 @@ concepts:
     - difference_quotient
     tier: 1
   derivative_at_a_point:
+    diagram:
+      type: flowchart LR
+      hint: "three steps left to right: secant line through (x, f(x)) and (x+h, f(x+h)) → shrink h toward zero → tangent line at x; label slope formula [f(x+h)-f(x)]/h"
     defines: The value f'(a), defined as the limit of the difference quotient as x approaches a (or h
       approaches 0), equal to the slope of the tangent line at a.
     composed_of:
@@ -34,6 +37,9 @@ concepts:
     - difference_quotient
     tier: 1
   tangent_line:
+    diagram:
+      type: flowchart LR
+      hint: "secant line rotating as second point slides toward first point on curve, converging to tangent; label: slope of secant → slope of tangent as h→0"
     defines: The limiting position of secant lines as the second point approaches the first, with slope
       given by the limit of the difference quotient.
     composed_of:
@@ -173,6 +179,7 @@ applications:
       position with respect to time.
     needs:
     - instantaneous_rate_of_change
+    - tangent_line
     tier: 3
   population_growth_rate:
     defines: The derivative of a population size function with respect to time, used to estimate future
