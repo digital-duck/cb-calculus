@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instantaneous Rate Of Change | Calculus Ch03</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="instantaneous-rate-of-change">Instantaneous Rate Of Change</h2>
+<p>The average rate of change of a function $f$ over an interval $[a, a+h]$ is the familiar slope of a secant line:</p>
+$$\frac{f(a+h) - f(a)}{h}.$$
+<p>This tells you how much $f$ changes <em>on average</em> across that interval — but it says nothing about the behavior at any single instant. To capture the rate of change exactly at $x = a$, we shrink the interval to zero width by taking a limit:</p>
+$$f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}.$$
+<p>This quantity, the <strong>instantaneous rate of change</strong> (equivalently, the derivative of $f$ at $a$), is the slope of the tangent line to the graph of $f$ at the point $(a, f(a))$. It exists only if the limit exists — if the secant slopes settle down to a single value as $h \to 0$ from both directions.</p>
+<p><strong>Worked example.</strong> Let $f(x) = x^2$, and find the instantaneous rate of change at $a = 3$.</p>
+$$f'(3) = \lim_{h \to 0} \frac{(3+h)^2 - 3^2}{h} = \lim_{h \to 0} \frac{9 + 6h + h^2 - 9}{h} = \lim_{h \to 0} (6 + h) = 6.$$
+<p>So at $x = 3$, $f$ is instantaneously increasing at a rate of 6 units of output per unit of input — much faster than at, say, $a = 0.5$, where $f'(0.5) = 1$. The derivative varies with $a$, reflecting how steepness changes across the curve.</p>
+<p><strong>Problem-solving application.</strong> Suppose $f(t) = -4.9t^2 + 20t$ gives the height (in meters) of a projectile $t$ seconds after launch. The average velocity over $[1,2]$ is $\frac{f(2)-f(1)}{1} = \frac{20.4 - 15.1}{1} = 5.3$ m/s — but the object's <em>actual</em> speed is constantly changing due to gravity. To find the instantaneous velocity at $t=1$ (the reading a speedometer would show at that exact moment), compute</p>
+$$f'(1) = \lim_{h\to 0} \frac{f(1+h)-f(1)}{h} = -9.8(1) + 20 = 10.2 \text{ m/s}.$$
+<p>This distinction — average versus instantaneous rate — is the reason derivatives are indispensable: velocity, marginal cost, population growth rate, and reaction rate are all instantaneous rates of change, not averages, and the limit definition is what makes them mathematically precise rather than approximate.</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch3: Chapter 3. Derivatives (Level: College &middot; Language: EN &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

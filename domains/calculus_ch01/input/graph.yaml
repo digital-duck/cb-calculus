@@ -1,0 +1,288 @@
+domain: calculus_ch01
+primitives:
+  relation:
+    defines: A set of ordered pairs (x, y) that defines a relationship between two sets A and B.
+    tier: 0
+  slope:
+    defines: The ratio of change in y to change in x, (y2-y1)/(x2-x1), measuring the steepness and direction
+      of a line.
+    tier: 0
+  power_function:
+    defines: A function of the form f(x) = a x^b for real numbers a and b.
+    tier: 0
+  transcendental_function:
+    defines: A function, such as trigonometric, exponential, or logarithmic functions, that cannot be
+      expressed using basic algebraic operations alone.
+    tier: 0
+  radian_measure:
+    defines: A measure of angle defined so that the angle corresponding to an arc of length 1 on the unit
+      circle has radian measure 1.
+    tier: 0
+  number_e:
+    defines: The real number, approximately 2.718282, that (1 + 1/m)^m approaches as m approaches infinity;
+      the base of the natural exponential function.
+    tier: 0
+concepts:
+  function:
+    defines: A rule that assigns each element of an input set (domain) to exactly one element of an output
+      set (range).
+    composed_of:
+    - relation
+    tier: 1
+  root_function:
+    defines: A power function of the form f(x) = x^(1/n) for a positive integer n greater than one.
+    composed_of:
+    - power_function
+    tier: 1
+  domain_range:
+    defines: The domain is the set of inputs of a function and the range is the set of outputs.
+    composed_of:
+    - function
+    tier: 2
+  independent_dependent_variable:
+    defines: In y = f(x), x is the independent variable (input) and y is the dependent variable (output
+      determined by x).
+    composed_of:
+    - function
+    tier: 2
+  graph_of_function:
+    defines: The set of all points (x, f(x)) plotted in the coordinate plane for x in the domain of f.
+    composed_of:
+    - function
+    tier: 2
+  combining_functions:
+    defines: New functions formed from two functions f and g via sum, difference, product, or quotient.
+    composed_of:
+    - function
+    tier: 2
+  function_composition:
+    defines: A new function g∘f formed by applying f to x and then applying g to the result, written (g∘f)(x)
+      = g(f(x)).
+    composed_of:
+    - function
+    tier: 2
+  piecewise_defined_function:
+    defines: A function defined by different formulas on different parts of its domain.
+    composed_of:
+    - function
+    tier: 2
+  linear_function:
+    defines: A function of the form f(x) = ax + b, whose graph is a line with slope a and y-intercept
+      (0, b).
+    composed_of:
+    - slope
+    - function
+    tier: 2
+  polynomial_function:
+    defines: A function of the form f(x) = a_n x^n + ... + a_1 x + a_0 for a nonnegative integer n, whose
+      degree is n.
+    composed_of:
+    - function
+    tier: 2
+  trigonometric_functions:
+    defines: The six functions sin, cos, tan, cot, sec, and csc, defined via the coordinates of a point
+      on the unit circle corresponding to an angle θ.
+    composed_of:
+    - radian_measure
+    - function
+    tier: 2
+  one_to_one_function:
+    defines: A function f such that f(x1) ≠ f(x2) whenever x1 ≠ x2, so each output corresponds to exactly
+      one input.
+    composed_of:
+    - function
+    tier: 2
+  exponential_function:
+    defines: A function of the form f(x) = b^x for a constant base b > 0, b ≠ 1, with a variable exponent.
+    composed_of:
+    - function
+    tier: 2
+  vertical_line_test:
+    defines: A set of plotted points represents a function if and only if every vertical line intersects
+      the graph at most once.
+    composed_of:
+    - graph_of_function
+    tier: 3
+  zeros_of_function:
+    defines: The values of x for which f(x) = 0, corresponding to where the graph intersects the x-axis.
+    composed_of:
+    - function
+    - graph_of_function
+    tier: 3
+  y_intercept:
+    defines: The point (0, f(0)) where the graph of a function crosses the y-axis, if it exists.
+    composed_of:
+    - function
+    - graph_of_function
+    tier: 3
+  increasing_decreasing_function:
+    defines: A function is increasing on an interval if outputs never decrease as inputs increase, and
+      decreasing if outputs never increase as inputs increase.
+    composed_of:
+    - function
+    - graph_of_function
+    tier: 3
+  even_odd_function:
+    defines: A function is even if f(-x) = f(x) and odd if f(-x) = -f(x).
+    composed_of:
+    - function
+    - graph_of_function
+    tier: 3
+  absolute_value_function:
+    defines: The piecewise function f(x) = -x for x < 0 and f(x) = x for x ≥ 0, which is even and always
+      nonnegative.
+    composed_of:
+    - piecewise_defined_function
+    tier: 3
+  linear_equation_forms:
+    defines: 'Different algebraic forms for describing a line: point-slope, slope-intercept, and standard.'
+    composed_of:
+    - linear_function
+    - slope
+    tier: 3
+  quadratic_function:
+    defines: A degree-2 polynomial function of the form f(x) = ax^2 + bx + c, whose graph is a parabola.
+    composed_of:
+    - polynomial_function
+    tier: 3
+  cubic_function:
+    defines: A degree-3 polynomial function of the form f(x) = ax^3 + bx^2 + cx + d.
+    composed_of:
+    - polynomial_function
+    tier: 3
+  end_behavior:
+    defines: The behavior of f(x) as x approaches positive or negative infinity, determined for polynomials
+      by the leading term.
+    composed_of:
+    - polynomial_function
+    - graph_of_function
+    tier: 3
+  rational_function:
+    defines: A function of the form f(x) = p(x)/q(x), where p and q are polynomials.
+    composed_of:
+    - polynomial_function
+    tier: 3
+  function_transformations:
+    defines: Shifts, vertical/horizontal scalings, and reflections applied to the graph of a function.
+    composed_of:
+    - function
+    - graph_of_function
+    tier: 3
+  trigonometric_identities:
+    defines: Equations involving trigonometric functions, true for all angles where defined.
+    composed_of:
+    - trigonometric_functions
+    tier: 3
+  period_of_function:
+    defines: The smallest positive value p such that f(x+p) = f(x) for all x, describing the repeating
+      pattern of periodic functions.
+    composed_of:
+    - trigonometric_functions
+    tier: 3
+  horizontal_line_test:
+    defines: A function is one-to-one if and only if every horizontal line intersects its graph at most
+      once.
+    composed_of:
+    - one_to_one_function
+    - graph_of_function
+    tier: 3
+  inverse_function:
+    defines: For a one-to-one function f, the function f^-1 satisfying f^-1(f(x)) = x and f(f^-1(y)) =
+      y.
+    composed_of:
+    - one_to_one_function
+    tier: 3
+  restricted_domain:
+    defines: A subset of a function's domain chosen so that the function becomes one-to-one and therefore
+      invertible on that subset.
+    composed_of:
+    - one_to_one_function
+    - domain_range
+    tier: 3
+  natural_exponential_function:
+    defines: The exponential function f(x) = e^x, whose tangent line at x=0 has slope 1.
+    composed_of:
+    - exponential_function
+    - number_e
+    tier: 3
+  quadratic_formula:
+    defines: The formula x = (-b ± sqrt(b^2-4ac)) / 2a used to find the zeros of a quadratic equation.
+    composed_of:
+    - quadratic_function
+    tier: 4
+  algebraic_function:
+    defines: A function built from addition, subtraction, multiplication, division, rational powers, and
+      roots.
+    composed_of:
+    - rational_function
+    - root_function
+    tier: 4
+  sine_graph_transformations:
+    defines: For f(x) = A sin(B(x-α)) + C, the parameters controlling amplitude, period, phase shift,
+      and vertical shift.
+    composed_of:
+    - trigonometric_functions
+    - period_of_function
+    - function_transformations
+    tier: 4
+  inverse_trigonometric_functions:
+    defines: Functions such as sin^-1, cos^-1, and tan^-1 defined by restricting the domain of each trigonometric
+      function.
+    composed_of:
+    - trigonometric_functions
+    - restricted_domain
+    - inverse_function
+    tier: 4
+  logarithmic_function:
+    defines: The inverse of the exponential function b^x, denoted log_b(x), satisfying log_b(x) = y if
+      and only if b^y = x.
+    composed_of:
+    - exponential_function
+    - inverse_function
+    tier: 4
+  hyperbolic_functions:
+    defines: Functions such as sinh, cosh, and tanh defined as combinations of e^x and e^-x, satisfying
+      cosh^2(x) - sinh^2(x) = 1.
+    composed_of:
+    - natural_exponential_function
+    tier: 4
+  natural_logarithm:
+    defines: The logarithmic function with base e, denoted ln(x) = log_e(x), inverse to the natural exponential
+      function.
+    composed_of:
+    - logarithmic_function
+    - natural_exponential_function
+    tier: 5
+  change_of_base_formula:
+    defines: Formulas allowing an exponential or logarithmic expression in one base to be rewritten in
+      terms of another base, typically e.
+    composed_of:
+    - logarithmic_function
+    - natural_logarithm
+    tier: 6
+  inverse_hyperbolic_functions:
+    defines: The inverses of the hyperbolic functions, each expressible using the natural logarithm.
+    composed_of:
+    - hyperbolic_functions
+    - natural_logarithm
+    - inverse_function
+    tier: 6
+applications:
+  mathematical_model:
+    defines: A method of using mathematical equations, such as linear or quadratic functions fit to data,
+      to simulate and predict real-life situations.
+    needs:
+    - linear_function
+    - quadratic_function
+    tier: 4
+  compound_interest_application:
+    defines: The application of the natural exponential function to model account balance growth under
+      continuous compounding.
+    needs:
+    - natural_exponential_function
+    tier: 4
+  richter_scale_application:
+    defines: A base-10 logarithmic scale comparing the relative intensity of earthquakes.
+    needs:
+    - logarithmic_function
+    tier: 5

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Limit | Calculus Ch03</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="极限">极限</h2>
+<p><strong>定义</strong></p>
+<p>极限（limit）描述当自变量 $x$ 无限接近某一点 $a$ 时，函数 $f(x)$ 所趋近的值，记作：</p>
+$$\lim_{x \to a} f(x) = L$$
+<p>这并不要求 $f(a)$ 本身存在或等于 $L$，只关心 $x$ 靠近 $a$ 时函数值的趋势。严格定义（$\varepsilon$-$\delta$ 定义）为：对任意 $\varepsilon > 0$，存在 $\delta > 0$，使得当 $0 < |x - a| < \delta$ 时，恒有 $|f(x) - L| < \varepsilon$。换句话说，只要把 $x$ 限制得足够靠近 $a$（但不等于 $a$），就能让 $f(x)$ 任意接近 $L$。极限是微积分的基石：导数（瞬时变化率）和积分（连续求和）都建立在极限运算之上。</p>
+<p><strong>范例</strong></p>
+<p>考虑 $f(x) = \dfrac{x^2 - 1}{x - 1}$。在 $x = 1$ 处，函数本身没有定义（分母为零）。但因式分解得：</p>
+$$f(x) = \frac{(x-1)(x+1)}{x-1} = x + 1 \quad (x \neq 1)$$
+<p>所以当 $x \to 1$ 时，$f(x) \to 2$，即</p>
+$$\lim_{x \to 1} \frac{x^2 - 1}{x - 1} = 2$$
+<p>图像上看，这是一条直线 $y = x+1$，只是在 $x=1$ 处挖去了一个点——极限告诉我们，即使这一点“缺失”，函数仍然明确地趋向 $2$。</p>
+<p><strong>问题解决应用</strong></p>
+<p>极限的核心用途是处理“$\frac{0}{0}$”型的不定式，这类表达式无法直接代入求值，必须通过代数变形（因式分解、有理化、通分）消去零因子后再取极限。例如求</p>
+$$\lim_{x \to 0} \frac{\sqrt{x+4} - 2}{x}$$
+<p>分子分母同乘以共轭式 $\sqrt{x+4}+2$，化简得</p>
+$$\lim_{x \to 0} \frac{1}{\sqrt{x+4}+2} = \frac{1}{4}$$
+<p>这一技巧正是导数定义 $f'(a) = \lim_{h \to 0} \dfrac{f(a+h)-f(a)}{h}$ 的核心步骤：先构造出恒为 $\frac{0}{0}$ 型的差商，再通过代数化简求出真实的变化率。掌握极限的计算，是理解瞬时速度、切线斜率乃至一切“连续变化”问题的必经之路。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch3: Chapter 3. Derivatives (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>
