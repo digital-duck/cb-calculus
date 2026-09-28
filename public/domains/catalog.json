@@ -922,6 +922,12 @@
         "file": "output/intro.zh/sonnet/html/book_velocity_zh.html",
         "model": "sonnet",
         "language": "zh"
+      },
+      {
+        "target": "velocity",
+        "file": "output/college.zh/sonnet/html/book_velocity_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       }
     ],
     "generated_concepts": [
@@ -982,6 +988,13 @@
         "language": "en"
       },
       {
+        "name": "derivative_at_a_point",
+        "label": "Derivative At A Point",
+        "file": "output/college.zh/sonnet/html/concept_derivative_at_a_point_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "derivative_at_a_point_zh",
         "label": "Derivative At A Point Zh",
         "file": "output/intro.zh/sonnet/html/concept_derivative_at_a_point_zh.html",
@@ -1022,6 +1035,13 @@
         "file": "output/college.en/sonnet/html/concept_difference_quotient.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "difference_quotient",
+        "label": "Difference Quotient",
+        "file": "output/college.zh/sonnet/html/concept_difference_quotient_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "difference_quotient_zh",
@@ -1066,6 +1086,13 @@
         "language": "en"
       },
       {
+        "name": "instantaneous_rate_of_change",
+        "label": "Instantaneous Rate Of Change",
+        "file": "output/college.zh/sonnet/html/concept_instantaneous_rate_of_change_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "instantaneous_rate_of_change_zh",
         "label": "Instantaneous Rate Of Change Zh",
         "file": "output/intro.zh/sonnet/html/concept_instantaneous_rate_of_change_zh.html",
@@ -1085,6 +1112,13 @@
         "file": "output/college.en/sonnet/html/concept_limit.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "limit",
+        "label": "Limit",
+        "file": "output/college.zh/sonnet/html/concept_limit_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "limit_zh",
@@ -1143,11 +1177,25 @@
         "language": "en"
       },
       {
+        "name": "secant_line",
+        "label": "Secant Line",
+        "file": "output/college.zh/sonnet/html/concept_secant_line_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "tangent_line",
         "label": "Tangent Line",
         "file": "output/college.en/sonnet/html/concept_tangent_line.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "tangent_line",
+        "label": "Tangent Line",
+        "file": "output/college.zh/sonnet/html/concept_tangent_line_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "velocity",
@@ -1162,6 +1210,13 @@
         "file": "output/college.en/sonnet/html/concept_velocity.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "velocity",
+        "label": "Velocity",
+        "file": "output/college.zh/sonnet/html/concept_velocity_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "velocity_zh",
