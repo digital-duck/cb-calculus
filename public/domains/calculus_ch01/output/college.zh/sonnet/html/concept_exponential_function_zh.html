@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exponential Function | Calculus Ch01</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="指数函数">指数函数</h2>
+<p><strong>定义。</strong> 形如</p>
+$$f(x)=b^{x},\qquad b>0,\ b\neq 1$$
+<p>的函数称为<strong>指数函数</strong>,其中底数 $b$ 是常数,自变量 $x$ 位于指数位置。这与幂函数 $x^{2}$ 不同:幂函数是底数变化、指数固定;指数函数则是底数固定、指数变化。</p>
+<p>要求 $b>0$ 是为了使 $b^x$ 对所有实数 $x$ 都有定义(例如 $(-2)^{1/2}$ 不是实数);要求 $b\neq 1$ 是因为 $1^x=1$ 只是常数函数,不具备指数增长的特征。</p>
+<p><strong>基本性质。</strong></p>
+<li>定义域为 $\mathbb{R}$,值域为 $(0,\infty)$,图像恒过点 $(0,1)$,且以 $x$ 轴为水平渐近线。</li>
+<li>当 $b>1$ 时函数严格递增(增长);当 $0<b<1$ 时严格递减(衰减)。</li>
+<li>指数律:$b^{x+y}=b^x b^y$,$\ b^{-x}=\dfrac{1}{b^x}$,$\ (b^x)^y=b^{xy}$。</li>
+<pre class="mermaid">graph TD
+A["指数函数 b^x"] --> B["b 大于 1"]
+A --> C["b 在 0 与 1 之间"]
+B --> D["严格递增:增长"]
+C --> E["严格递减:衰减"]
+D --> F["过点 (0,1)"]
+E --> F</pre>
+<p><em>图:底数 $b$ 的取值决定指数函数是增长还是衰减,但两种情形的图像都经过点 $(0,1)$。</em></p>
+<p><strong>例题 1(求值与比较)。</strong> 设 $f(x)=2^x$。则 $f(3)=8$,$f(-2)=\tfrac14$,$f(0)=1$。再看增长速度:$x$ 每增加 1,函数值乘以 2,即</p>
+$$\frac{f(x+1)}{f(x)}=\frac{2^{x+1}}{2^x}=2.$$
+<p>这说明指数函数的本质特征是:<strong>自变量每增加固定的量,函数值乘以固定的倍数</strong>。</p>
+<p><strong>例题 2(复利问题)。</strong> 本金 $10\,000$ 元,年利率 $5\%$,按年复利。$t$ 年后的本金与利息之和为</p>
+$$A(t)=10000\cdot 1.05^{\,t}.$$
+<p>问:多少年后资金翻倍?令 $1.05^{t}=2$,两边取对数:</p>
+$$t=\frac{\ln 2}{\ln 1.05}\approx\frac{0.6931}{0.04879}\approx 14.2\ \text{年}.$$
+<p><strong>例题 3(衰减问题)。</strong> 某放射性样品半衰期为 $5$ 天,初始质量 $80$ g,则</p>
+$$m(t)=80\cdot\left(\tfrac12\right)^{t/5}.$$
+<p>此时 $b=\tfrac12<1$,为衰减型。$15$ 天后 $m(15)=80\cdot\left(\tfrac12\right)^{3}=10$ g。</p>
+<p><strong>解题要点。</strong></p>
+<li>识别模型 $y=a\cdot b^{t/k}$:$a$ 为初始值,$b$ 为每个周期 $k$ 的变化倍数。</li>
+<li>已知结果求时间(指数在未知数位置)时,两边取对数,利用 $\ln(b^x)=x\ln b$ 把指数"拉下来"。</li>
+<li>判断 $b>1$ 还是 $b<1$,即可预判增长或衰减,用以检验答案是否合理。</li>
+<p>在实际建模中,常取 $b=e\approx 2.718$,写作 $f(x)=e^x$,称为<strong>自然指数函数</strong>,它在微积分中具有 $\dfrac{d}{dx}e^x=e^x$ 的独特性质。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch1: Chapter 1. Functions and Graphs (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

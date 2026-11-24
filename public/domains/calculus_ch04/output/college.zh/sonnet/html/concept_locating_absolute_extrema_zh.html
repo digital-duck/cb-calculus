@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Locating Absolute Extrema | Calculus Ch04</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="寻找绝对极值">寻找绝对极值</h2>
+<p><strong>定义。</strong> 设函数 $f$ 在闭区间 $[a,b]$ 上连续。若对区间内所有 $x$ 都有 $f(c)\ge f(x)$,则称 $f(c)$ 为<strong>绝对最大值</strong>;若都有 $f(c)\le f(x)$,则称 $f(c)$ 为<strong>绝对最小值</strong>。二者统称绝对极值。</p>
+<p>其理论依据是<strong>极值定理</strong>:闭区间上的连续函数一定能取到最大值和最小值。绝对极值只可能出现在两类位置:</p>
+<li><strong>临界点</strong>:区间内部满足 $f'(c)=0$ 或 $f'(c)$ 不存在的点;</li>
+<li><strong>端点</strong>:$x=a$ 与 $x=b$。</li>
+<p>原因是,若最值出现在内部某点 $c$,则该点同时是局部极值,由费马定理必为临界点。</p>
+<p><strong>求解步骤(闭区间法)</strong></p>
+<li>确认 $f$ 在 $[a,b]$ 上连续。</li>
+<li>求出 $(a,b)$ 内所有临界点。</li>
+<li>计算 $f$ 在所有临界点和两个端点处的函数值。</li>
+<li>比较这些函数值:最大者为绝对最大值,最小者为绝对最小值。</li>
+<p><strong>例题。</strong> 求 $f(x)=x^3-3x^2+1$ 在 $[-1,4]$ 上的绝对极值。</p>
+<p>先求导:$f'(x)=3x^2-6x=3x(x-2)$。令 $f'(x)=0$,得 $x=0$ 或 $x=2$,二者都在 $(-1,4)$ 内。$f'$ 处处存在,所以没有其他临界点。</p>
+<p>计算函数值:</p>
+<p>| $x$ | $f(x)$ | |---|---| | $-1$(端点) | $-1-3+1=-3$ | | $0$ | $1$ | | $2$ | $8-12+1=-3$ | | $4$(端点) | $64-48+1=17$ |</p>
+<p>比较得:绝对最大值为 $f(4)=17$,绝对最小值为 $-3$,在 $x=-1$ 和 $x=2$ 两处同时取得。</p>
+<p>注意,最值可以在多个点取得,但最值本身只有一个数值。</p>
+<p><strong>应用:问题求解。</strong> 一个物体沿直线运动,位置为 $s(t)=t^3-6t^2+9t$,$0\le t\le 5$(单位:秒)。求它离原点最远的时刻。</p>
+<p>$s'(t)=3t^2-12t+9=3(t-1)(t-3)$,临界点为 $t=1,\,3$。计算:</p>
+<li>$s(0)=0$</li>
+<li>$s(1)=1-6+9=4$</li>
+<li>$s(3)=27-54+27=0$</li>
+<li>$s(5)=125-150+45=20$</li>
+<p>最大值为 $s(5)=20$,所以物体在 $t=5$ 秒时离原点最远。注意,$t=1$ 处的局部极大值 $4$ 并不是答案。如果只检查临界点而漏掉端点,就会得出错误的结论。</p>
+<p><strong>常见错误</strong></p>
+<li>忘记计算端点的函数值。</li>
+<li>把局部极值直接当作绝对极值。</li>
+<li>在没有验证连续性的情况下使用此方法。例如 $f(x)=1/x$ 在 $[-1,1]$ 上不连续,极值定理不适用,它没有最大值,也没有最小值。</li>
+<p><strong>小结。</strong> 闭区间上的连续函数,其绝对极值只能出现在临界点或端点,所以只需比较有限个函数值,就能确定答案。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch4: Chapter 4. Applications of Derivatives (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

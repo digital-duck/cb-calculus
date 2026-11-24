@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Net Change Theorem | Calculus Ch05</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="净变化定理">净变化定理</h2>
+<h3 id="定义">定义</h3>
+<p><strong>净变化定理</strong>(Net Change Theorem)指出:一个量的新值等于它的初始值加上其变化率在该区间上的积分。设 $F(t)$ 是某个量,其变化率 $F'(t)$ 在 $[a,b]$ 上连续,则</p>
+$$
+F(b) = F(a) + \int_a^b F'(t)\,dt,
+\qquad\text{即}\qquad
+\int_a^b F'(t)\,dt = F(b)-F(a).
+$$
+<p>右边的 $F(b)-F(a)$ 称为<strong>净变化量</strong>。这正是微积分基本定理(第二部分)的"应用语言"版本:把对变化率的无穷多个微小贡献 $F'(t)\,dt$ 累加起来,就得到总的变化。</p>
+<p>注意区分两个概念:积分得到的是<strong>净</strong>变化(增加与减少相互抵消),而不是总的累计变化量。若要求总量(如总路程),需对 $|F'(t)|$ 积分。</p>
+<h3 id="例题">例题</h3>
+<p>一辆小车沿直线运动,速度为 $v(t)=t^2-4t+3$(单位:m/s),$0\le t\le 4$。求:(a)位移;(b)总路程。</p>
+<p><strong>(a)位移</strong>即位置的净变化:</p>
+$$
+\Delta s=\int_0^4 (t^2-4t+3)\,dt=\left[\frac{t^3}{3}-2t^2+3t\right]_0^4
+=\frac{64}{3}-32+12=\frac{4}{3}\ \text{m}.
+$$
+<p><strong>(b)总路程</strong>:先找速度变号点。$v(t)=(t-1)(t-3)$,所以在 $[1,3]$ 上 $v\le 0$(小车倒退),其余时间前进。于是</p>
+$$
+\text{路程}=\int_0^1 v\,dt-\int_1^3 v\,dt+\int_3^4 v\,dt.
+$$
+<p>由原函数 $G(t)=\frac{t^3}{3}-2t^2+3t$ 得 $G(0)=0$,$G(1)=\frac43$,$G(3)=0$,$G(4)=\frac43$。因此</p>
+$$
+\text{路程}=\frac43-\left(0-\frac43\right)+\left(\frac43-0\right)=4\ \text{m}.
+$$
+<p>位移 $\frac43$ m 与路程 $4$ m 不同,原因正是中间一段的倒退。</p>
+<h3 id="问题求解应用">问题求解应用</h3>
+<p><strong>水箱问题</strong>:水箱中初始有 $200$ L 水,注入速率为 $r(t)=30-4t$ (L/min),$0\le t\le 5$。求 $t=5$ 时的水量。</p>
+<p>直接套用定理:</p>
+$$
+V(5)=V(0)+\int_0^5 (30-4t)\,dt=200+\left[30t-2t^2\right]_0^5=200+(150-50)=300\ \text{L}.
+$$
+<p><strong>解题要点</strong>:</p>
+<li>明确所求量是什么,以及题目给出的是"该量"还是"该量的变化率"。</li>
+<li>若给的是变化率,用"新值 = 初值 + 积分"。</li>
+<li>问"位移/净增量"时直接积分;问"总路程/总消耗量"时,先找变号点,分段对绝对值积分。</li>
+<li>检查单位:变化率的单位乘以时间单位,应得到该量的单位(如 L/min × min = L)。</li>
+<p>该定理适用于任何可表示为"变化率"的情形:人口增长率、电流与电荷($Q=\int I\,dt$)、边际成本与总成本变化等。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch5: Chapter 5. Integration (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

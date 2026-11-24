@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intermediate Value Theorem | Calculus Ch02</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="介值定理">介值定理</h2>
+<p><strong>定义。</strong> 若函数 $f$ 在闭区间 $[a,b]$ 上连续,且 $N$ 是介于 $f(a)$ 与 $f(b)$ 之间的任意一个数,则存在 $c\in[a,b]$,使得</p>
+$$f(c)=N.$$
+<p>直观地说:连续函数的图像"不能跳跃",从一个高度走到另一个高度,必然经过中间的所有高度。</p>
+<p><strong>两个条件缺一不可。</strong></p>
+<li>连续性:若 $f$ 在区间内有跳跃间断点,就可能"跳过"某些值。例如 $f(x)=\begin{cases}-1,&x<0\\1,&x\ge 0\end{cases}$ 在 $[-1,1]$ 上取不到 $0$。</li>
+<li>闭区间:定理保证的是 $[a,b]$ 内存在这样的 $c$,条件要求端点处的函数值已知。</li>
+<p><strong>证明思路(确界法)。</strong> 不妨设 $f(a)<N<f(b)$。令</p>
+$$S=\{x\in[a,b] : f(x)\le N\},\quad c=\sup S.$$
+<p>$S$ 非空(含 $a$)且有上界,所以 $c$ 存在。若 $f(c)<N$,由连续性,$c$ 右侧附近仍有 $f<N$,与 $c$ 是上确界矛盾。若 $f(c)>N$,则 $c$ 左侧附近 $f>N$,于是 $S$ 中的点都在 $c$ 左侧更远处,与 $c$ 是最小上界矛盾。因此 $f(c)=N$。</p>
+<p><strong>例题:证明方程有根。</strong> 证明 $x^3+x-1=0$ 在 $(0,1)$ 内至少有一个实根。</p>
+<p>令 $f(x)=x^3+x-1$,它是多项式,在 $[0,1]$ 上连续。计算端点:</p>
+$$f(0)=-1<0,\qquad f(1)=1>0.$$
+<p>$0$ 介于 $f(0)$ 与 $f(1)$ 之间,由介值定理,存在 $c\in(0,1)$ 使 $f(c)=0$。</p>
+<p><strong>应用:二分法求近似根。</strong> 介值定理不仅保证根存在,还能把它找出来。取中点 $m=\tfrac12$:</p>
+$$f(0.5)=0.125+0.5-1=-0.375<0,$$
+<p>所以根在 $(0.5,1)$。再取 $m=0.75$:$f(0.75)=0.421875+0.75-1\approx0.172>0$,根在 $(0.5,0.75)$。每次区间长度减半,$n$ 步后误差不超过 $\dfrac{b-a}{2^n}$。重复下去即可达到任意精度,真实根约为 $0.682$。</p>
+<p><strong>常见应用题型。</strong></p>
+<li>证明方程 $g(x)=h(x)$ 有解:令 $f=g-h$,找到使 $f$ 异号的两点。</li>
+<li>不动点存在性:若 $f:[0,1]\to[0,1]$ 连续,令 $g(x)=f(x)-x$,则 $g(0)\ge0$,$g(1)\le0$,故存在 $c$ 使 $f(c)=c$。</li>
+<li>现实情形:某人一天内体温从 $36.5^\circ\mathrm{C}$ 升到 $39^\circ\mathrm{C}$,则必有某一时刻体温恰为 $38^\circ\mathrm{C}$。</li>
+<p><strong>小结。</strong> 使用介值定理的步骤是:构造函数、验证连续、检查端点函数值异号(或夹住目标值)、得出存在性结论。注意它只保证"存在",不说明"唯一"或"具体位置"。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch2: Chapter 2. Limits (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

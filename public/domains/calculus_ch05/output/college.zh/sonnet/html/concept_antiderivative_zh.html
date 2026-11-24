@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Antiderivative | Calculus Ch05</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="原函数-不定积分的基础">原函数(不定积分的基础)</h2>
+<p><strong>定义。</strong> 若在区间 $I$ 上对每个 $x$ 都有</p>
+$$F'(x)=f(x),$$
+<p>则称 $F(x)$ 是 $f(x)$ 在 $I$ 上的一个<strong>原函数</strong>(antiderivative)。原函数不唯一:若 $F$ 是原函数,则对任意常数 $C$,$F(x)+C$ 也是,因为常数的导数为 $0$。反过来,若 $F$ 与 $G$ 都是 $f$ 的原函数,则 $(F-G)'=0$,由均值定理知 $F-G$ 在区间上为常数。因此 $f$ 的全部原函数可写成</p>
+$$\int f(x)\,dx = F(x)+C.$$
+<p><strong>常用公式。</strong></p>
+<p>| $f(x)$ | 一个原函数 $F(x)$ | |---|---| | $x^n\ (n\neq -1)$ | $\dfrac{x^{n+1}}{n+1}$ | | $\dfrac1x\ (x\neq0)$ | $\ln|x|$ | | $e^x$ | $e^x$ | | $\cos x$ | $\sin x$ | | $\sin x$ | $-\cos x$ |</p>
+<p><strong>例题 1。</strong> 求 $f(x)=3x^2-4\cos x+e^x$ 的所有原函数。</p>
+<p>逐项用公式(原函数对加法与常数倍是线性的):</p>
+$$F(x)=3\cdot\frac{x^3}{3}-4\sin x+e^x+C=x^3-4\sin x+e^x+C.$$
+<p><strong>检验:</strong> $F'(x)=3x^2-4\cos x+e^x=f(x)$。求原函数后一定要求导验证,这是最可靠的检查方法。</p>
+<p><strong>例题 2(初值问题)。</strong> 一质点的速度为 $v(t)=6t+2$(单位:m/s),且 $t=0$ 时位置为 $s(0)=5$ m,求 $s(t)$。</p>
+<p>位置是速度的原函数:</p>
+$$s(t)=3t^2+2t+C.$$
+<p>代入 $s(0)=5$,得 $C=5$,所以</p>
+$$s(t)=3t^2+2t+5.$$
+<p>常数 $C$ 由初始条件唯一确定,这正是原函数在物理问题中的作用。</p>
+<p><strong>应用:与定积分的联系。</strong> 微积分基本定理(牛顿–莱布尼茨公式)指出:若 $F$ 是连续函数 $f$ 在 $[a,b]$ 上的一个原函数,则</p>
+$$\int_a^b f(x)\,dx = F(b)-F(a).$$
+<p>例如计算 $\displaystyle\int_1^3 (2x+1)\,dx$:取 $F(x)=x^2+x$,则</p>
+$$F(3)-F(1)=(9+3)-(1+1)=10.$$
+<p>这里任取哪个 $C$ 都不影响结果,因为 $(F(b)+C)-(F(a)+C)=F(b)-F(a)$,常数相互抵消。于是,求曲线下面积这类"无限求和"的问题,被转化为"逆向求导"的问题。</p>
+<p><strong>常见错误。</strong></p>
+<li>忘记写 $+C$(不定积分中必须保留)。</li>
+<li>把 $\int \frac1x\,dx$ 套用幂函数公式,得到分母为零的错误结果;正确答案是 $\ln|x|+C$。</li>
+<li>对复合函数(如 $\cos 2x$)直接套用公式:$\int\cos 2x\,dx=\tfrac12\sin 2x+C$,须通过求导验证系数。</li>
+<p><strong>小结。</strong> 原函数是求导的逆运算,它们构成一族只差常数的函数;掌握基本公式、线性性质和求导检验,就能解决初值问题,并借助 $F(b)-F(a)$ 高效计算定积分。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch5: Chapter 5. Integration (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

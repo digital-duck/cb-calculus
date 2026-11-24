@@ -106,7 +106,7 @@
       {
         "name": "compound_interest_application_zh",
         "label": "Compound Interest Application Zh",
-        "file": "output/intro.zh/sonnet/html/concept_compound_interest_application_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_compound_interest_application_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -127,7 +127,7 @@
       {
         "name": "exponential_function_zh",
         "label": "Exponential Function Zh",
-        "file": "output/intro.zh/sonnet/html/concept_exponential_function_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_exponential_function_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -141,13 +141,6 @@
       {
         "name": "function",
         "label": "Function",
-        "file": "output/college.zh/sonnet/html/concept_function_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "name": "function",
-        "label": "Function",
         "file": "output/intro.en/sonnet/html/concept_function.html",
         "model": "sonnet",
         "language": "en"
@@ -155,7 +148,7 @@
       {
         "name": "function_zh",
         "label": "Function Zh",
-        "file": "output/intro.zh/sonnet/html/concept_function_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_function_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -174,13 +167,6 @@
         "language": "en"
       },
       {
-        "name": "inverse_function_zh",
-        "label": "Inverse Function Zh",
-        "file": "output/intro.zh/sonnet/html/concept_inverse_function_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "linear_function",
         "label": "Linear Function",
         "file": "output/college.en/sonnet/html/concept_linear_function.html",
@@ -197,7 +183,7 @@
       {
         "name": "linear_function_zh",
         "label": "Linear Function Zh",
-        "file": "output/intro.zh/sonnet/html/concept_linear_function_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_linear_function_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -216,13 +202,6 @@
         "language": "en"
       },
       {
-        "name": "logarithmic_function_zh",
-        "label": "Logarithmic Function Zh",
-        "file": "output/intro.zh/sonnet/html/concept_logarithmic_function_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "mathematical_model",
         "label": "Mathematical Model",
         "file": "output/college.en/sonnet/html/concept_mathematical_model.html",
@@ -239,7 +218,7 @@
       {
         "name": "mathematical_model_zh",
         "label": "Mathematical Model Zh",
-        "file": "output/intro.zh/sonnet/html/concept_mathematical_model_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_mathematical_model_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -260,7 +239,7 @@
       {
         "name": "natural_exponential_function_zh",
         "label": "Natural Exponential Function Zh",
-        "file": "output/intro.zh/sonnet/html/concept_natural_exponential_function_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_natural_exponential_function_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -281,7 +260,7 @@
       {
         "name": "number_e_zh",
         "label": "Number E Zh",
-        "file": "output/intro.zh/sonnet/html/concept_number_e_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_number_e_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -300,25 +279,11 @@
         "language": "en"
       },
       {
-        "name": "one_to_one_function_zh",
-        "label": "One To One Function Zh",
-        "file": "output/intro.zh/sonnet/html/concept_one_to_one_function_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "polynomial_function",
         "label": "Polynomial Function",
         "file": "output/college.en/sonnet/html/concept_polynomial_function.html",
         "model": "sonnet",
         "language": "en"
-      },
-      {
-        "name": "polynomial_function",
-        "label": "Polynomial Function",
-        "file": "output/college.zh/sonnet/html/concept_polynomial_function_zh.html",
-        "model": "sonnet",
-        "language": "zh"
       },
       {
         "name": "polynomial_function",
@@ -330,7 +295,7 @@
       {
         "name": "polynomial_function_zh",
         "label": "Polynomial Function Zh",
-        "file": "output/intro.zh/sonnet/html/concept_polynomial_function_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_polynomial_function_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -351,7 +316,7 @@
       {
         "name": "quadratic_function_zh",
         "label": "Quadratic Function Zh",
-        "file": "output/intro.zh/sonnet/html/concept_quadratic_function_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_quadratic_function_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -365,13 +330,6 @@
       {
         "name": "relation",
         "label": "Relation",
-        "file": "output/college.zh/sonnet/html/concept_relation_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "name": "relation",
-        "label": "Relation",
         "file": "output/intro.en/sonnet/html/concept_relation.html",
         "model": "sonnet",
         "language": "en"
@@ -379,7 +337,7 @@
       {
         "name": "relation_zh",
         "label": "Relation Zh",
-        "file": "output/intro.zh/sonnet/html/concept_relation_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_relation_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -398,13 +356,6 @@
         "language": "en"
       },
       {
-        "name": "richter_scale_application_zh",
-        "label": "Richter Scale Application Zh",
-        "file": "output/intro.zh/sonnet/html/concept_richter_scale_application_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "slope",
         "label": "Slope",
         "file": "output/college.en/sonnet/html/concept_slope.html",
@@ -421,7 +372,7 @@
       {
         "name": "slope_zh",
         "label": "Slope Zh",
-        "file": "output/intro.zh/sonnet/html/concept_slope_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_slope_zh.html",
         "model": "sonnet",
         "language": "zh"
       }
@@ -566,7 +517,7 @@
       {
         "name": "area_problem_zh",
         "label": "Area Problem Zh",
-        "file": "output/intro.zh/sonnet/html/concept_area_problem_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_area_problem_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -587,7 +538,7 @@
       {
         "name": "continuity_at_a_point_zh",
         "label": "Continuity At A Point Zh",
-        "file": "output/intro.zh/sonnet/html/concept_continuity_at_a_point_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_continuity_at_a_point_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -608,7 +559,7 @@
       {
         "name": "continuity_over_an_interval_zh",
         "label": "Continuity Over An Interval Zh",
-        "file": "output/intro.zh/sonnet/html/concept_continuity_over_an_interval_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_continuity_over_an_interval_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -627,13 +578,6 @@
         "language": "en"
       },
       {
-        "name": "derivative_zh",
-        "label": "Derivative Zh",
-        "file": "output/intro.zh/sonnet/html/concept_derivative_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "differential_calculus",
         "label": "Differential Calculus",
         "file": "output/college.en/sonnet/html/concept_differential_calculus.html",
@@ -646,13 +590,6 @@
         "file": "output/intro.en/sonnet/html/concept_differential_calculus.html",
         "model": "sonnet",
         "language": "en"
-      },
-      {
-        "name": "differential_calculus_zh",
-        "label": "Differential Calculus Zh",
-        "file": "output/intro.zh/sonnet/html/concept_differential_calculus_zh.html",
-        "model": "sonnet",
-        "language": "zh"
       },
       {
         "name": "integral_calculus",
@@ -671,7 +608,7 @@
       {
         "name": "integral_calculus_zh",
         "label": "Integral Calculus Zh",
-        "file": "output/intro.zh/sonnet/html/concept_integral_calculus_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_integral_calculus_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -692,7 +629,7 @@
       {
         "name": "intermediate_value_theorem_zh",
         "label": "Intermediate Value Theorem Zh",
-        "file": "output/intro.zh/sonnet/html/concept_intermediate_value_theorem_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_intermediate_value_theorem_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -713,7 +650,7 @@
       {
         "name": "limit_zh",
         "label": "Limit Zh",
-        "file": "output/intro.zh/sonnet/html/concept_limit_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_limit_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -732,13 +669,6 @@
         "language": "en"
       },
       {
-        "name": "multivariable_calculus_zh",
-        "label": "Multivariable Calculus Zh",
-        "file": "output/intro.zh/sonnet/html/concept_multivariable_calculus_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "rate_of_change",
         "label": "Rate Of Change",
         "file": "output/college.en/sonnet/html/concept_rate_of_change.html",
@@ -751,13 +681,6 @@
         "file": "output/intro.en/sonnet/html/concept_rate_of_change.html",
         "model": "sonnet",
         "language": "en"
-      },
-      {
-        "name": "rate_of_change_zh",
-        "label": "Rate Of Change Zh",
-        "file": "output/intro.zh/sonnet/html/concept_rate_of_change_zh.html",
-        "model": "sonnet",
-        "language": "zh"
       },
       {
         "name": "secant_line",
@@ -774,13 +697,6 @@
         "language": "en"
       },
       {
-        "name": "secant_line_zh",
-        "label": "Secant Line Zh",
-        "file": "output/intro.zh/sonnet/html/concept_secant_line_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "tangent_line",
         "label": "Tangent Line",
         "file": "output/college.en/sonnet/html/concept_tangent_line.html",
@@ -793,13 +709,6 @@
         "file": "output/intro.en/sonnet/html/concept_tangent_line.html",
         "model": "sonnet",
         "language": "en"
-      },
-      {
-        "name": "tangent_line_zh",
-        "label": "Tangent Line Zh",
-        "file": "output/intro.zh/sonnet/html/concept_tangent_line_zh.html",
-        "model": "sonnet",
-        "language": "zh"
       }
     ],
     "source": {
@@ -946,13 +855,6 @@
         "language": "en"
       },
       {
-        "name": "acceleration_zh",
-        "label": "Acceleration Zh",
-        "file": "output/intro.zh/sonnet/html/concept_acceleration_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "amount_of_change_formula",
         "label": "Amount Of Change Formula",
         "file": "output/intro.en/sonnet/html/concept_amount_of_change_formula.html",
@@ -965,13 +867,6 @@
         "file": "output/college.en/sonnet/html/concept_amount_of_change_formula.html",
         "model": "sonnet",
         "language": "en"
-      },
-      {
-        "name": "amount_of_change_formula_zh",
-        "label": "Amount Of Change Formula Zh",
-        "file": "output/intro.zh/sonnet/html/concept_amount_of_change_formula_zh.html",
-        "model": "sonnet",
-        "language": "zh"
       },
       {
         "name": "derivative_at_a_point",
@@ -988,16 +883,9 @@
         "language": "en"
       },
       {
-        "name": "derivative_at_a_point",
-        "label": "Derivative At A Point",
-        "file": "output/college.zh/sonnet/html/concept_derivative_at_a_point_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "derivative_at_a_point_zh",
         "label": "Derivative At A Point Zh",
-        "file": "output/intro.zh/sonnet/html/concept_derivative_at_a_point_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_derivative_at_a_point_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -1016,13 +904,6 @@
         "language": "en"
       },
       {
-        "name": "derivative_function_zh",
-        "label": "Derivative Function Zh",
-        "file": "output/intro.zh/sonnet/html/concept_derivative_function_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "difference_quotient",
         "label": "Difference Quotient",
         "file": "output/intro.en/sonnet/html/concept_difference_quotient.html",
@@ -1037,16 +918,9 @@
         "language": "en"
       },
       {
-        "name": "difference_quotient",
-        "label": "Difference Quotient",
-        "file": "output/college.zh/sonnet/html/concept_difference_quotient_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "difference_quotient_zh",
         "label": "Difference Quotient Zh",
-        "file": "output/intro.zh/sonnet/html/concept_difference_quotient_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_difference_quotient_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -1065,13 +939,6 @@
         "language": "en"
       },
       {
-        "name": "higher_order_derivatives_zh",
-        "label": "Higher Order Derivatives Zh",
-        "file": "output/intro.zh/sonnet/html/concept_higher_order_derivatives_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "instantaneous_rate_of_change",
         "label": "Instantaneous Rate Of Change",
         "file": "output/intro.en/sonnet/html/concept_instantaneous_rate_of_change.html",
@@ -1086,16 +953,9 @@
         "language": "en"
       },
       {
-        "name": "instantaneous_rate_of_change",
-        "label": "Instantaneous Rate Of Change",
-        "file": "output/college.zh/sonnet/html/concept_instantaneous_rate_of_change_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "instantaneous_rate_of_change_zh",
         "label": "Instantaneous Rate Of Change Zh",
-        "file": "output/intro.zh/sonnet/html/concept_instantaneous_rate_of_change_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_instantaneous_rate_of_change_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -1114,16 +974,9 @@
         "language": "en"
       },
       {
-        "name": "limit",
-        "label": "Limit",
-        "file": "output/college.zh/sonnet/html/concept_limit_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "limit_zh",
         "label": "Limit Zh",
-        "file": "output/intro.zh/sonnet/html/concept_limit_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_limit_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -1142,13 +995,6 @@
         "language": "en"
       },
       {
-        "name": "marginal_functions_zh",
-        "label": "Marginal Functions Zh",
-        "file": "output/intro.zh/sonnet/html/concept_marginal_functions_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "population_growth_rate",
         "label": "Population Growth Rate",
         "file": "output/intro.en/sonnet/html/concept_population_growth_rate.html",
@@ -1165,7 +1011,7 @@
       {
         "name": "population_growth_rate_zh",
         "label": "Population Growth Rate Zh",
-        "file": "output/intro.zh/sonnet/html/concept_population_growth_rate_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_population_growth_rate_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -1177,8 +1023,8 @@
         "language": "en"
       },
       {
-        "name": "secant_line",
-        "label": "Secant Line",
+        "name": "secant_line_zh",
+        "label": "Secant Line Zh",
         "file": "output/college.zh/sonnet/html/concept_secant_line_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -1191,8 +1037,8 @@
         "language": "en"
       },
       {
-        "name": "tangent_line",
-        "label": "Tangent Line",
+        "name": "tangent_line_zh",
+        "label": "Tangent Line Zh",
         "file": "output/college.zh/sonnet/html/concept_tangent_line_zh.html",
         "model": "sonnet",
         "language": "zh"
@@ -1212,16 +1058,9 @@
         "language": "en"
       },
       {
-        "name": "velocity",
-        "label": "Velocity",
-        "file": "output/college.zh/sonnet/html/concept_velocity_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "velocity_zh",
         "label": "Velocity Zh",
-        "file": "output/intro.zh/sonnet/html/concept_velocity_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_velocity_zh.html",
         "model": "sonnet",
         "language": "zh"
       }
@@ -1414,7 +1253,7 @@
       {
         "name": "absolute_extrema_zh",
         "label": "Absolute Extrema Zh",
-        "file": "output/intro.zh/sonnet/html/concept_absolute_extrema_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_absolute_extrema_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -1433,13 +1272,6 @@
         "language": "en"
       },
       {
-        "name": "antiderivative_zh",
-        "label": "Antiderivative Zh",
-        "file": "output/intro.zh/sonnet/html/concept_antiderivative_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "applied_optimization",
         "label": "Applied Optimization",
         "file": "output/college.en/sonnet/html/concept_applied_optimization.html",
@@ -1454,13 +1286,6 @@
         "language": "en"
       },
       {
-        "name": "applied_optimization_zh",
-        "label": "Applied Optimization Zh",
-        "file": "output/intro.zh/sonnet/html/concept_applied_optimization_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "concavity",
         "label": "Concavity",
         "file": "output/college.en/sonnet/html/concept_concavity.html",
@@ -1473,13 +1298,6 @@
         "file": "output/intro.en/sonnet/html/concept_concavity.html",
         "model": "sonnet",
         "language": "en"
-      },
-      {
-        "name": "concavity_zh",
-        "label": "Concavity Zh",
-        "file": "output/intro.zh/sonnet/html/concept_concavity_zh.html",
-        "model": "sonnet",
-        "language": "zh"
       },
       {
         "name": "critical_point",
@@ -1498,7 +1316,7 @@
       {
         "name": "critical_point_zh",
         "label": "Critical Point Zh",
-        "file": "output/intro.zh/sonnet/html/concept_critical_point_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_critical_point_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -1517,13 +1335,6 @@
         "language": "en"
       },
       {
-        "name": "curve_sketching_zh",
-        "label": "Curve Sketching Zh",
-        "file": "output/intro.zh/sonnet/html/concept_curve_sketching_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "derivative",
         "label": "Derivative",
         "file": "output/college.en/sonnet/html/concept_derivative.html",
@@ -1540,7 +1351,7 @@
       {
         "name": "derivative_zh",
         "label": "Derivative Zh",
-        "file": "output/intro.zh/sonnet/html/concept_derivative_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_derivative_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -1561,7 +1372,7 @@
       {
         "name": "differentials_zh",
         "label": "Differentials Zh",
-        "file": "output/intro.zh/sonnet/html/concept_differentials_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_differentials_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -1580,13 +1391,6 @@
         "language": "en"
       },
       {
-        "name": "end_behavior_zh",
-        "label": "End Behavior Zh",
-        "file": "output/intro.zh/sonnet/html/concept_end_behavior_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "extreme_value_theorem",
         "label": "Extreme Value Theorem",
         "file": "output/college.en/sonnet/html/concept_extreme_value_theorem.html",
@@ -1603,7 +1407,7 @@
       {
         "name": "extreme_value_theorem_zh",
         "label": "Extreme Value Theorem Zh",
-        "file": "output/intro.zh/sonnet/html/concept_extreme_value_theorem_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_extreme_value_theorem_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -1624,7 +1428,7 @@
       {
         "name": "fermats_theorem_zh",
         "label": "Fermats Theorem Zh",
-        "file": "output/intro.zh/sonnet/html/concept_fermats_theorem_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_fermats_theorem_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -1643,13 +1447,6 @@
         "language": "en"
       },
       {
-        "name": "first_derivative_test_zh",
-        "label": "First Derivative Test Zh",
-        "file": "output/intro.zh/sonnet/html/concept_first_derivative_test_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "growth_rates",
         "label": "Growth Rates",
         "file": "output/college.en/sonnet/html/concept_growth_rates.html",
@@ -1662,13 +1459,6 @@
         "file": "output/intro.en/sonnet/html/concept_growth_rates.html",
         "model": "sonnet",
         "language": "en"
-      },
-      {
-        "name": "growth_rates_zh",
-        "label": "Growth Rates Zh",
-        "file": "output/intro.zh/sonnet/html/concept_growth_rates_zh.html",
-        "model": "sonnet",
-        "language": "zh"
       },
       {
         "name": "horizontal_asymptote",
@@ -1685,13 +1475,6 @@
         "language": "en"
       },
       {
-        "name": "horizontal_asymptote_zh",
-        "label": "Horizontal Asymptote Zh",
-        "file": "output/intro.zh/sonnet/html/concept_horizontal_asymptote_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "indefinite_integral",
         "label": "Indefinite Integral",
         "file": "output/college.en/sonnet/html/concept_indefinite_integral.html",
@@ -1704,13 +1487,6 @@
         "file": "output/intro.en/sonnet/html/concept_indefinite_integral.html",
         "model": "sonnet",
         "language": "en"
-      },
-      {
-        "name": "indefinite_integral_zh",
-        "label": "Indefinite Integral Zh",
-        "file": "output/intro.zh/sonnet/html/concept_indefinite_integral_zh.html",
-        "model": "sonnet",
-        "language": "zh"
       },
       {
         "name": "indeterminate_forms",
@@ -1727,13 +1503,6 @@
         "language": "en"
       },
       {
-        "name": "indeterminate_forms_zh",
-        "label": "Indeterminate Forms Zh",
-        "file": "output/intro.zh/sonnet/html/concept_indeterminate_forms_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "initial_value_problem",
         "label": "Initial Value Problem",
         "file": "output/college.en/sonnet/html/concept_initial_value_problem.html",
@@ -1746,13 +1515,6 @@
         "file": "output/intro.en/sonnet/html/concept_initial_value_problem.html",
         "model": "sonnet",
         "language": "en"
-      },
-      {
-        "name": "initial_value_problem_zh",
-        "label": "Initial Value Problem Zh",
-        "file": "output/intro.zh/sonnet/html/concept_initial_value_problem_zh.html",
-        "model": "sonnet",
-        "language": "zh"
       },
       {
         "name": "lhopitals_rule",
@@ -1769,13 +1531,6 @@
         "language": "en"
       },
       {
-        "name": "lhopitals_rule_zh",
-        "label": "Lhopitals Rule Zh",
-        "file": "output/intro.zh/sonnet/html/concept_lhopitals_rule_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "limits_at_infinity",
         "label": "Limits At Infinity",
         "file": "output/college.en/sonnet/html/concept_limits_at_infinity.html",
@@ -1788,13 +1543,6 @@
         "file": "output/intro.en/sonnet/html/concept_limits_at_infinity.html",
         "model": "sonnet",
         "language": "en"
-      },
-      {
-        "name": "limits_at_infinity_zh",
-        "label": "Limits At Infinity Zh",
-        "file": "output/intro.zh/sonnet/html/concept_limits_at_infinity_zh.html",
-        "model": "sonnet",
-        "language": "zh"
       },
       {
         "name": "local_extrema",
@@ -1813,7 +1561,7 @@
       {
         "name": "local_extrema_zh",
         "label": "Local Extrema Zh",
-        "file": "output/intro.zh/sonnet/html/concept_local_extrema_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_local_extrema_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -1834,7 +1582,7 @@
       {
         "name": "locating_absolute_extrema_zh",
         "label": "Locating Absolute Extrema Zh",
-        "file": "output/intro.zh/sonnet/html/concept_locating_absolute_extrema_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_locating_absolute_extrema_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -1853,13 +1601,6 @@
         "language": "en"
       },
       {
-        "name": "mean_value_theorem_zh",
-        "label": "Mean Value Theorem Zh",
-        "file": "output/intro.zh/sonnet/html/concept_mean_value_theorem_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "mvt_corollaries",
         "label": "Mvt Corollaries",
         "file": "output/college.en/sonnet/html/concept_mvt_corollaries.html",
@@ -1874,13 +1615,6 @@
         "language": "en"
       },
       {
-        "name": "mvt_corollaries_zh",
-        "label": "Mvt Corollaries Zh",
-        "file": "output/intro.zh/sonnet/html/concept_mvt_corollaries_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "oblique_asymptote",
         "label": "Oblique Asymptote",
         "file": "output/college.en/sonnet/html/concept_oblique_asymptote.html",
@@ -1893,13 +1627,6 @@
         "file": "output/intro.en/sonnet/html/concept_oblique_asymptote.html",
         "model": "sonnet",
         "language": "en"
-      },
-      {
-        "name": "oblique_asymptote_zh",
-        "label": "Oblique Asymptote Zh",
-        "file": "output/intro.zh/sonnet/html/concept_oblique_asymptote_zh.html",
-        "model": "sonnet",
-        "language": "zh"
       },
       {
         "name": "propagated_error",
@@ -1918,7 +1645,7 @@
       {
         "name": "propagated_error_zh",
         "label": "Propagated Error Zh",
-        "file": "output/intro.zh/sonnet/html/concept_propagated_error_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_propagated_error_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -1937,13 +1664,6 @@
         "language": "en"
       },
       {
-        "name": "rolles_theorem_zh",
-        "label": "Rolles Theorem Zh",
-        "file": "output/intro.zh/sonnet/html/concept_rolles_theorem_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "second_derivative_test",
         "label": "Second Derivative Test",
         "file": "output/college.en/sonnet/html/concept_second_derivative_test.html",
@@ -1956,13 +1676,6 @@
         "file": "output/intro.en/sonnet/html/concept_second_derivative_test.html",
         "model": "sonnet",
         "language": "en"
-      },
-      {
-        "name": "second_derivative_test_zh",
-        "label": "Second Derivative Test Zh",
-        "file": "output/intro.zh/sonnet/html/concept_second_derivative_test_zh.html",
-        "model": "sonnet",
-        "language": "zh"
       }
     ],
     "source": {
@@ -2057,7 +1770,7 @@
       {
         "name": "antiderivative_zh",
         "label": "Antiderivative Zh",
-        "file": "output/intro.zh/sonnet/html/concept_antiderivative_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_antiderivative_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -2078,7 +1791,7 @@
       {
         "name": "area_under_curve_limit_zh",
         "label": "Area Under Curve Limit Zh",
-        "file": "output/intro.zh/sonnet/html/concept_area_under_curve_limit_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_area_under_curve_limit_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -2099,7 +1812,7 @@
       {
         "name": "definite_integral_zh",
         "label": "Definite Integral Zh",
-        "file": "output/intro.zh/sonnet/html/concept_definite_integral_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_definite_integral_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -2120,7 +1833,7 @@
       {
         "name": "displacement_from_velocity_zh",
         "label": "Displacement From Velocity Zh",
-        "file": "output/intro.zh/sonnet/html/concept_displacement_from_velocity_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_displacement_from_velocity_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -2141,7 +1854,7 @@
       {
         "name": "fundamental_theorem_calculus_part1_zh",
         "label": "Fundamental Theorem Calculus Part1 Zh",
-        "file": "output/intro.zh/sonnet/html/concept_fundamental_theorem_calculus_part1_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_fundamental_theorem_calculus_part1_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -2162,7 +1875,7 @@
       {
         "name": "fundamental_theorem_calculus_part2_zh",
         "label": "Fundamental Theorem Calculus Part2 Zh",
-        "file": "output/intro.zh/sonnet/html/concept_fundamental_theorem_calculus_part2_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_fundamental_theorem_calculus_part2_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -2183,7 +1896,7 @@
       {
         "name": "integrals_exponential_functions_zh",
         "label": "Integrals Exponential Functions Zh",
-        "file": "output/intro.zh/sonnet/html/concept_integrals_exponential_functions_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_integrals_exponential_functions_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -2204,7 +1917,7 @@
       {
         "name": "integration_by_substitution_zh",
         "label": "Integration By Substitution Zh",
-        "file": "output/intro.zh/sonnet/html/concept_integration_by_substitution_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_integration_by_substitution_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -2225,7 +1938,7 @@
       {
         "name": "net_change_theorem_zh",
         "label": "Net Change Theorem Zh",
-        "file": "output/intro.zh/sonnet/html/concept_net_change_theorem_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_net_change_theorem_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -2246,7 +1959,7 @@
       {
         "name": "partition_zh",
         "label": "Partition Zh",
-        "file": "output/intro.zh/sonnet/html/concept_partition_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_partition_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -2267,7 +1980,7 @@
       {
         "name": "price_demand_application_zh",
         "label": "Price Demand Application Zh",
-        "file": "output/intro.zh/sonnet/html/concept_price_demand_application_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_price_demand_application_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -2288,7 +2001,7 @@
       {
         "name": "riemann_sum_zh",
         "label": "Riemann Sum Zh",
-        "file": "output/intro.zh/sonnet/html/concept_riemann_sum_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_riemann_sum_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -2309,7 +2022,7 @@
       {
         "name": "sigma_notation_zh",
         "label": "Sigma Notation Zh",
-        "file": "output/intro.zh/sonnet/html/concept_sigma_notation_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_sigma_notation_zh.html",
         "model": "sonnet",
         "language": "zh"
       }
@@ -2458,13 +2171,6 @@
         "language": "en"
       },
       {
-        "name": "catenary_zh",
-        "label": "Catenary Zh",
-        "file": "output/intro.zh/sonnet/html/concept_catenary_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "exponential_decay_model",
         "label": "Exponential Decay Model",
         "file": "output/college.en/sonnet/html/concept_exponential_decay_model.html",
@@ -2481,7 +2187,7 @@
       {
         "name": "exponential_decay_model_zh",
         "label": "Exponential Decay Model Zh",
-        "file": "output/intro.zh/sonnet/html/concept_exponential_decay_model_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_exponential_decay_model_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -2502,7 +2208,7 @@
       {
         "name": "exponential_function_def_zh",
         "label": "Exponential Function Def Zh",
-        "file": "output/intro.zh/sonnet/html/concept_exponential_function_def_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_exponential_function_def_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -2523,7 +2229,7 @@
       {
         "name": "exponential_growth_model_zh",
         "label": "Exponential Growth Model Zh",
-        "file": "output/intro.zh/sonnet/html/concept_exponential_growth_model_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_exponential_growth_model_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -2542,13 +2248,6 @@
         "language": "en"
       },
       {
-        "name": "hyperbolic_functions_zh",
-        "label": "Hyperbolic Functions Zh",
-        "file": "output/intro.zh/sonnet/html/concept_hyperbolic_functions_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "natural_logarithm_integral_def",
         "label": "Natural Logarithm Integral Def",
         "file": "output/college.en/sonnet/html/concept_natural_logarithm_integral_def.html",
@@ -2563,16 +2262,9 @@
         "language": "en"
       },
       {
-        "name": "natural_logarithm_integral_def",
-        "label": "Natural Logarithm Integral Def",
-        "file": "output/college.zh/sonnet/html/concept_natural_logarithm_integral_def_zh.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "name": "natural_logarithm_integral_def_zh",
         "label": "Natural Logarithm Integral Def Zh",
-        "file": "output/intro.zh/sonnet/html/concept_natural_logarithm_integral_def_zh.html",
+        "file": "output/college.zh/sonnet/html/concept_natural_logarithm_integral_def_zh.html",
         "model": "sonnet",
         "language": "zh"
       },
@@ -2589,13 +2281,6 @@
         "file": "output/intro.en/sonnet/html/concept_newtons_law_of_cooling.html",
         "model": "sonnet",
         "language": "en"
-      },
-      {
-        "name": "newtons_law_of_cooling_zh",
-        "label": "Newtons Law Of Cooling Zh",
-        "file": "output/intro.zh/sonnet/html/concept_newtons_law_of_cooling_zh.html",
-        "model": "sonnet",
-        "language": "zh"
       }
     ],
     "source": {

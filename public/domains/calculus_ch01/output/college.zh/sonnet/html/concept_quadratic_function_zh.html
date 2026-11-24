@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quadratic Function | Calculus Ch01</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="二次函数">二次函数</h2>
+<p><strong>定义。</strong> 形如</p>
+$$f(x)=ax^2+bx+c\qquad(a\neq 0)$$
+<p>的函数称为<strong>二次函数</strong>,其图像是一条<strong>抛物线</strong>。系数 $a$ 决定开口方向与宽窄:$a>0$ 开口向上,$a<0$ 开口向下,$|a|$ 越大抛物线越"瘦"。$c$ 是图像与 $y$ 轴的交点纵坐标 $f(0)$。</p>
+<p><strong>配方与顶点式。</strong> 对 $ax^2+bx+c$ 配方,得</p>
+$$f(x)=a\left(x+\frac{b}{2a}\right)^2+\frac{4ac-b^2}{4a}.$$
+<p>由此可知:</p>
+<li>对称轴:$x=-\dfrac{b}{2a}$;</li>
+<li>顶点:$\left(-\dfrac{b}{2a},\ \dfrac{4ac-b^2}{4a}\right)$,当 $a>0$ 时为最小值点,当 $a<0$ 时为最大值点。</li>
+<p><strong>求根与判别式。</strong> 方程 $ax^2+bx+c=0$ 的解为</p>
+$$x=\frac{-b\pm\sqrt{\Delta}}{2a},\qquad \Delta=b^2-4ac.$$
+<p>$\Delta>0$ 时有两个不同实根(图像与 $x$ 轴交于两点);$\Delta=0$ 时有一个重根(顶点落在 $x$ 轴上);$\Delta<0$ 时无实根(图像与 $x$ 轴不相交)。</p>
+<p><strong>例题。</strong> 分析 $f(x)=x^2-4x+3$。 这里 $a=1,\ b=-4,\ c=3$。对称轴为 $x=-\dfrac{-4}{2}=2$,顶点纵坐标 $f(2)=4-8+3=-1$,故顶点为 $(2,-1)$,且为最小值点。判别式 $\Delta=16-12=4>0$,根为 $x=\dfrac{4\pm2}{2}$,即 $x=1$ 或 $x=3$。因此 $f(x)=(x-1)(x-3)$,图像开口向上,与 $y$ 轴交于 $(0,3)$。</p>
+<p><strong>应用题。</strong> 用 $40\ \text{m}$ 长的栅栏围一个一面靠墙的矩形菜地,问如何围才能使面积最大?</p>
+<p>设垂直于墙的边长为 $x$,则平行于墙的边长为 $40-2x$,面积</p>
+$$S(x)=x(40-2x)=-2x^2+40x,\qquad 0<x<20.$$
+<p>这是 $a=-2<0$ 的二次函数,开口向下,最大值在顶点处取得:</p>
+$$x=-\frac{40}{2\times(-2)}=10,\qquad S(10)=-200+400=200.$$
+<p>所以当垂直于墙的边长为 $10\ \text{m}$、平行于墙的边长为 $20\ \text{m}$ 时,面积最大,为 $200\ \text{m}^2$。注意 $x=10$ 在定义域 $(0,20)$ 内,结果有效。</p>
+<p><strong>解题要点。</strong> 遇到"最大/最小"问题时,先建立二次函数模型,再检查 $a$ 的符号判断最值类型,用 $x=-\dfrac{b}{2a}$ 求最值点,最后核对该点是否落在实际定义域内。</p>
+<pre class="mermaid">flowchart TD
+A["给定 f(x)=ax²+bx+c"] --> B{"a 的符号?"}
+B -->|"a>0"| C["开口向上:顶点为最小值"]
+B -->|"a<0"| D["开口向下:顶点为最大值"]
+C --> E["对称轴 x=-b/2a"]
+D --> E
+E --> F{"判别式 Δ=b²-4ac"}
+F -->|"Δ>0"| G["两个实根"]
+F -->|"Δ=0"| H["一个重根"]
+F -->|"Δ<0"| I["无实根"]</pre>
+<p><em>分析二次函数的流程:先由 $a$ 判断开口方向,再求对称轴与顶点,最后用判别式判断根的个数。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch1: Chapter 1. Functions and Graphs (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

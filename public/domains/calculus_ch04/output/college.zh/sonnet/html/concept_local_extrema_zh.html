@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Local Extrema | Calculus Ch04</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="局部极值">局部极值</h2>
+<p><strong>定义。</strong> 设函数 $f$ 在点 $c$ 的某个邻域 $(c-\delta,\,c+\delta)$ 内有定义。</p>
+<li>若对邻域内所有 $x$ 都有 $f(x)\le f(c)$,则称 $f(c)$ 为<strong>局部极大值</strong>;</li>
+<li>若对邻域内所有 $x$ 都有 $f(x)\ge f(c)$,则称 $f(c)$ 为<strong>局部极小值</strong>。</li>
+<p>两者统称<strong>局部极值</strong>。"局部"意味着只与附近的点比较,不要求在整个定义域上最大或最小。</p>
+<p><strong>费马定理。</strong> 若 $f$ 在 $c$ 处取得局部极值,且 $f'(c)$ 存在,则 $f'(c)=0$。</p>
+<p><em>理由:</em> 设 $c$ 处为局部极大值。当 $h>0$ 很小时,$\dfrac{f(c+h)-f(c)}{h}\le 0$,因此右导数 $\le 0$。当 $h<0$ 时,该商 $\ge 0$,因此左导数 $\ge 0$。导数存在时两者相等,只能等于 $0$。</p>
+<p>使 $f'(c)=0$ 或 $f'(c)$ 不存在的点称为<strong>临界点</strong>。极值只可能出现在临界点,但临界点不一定是极值。例如 $f(x)=x^3$ 在 $x=0$ 处 $f'(0)=0$,函数却严格递增。</p>
+<p><strong>判别法。</strong></p>
+<li><em>一阶导数判别法:</em> 经过临界点时,$f'$ 由正变负为极大值,由负变正为极小值,符号不变则不是极值。</li>
+<li><em>二阶导数判别法:</em> 若 $f'(c)=0$,则 $f''(c)>0$ 时为极小值,$f''(c)<0$ 时为极大值,$f''(c)=0$ 时无法判定。</li>
+<p><strong>例题。</strong> 求 $f(x)=x^3-3x^2-9x+5$ 的局部极值。</p>
+<li>求导:$f'(x)=3x^2-6x-9=3(x-3)(x+1)$,临界点为 $x=-1$ 和 $x=3$。</li>
+<li>二阶导数:$f''(x)=6x-6$。</li>
+<li>$f''(-1)=-12<0$,所以 $x=-1$ 处为局部极大值,$f(-1)=-1-3+9+5=10$。</li>
+<li>$f''(3)=12>0$,所以 $x=3$ 处为局部极小值,$f(3)=27-27-27+5=-22$。</li>
+<p><strong>应用。</strong> 用一张 $12\times 12$ 厘米的方形纸板,在四角各剪去边长为 $x$ 的小方块,折成无盖盒子。求容积最大时的 $x$。</p>
+<p>容积为 $V(x)=x(12-2x)^2$,定义域为 $0<x<6$。展开得 $V(x)=4x^3-48x^2+144x$,于是</p>
+$$V'(x)=12x^2-96x+144=12(x-2)(x-6).$$
+<p>在定义域内只有临界点 $x=2$。此时 $V''(x)=24x-96$,$V''(2)=-48<0$,所以这是局部极大值。该点两侧 $V'$ 由正变负,而 $V(0)=V(6)=0$,所以它也是区间上的最大值,$V(2)=2\cdot 8^2=128\ \text{cm}^3$。</p>
+<p><strong>要点。</strong> 求局部极值的步骤是:先求临界点,再用一阶或二阶导数判别法分类。若问题限定在某个闭区间内,还要比较端点处的函数值,才能确定最大值或最小值。</p>
+<pre class="mermaid">flowchart TD
+A["求 f'(x)"] --> B["解 f'(x)=0 或 f' 不存在"]
+B --> C["得到临界点 c"]
+C --> D{"f''(c) 的符号"}
+D -->|"大于 0"| E["局部极小值"]
+D -->|"小于 0"| F["局部极大值"]
+D -->|"等于 0"| G["改用一阶导数判别法"]</pre>
+<p><em>图:用二阶导数判别法对临界点分类的流程。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch4: Chapter 4. Applications of Derivatives (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partition | Calculus Ch05</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="划分-partition">划分(Partition)</h2>
+<p><strong>定义。</strong> 闭区间 $[a,b]$ 的一个<strong>划分</strong>是一组有限的点</p>
+$$P=\{x_0,x_1,\dots,x_n\},\qquad a=x_0<x_1<\cdots<x_n=b,$$
+<p>它把 $[a,b]$ 分成 $n$ 个子区间 $[x_{i-1},x_i]$($i=1,\dots,n$)。第 $i$ 个子区间的宽度为 $\Delta x_i=x_i-x_{i-1}$,各宽度之和恒为 $b-a$。划分的<strong>范数</strong>(最大子区间宽度)记作</p>
+$$\|P\|=\max_{1\le i\le n}\Delta x_i.$$
+<p>若所有子区间等宽,则称 $P$ 为<strong>正则划分</strong>(等分划分)。此时</p>
+$$\Delta x=\frac{b-a}{n},\qquad x_i=a+i\,\Delta x,\quad i=0,1,\dots,n,$$
+<p>并且 $\|P\|=\Delta x$。</p>
+<p><strong>例题。</strong> 设 $[a,b]=[0,3]$。</p>
+<li>取 $P_1=\{0,\,1,\,2,\,3\}$:$n=3$,$\Delta x=\frac{3-0}{3}=1$,这是正则划分,$\|P_1\|=1$。</li>
+<li>取 $P_2=\{0,\,0.5,\,2,\,3\}$:宽度依次为 $0.5,\ 1.5,\ 1$,三者不相等,所以不是正则划分,且 $\|P_2\|=1.5$。</li>
+<p>可见,点数相同的划分未必是正则的;范数衡量的是"最粗"的那一块。</p>
+<p><strong>问题求解应用。</strong> 划分是黎曼和的基础。对 $f(x)=x^2$ 在 $[0,2]$ 上取 $n=4$ 的正则划分,用右端点求近似面积:</p>
+<li>$\Delta x=\frac{2-0}{4}=0.5$,分点为 $0,\,0.5,\,1,\,1.5,\,2$。</li>
+<li>右端点黎曼和为</li>
+$$R_4=\sum_{i=1}^{4}f(x_i)\,\Delta x=0.5\,(0.25+1+2.25+4)=3.75.$$
+<p>精确值为 $\int_0^2x^2\,dx=\frac{8}{3}\approx2.667$,右端点和偏大,因为 $f$ 在该区间上递增。</p>
+<p>对一般的 $n$,取正则划分 $x_i=\frac{2i}{n}$,则</p>
+$$R_n=\sum_{i=1}^{n}\left(\frac{2i}{n}\right)^2\frac{2}{n}=\frac{8}{n^3}\cdot\frac{n(n+1)(2n+1)}{6}.$$
+<p>当 $n\to\infty$ 时,$\|P\|=\frac{2}{n}\to0$,于是 $R_n\to\frac{8}{6}\cdot2=\frac{8}{3}$,与精确值一致。</p>
+<p><strong>要点。</strong></p>
+<li>划分由满足 $a=x_0<\cdots<x_n=b$ 的分点唯一确定,子区间宽度之和为 $b-a$。</li>
+<li>正则划分只需知道 $a$、$b$ 和 $n$,计算最方便。</li>
+<li>积分的定义要求 $\|P\|\to0$,而不仅仅是 $n\to\infty$;对非正则划分,只增加点数并不能保证每个子区间都变窄。</li>
+<pre class="mermaid">graph LR
+    A["区间 [a,b]"] --> B["选取分点 x0 到 xn"]
+    B --> C["得到 n 个子区间"]
+    C --> D{"宽度是否全部相等?"}
+    D -->|是| E["正则划分: Δx = (b-a)/n"]
+    D -->|否| F["一般划分: 范数为最大宽度"]</pre>
+<p><em>图:从区间 $[a,b]$ 出发构造划分,并按子区间宽度是否相等区分正则划分与一般划分。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch5: Chapter 5. Integration (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

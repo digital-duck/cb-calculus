@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Area Problem | Calculus Ch02</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="面积问题">面积问题</h2>
+<h3 id="定义">定义</h3>
+<p><strong>面积问题</strong>是指:对于区间 $[a,b]$ 上的非负连续函数 $f$,求曲线 $y=f(x)$、$x$ 轴以及直线 $x=a$、$x=b$ 所围成区域的面积。</p>
+<p>由于曲边区域没有现成的面积公式,我们用<strong>细矩形之和</strong>来逼近它:</p>
+<li>将 $[a,b]$ 等分为 $n$ 个小区间,每个宽度为 $\Delta x=\dfrac{b-a}{n}$,分点为 $x_i=a+i\,\Delta x$。</li>
+<li>在每个小区间上取一个样本点(如右端点 $x_i$),以 $f(x_i)$ 为高作矩形。</li>
+<li>把所有矩形面积相加,得到黎曼和:</li>
+$$
+S_n=\sum_{i=1}^{n} f(x_i)\,\Delta x .
+$$
+<p>当 $n$ 增大时,矩形变细,$S_n$ 越来越接近真实面积 $A$:</p>
+$$
+A=\lim_{n\to\infty}\sum_{i=1}^{n} f(x_i)\,\Delta x .
+$$
+<pre class="mermaid">flowchart LR
+    A[曲线下的区域] --> B[等分区间]
+    B --> C[每段作一个矩形]
+    C --> D[求矩形面积之和]
+    D --> E[增大 n 使矩形变细]
+    E --> F[极限即为面积]</pre>
+<p><em>图:用细矩形逼近曲线下面积的基本步骤。</em></p>
+<h3 id="例题">例题</h3>
+<p>求 $f(x)=x^2$ 在 $[0,1]$ 上的面积。</p>
+<p>取 $n$ 个矩形,$\Delta x=\dfrac1n$,$x_i=\dfrac in$,于是</p>
+$$
+S_n=\sum_{i=1}^{n}\left(\frac in\right)^2\frac1n=\frac{1}{n^3}\sum_{i=1}^{n} i^2=\frac{1}{n^3}\cdot\frac{n(n+1)(2n+1)}{6}.
+$$
+<p>化简得</p>
+$$
+S_n=\frac{(n+1)(2n+1)}{6n^2}=\frac13+\frac1{2n}+\frac1{6n^2}.
+$$
+<p>数值检验:$n=10$ 时 $S_{10}=0.385$;$n=100$ 时 $S_{100}\approx0.33835$。令 $n\to\infty$,得</p>
+$$
+A=\frac13 .
+$$
+<h3 id="问题求解应用">问题求解应用</h3>
+<p><strong>问题:</strong> 一辆车的速度为 $v(t)=2t$(m/s),求前 $4$ 秒内的位移。</p>
+<p>位移等于速度曲线下的面积,这正是面积问题。</p>
+<li><strong>估算:</strong> 取 $n=4$,$\Delta t=1$,右端点和为 $S_4=(2+4+6+8)\cdot1=20$ m。</li>
+<li><strong>精确值:</strong> 该区域是底为 $4$、高为 $8$ 的三角形,面积为 $\tfrac12\cdot4\cdot8=16$ m。</li>
+<p>右端点和 $20$ 偏大,原因是 $v$ 递增,每个矩形都高出曲线。若取左端点,则 $S_4=(0+2+4+6)=12$ m,偏小。真值 $16$ 介于两者之间,且两者之差为</p>
+$$
+\bigl(v(4)-v(0)\bigr)\Delta t=8\Delta t\to0\quad(n\to\infty),
+$$
+<p>这说明左、右和夹逼出同一个极限。</p>
+<p><strong>方法小结:</strong> 遇到"曲线下面积"(或位移、累积量等同类问题),先分割、再求和、后取极限;对单调函数,左、右端点和分别给出下界与上界,可用来估计误差。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch2: Chapter 2. Limits (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

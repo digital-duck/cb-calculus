@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Area Under Curve Limit | Calculus Ch05</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="曲线下面积的极限">曲线下面积的极限</h2>
+<p><strong>定义。</strong> 设 $f$ 在 $[a,b]$ 上连续且非负。把区间等分为 $n$ 个子区间，每个宽度 $\Delta x=\dfrac{b-a}{n}$，取分点 $x_i=a+i\,\Delta x$。黎曼和为</p>
+$$
+S_n=\sum_{i=1}^{n} f(x_i)\,\Delta x ,
+$$
+<p>它用 $n$ 个矩形近似曲线下的面积。<strong>曲线下的精确面积</strong>定义为 $n\to\infty$ 时黎曼和的极限：</p>
+$$
+A=\lim_{n\to\infty}\sum_{i=1}^{n} f(x_i)\,\Delta x=\int_a^b f(x)\,dx .
+$$
+<p>直观上，$n$ 越大，矩形越窄，矩形顶部与曲线之间的误差越小，最终趋于零。</p>
+<p><strong>例题。</strong> 求 $f(x)=x^2$ 在 $[0,1]$ 上的曲线下面积。</p>
+<p>此时 $\Delta x=\dfrac1n$，$x_i=\dfrac in$，所以</p>
+$$
+S_n=\sum_{i=1}^{n}\left(\frac in\right)^2\frac1n=\frac{1}{n^3}\sum_{i=1}^{n} i^2 .
+$$
+<p>利用公式 $\sum_{i=1}^{n} i^2=\dfrac{n(n+1)(2n+1)}{6}$，得</p>
+$$
+S_n=\frac{n(n+1)(2n+1)}{6n^3}=\frac{1}{6}\left(1+\frac1n\right)\left(2+\frac1n\right).
+$$
+<p>令 $n\to\infty$，$\dfrac1n\to0$，因此</p>
+$$
+A=\lim_{n\to\infty}S_n=\frac16\cdot1\cdot2=\frac13 .
+$$
+<p>数值检验：$n=10$ 时 $S_{10}=0.385$，$n=100$ 时 $S_{100}\approx0.33835$，逐步逼近 $\dfrac13$。</p>
+<p><strong>问题求解应用。</strong> 求 $f(x)=2x+1$ 在 $[0,3]$ 上的面积。</p>
+<li>确定 $\Delta x=\dfrac3n$，$x_i=\dfrac{3i}{n}$。</li>
+<li>写出黎曼和：</li>
+$$
+S_n=\sum_{i=1}^{n}\left(\frac{6i}{n}+1\right)\frac3n=\frac{18}{n^2}\sum_{i=1}^{n}i+\frac{3}{n}\cdot n .
+$$
+<li>代入 $\sum_{i=1}^{n} i=\dfrac{n(n+1)}{2}$：</li>
+$$
+S_n=\frac{18}{n^2}\cdot\frac{n(n+1)}{2}+3=9\left(1+\frac1n\right)+3 .
+$$
+<li>取极限：$A=9+3=12$。</li>
+<p>检验：该图形是梯形，上下底为 $1$ 和 $7$，高为 $3$，面积 $\dfrac{(1+7)\cdot3}{2}=12$，结果一致。</p>
+<p><strong>解题步骤总结：</strong> ① 写出 $\Delta x$ 与 $x_i$；② 列出黎曼和；③ 用求和公式化为 $n$ 的显式表达式；④ 令 $n\to\infty$ 求极限。要点在于：必须先把和化简成关于 $n$ 的闭式，才能计算极限。</p>
+<pre class="mermaid">flowchart LR
+A[划分区间为n份] --> B[构造矩形求和]
+B --> C[得到黎曼和 S_n]
+C --> D[令n趋于无穷]
+D --> E[极限即精确面积]</pre>
+<p><em>图示：从区间划分到取极限，得到曲线下精确面积的流程。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch5: Chapter 5. Integration (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

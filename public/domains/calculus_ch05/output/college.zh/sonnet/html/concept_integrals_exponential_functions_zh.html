@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Integrals Exponential Functions | Calculus Ch05</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="指数函数的积分">指数函数的积分</h2>
+<h3 id="定义">定义</h3>
+<p>指数函数的积分公式由求导公式反推而来。因为 $\dfrac{d}{dx}e^x=e^x$,以及 $\dfrac{d}{dx}a^x=a^x\ln a$,所以对 $a>0,\ a\neq 1$:</p>
+$$\int e^x\,dx=e^x+C,\qquad \int a^x\,dx=\frac{a^x}{\ln a}+C.$$
+<p>当指数是线性函数时,用换元法 $u=kx+b$,则 $du=k\,dx$:</p>
+$$\int e^{kx+b}\,dx=\frac{1}{k}e^{kx+b}+C\quad(k\neq 0).$$
+<p>一般形式为:若 $u=g(x)$,则</p>
+$$\int e^{g(x)}g'(x)\,dx=\int e^u\,du=e^{g(x)}+C.$$
+<p>关键是在被积函数中识别出"指数部分的导数"。</p>
+<h3 id="例题">例题</h3>
+<p><strong>例 1</strong> 求 $\displaystyle\int 3^{2x}\,dx$。</p>
+<p>令 $u=2x$,则 $dx=\tfrac12du$:</p>
+$$\int 3^{u}\cdot\frac12\,du=\frac{1}{2}\cdot\frac{3^{u}}{\ln 3}+C=\frac{3^{2x}}{2\ln 3}+C.$$
+<p><strong>例 2</strong> 求 $\displaystyle\int x\,e^{x^2}\,dx$。</p>
+<p>指数部分为 $x^2$,其导数 $2x$ 与被积函数中的 $x$ 只差常数倍。令 $u=x^2$,则 $x\,dx=\tfrac12du$:</p>
+$$\int e^{u}\cdot\frac12\,du=\frac12e^{x^2}+C.$$
+<p>检验:$\dfrac{d}{dx}\left(\tfrac12e^{x^2}\right)=\tfrac12e^{x^2}\cdot2x=xe^{x^2}$ ✓。</p>
+<h3 id="问题求解应用">问题求解应用</h3>
+<p><strong>应用:连续衰减的累积量。</strong> 某放射性样品的衰变速率为 $r(t)=500e^{-0.2t}$(单位:原子/小时)。求前 $5$ 小时内共衰变的原子数。</p>
+<p>累积量等于速率的定积分:</p>
+$$N=\int_0^5 500e^{-0.2t}\,dt.$$
+<p>令 $u=-0.2t$,则 $dt=-5\,du$,即 $k=-0.2$,于是</p>
+$$N=500\cdot\frac{1}{-0.2}\Big[e^{-0.2t}\Big]_0^5=-2500\left(e^{-1}-1\right)=2500\left(1-e^{-1}\right)\approx 1580.$$
+<p>所以前 $5$ 小时约衰变 $1580$ 个原子。</p>
+<p><strong>常见错误提醒:</strong></p>
+<li>忘记除以内层函数的导数系数:$\int e^{5x}dx\neq e^{5x}+C$,正确结果是 $\tfrac15e^{5x}+C$。</li>
+<li>把底数 $a$ 的公式与 $e$ 混淆:$\int 2^x dx\neq 2^x+C$,必须除以 $\ln 2$。</li>
+<li>被积函数中的 $x$ 因子与指数的导数不成常数倍时(如 $\int e^{x^2}dx$),换元法失效;此函数没有初等原函数。</li>
+<p><strong>解题步骤:</strong> (1)找出指数部分 $g(x)$;(2)检查被积函数中是否含有 $g'(x)$(允许差一个常数倍);(3)令 $u=g(x)$ 换元并积分;(4)回代,求导检验。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch5: Chapter 5. Integration (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

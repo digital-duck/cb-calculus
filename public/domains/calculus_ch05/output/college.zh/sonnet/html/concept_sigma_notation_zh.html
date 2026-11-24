@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sigma Notation | Calculus Ch05</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="求和符号-sigma-记号">求和符号(Sigma 记号)</h2>
+<p><strong>定义。</strong> 希腊字母 $\Sigma$(西格玛)用来简洁地表示一列数的和。表达式</p>
+$$\sum_{i=m}^{n} a_i = a_m + a_{m+1} + \cdots + a_n$$
+<p>中,$i$ 称为<strong>求和指标</strong>(哑变量),$m$ 是<strong>下限</strong>,$n$ 是<strong>上限</strong>,$a_i$ 是<strong>通项</strong>。指标 $i$ 只在求和式内部有意义,换成 $j$ 或 $k$ 结果不变:$\sum_{i=1}^{n} a_i=\sum_{k=1}^{n} a_k$。项数为 $n-m+1$。</p>
+<p><strong>基本性质(线性)。</strong> 对常数 $c$:</p>
+$$\sum_{i=m}^{n} (c\,a_i + b_i) = c\sum_{i=m}^{n} a_i + \sum_{i=m}^{n} b_i$$
+<p><strong>常用公式。</strong></p>
+$$\sum_{i=1}^{n} 1 = n,\qquad \sum_{i=1}^{n} i = \frac{n(n+1)}{2},\qquad \sum_{i=1}^{n} i^2 = \frac{n(n+1)(2n+1)}{6}$$
+<p><strong>例题 1(展开与计算)。</strong> 计算 $\sum_{k=2}^{5} (2k-1)$。</p>
+<p>逐项展开:$k=2,3,4,5$ 分别给出 $3,5,7,9$,所以和为 $3+5+7+9=24$。</p>
+<p>也可用线性性质:项数为 $4$,</p>
+$$\sum_{k=2}^{5}(2k-1)=2\sum_{k=2}^{5}k-4=2\cdot 14-4=24.$$
+<p><strong>例题 2(把和式写成 $\Sigma$)。</strong> 把 $2+4+8+16+32$ 写成求和式。观察到第 $i$ 项是 $2^i$,从 $i=1$ 到 $5$:</p>
+$$\sum_{i=1}^{5} 2^i.$$
+<p>同一个和也可以写成 $\sum_{j=0}^{4} 2^{j+1}$,这叫做<strong>指标平移</strong>,需要同时改变上下限和通项。</p>
+<p><strong>问题求解应用。</strong> 求 $\sum_{i=1}^{n}(3i^2 - 2i + 1)$ 的闭式。</p>
+<p>先拆分,再套用公式:</p>
+$$3\cdot\frac{n(n+1)(2n+1)}{6} - 2\cdot\frac{n(n+1)}{2} + n = \frac{n(n+1)(2n+1)}{2} - n(n+1) + n.$$
+<p>通分化简得 $\dfrac{n(n+1)(2n-1)}{2}+n=\dfrac{2n^3+n^2-n+2n}{2}=\dfrac{2n^3+n^2+n}{2}$。</p>
+<p>用 $n=2$ 检验:直接计算为 $(3-2+1)+(12-4+1)=2+9=11$;公式给出 $\dfrac{16+4+2}{2}=11$。✓</p>
+<p><strong>常见错误。</strong></p>
+<li>不能把常数项当成只出现一次:$\sum_{i=1}^{n}1=n$,而不是 $1$。</li>
+<li>$\sum a_ib_i \neq \left(\sum a_i\right)\left(\sum b_i\right)$,乘积的和不等于和的乘积。</li>
+<li>平移指标时忘记同步调整上下限。</li>
+<p><strong>编程对照。</strong> 求和符号与循环等价:<code>sum(2*k - 1 for k in range(2, 6))</code> 返回 <code>24</code>。理解这一点,能帮助你将数学公式转化为程序,也能用闭式公式把 $O(n)$ 的循环优化成 $O(1)$ 的计算。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch5: Chapter 5. Integration (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

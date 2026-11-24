@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Population Growth Rate | Calculus Ch03</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="人口增长率">人口增长率</h2>
+<h3 id="定义">定义</h3>
+<p>设 $P(t)$ 表示 $t$ 时刻的人口规模。<strong>人口增长率</strong>是人口规模对时间的导数:</p>
+$$
+\frac{dP}{dt}=\lim_{\Delta t\to 0}\frac{P(t+\Delta t)-P(t)}{\Delta t}
+$$
+<p>它表示 $t$ 时刻人口的瞬时变化速度,单位为"人/年"。若 $\frac{dP}{dt}>0$,人口增加;若 $\frac{dP}{dt}<0$,人口减少。</p>
+<p>另一个常用量是<strong>相对增长率</strong> $\frac{1}{P}\frac{dP}{dt}$,表示每个个体平均的增长速度。若它是常数 $k$,则</p>
+$$
+\frac{dP}{dt}=kP \quad\Longrightarrow\quad P(t)=P_0e^{kt}
+$$
+<p>其中 $P_0=P(0)$ 为初始人口。</p>
+<h3 id="例题">例题</h3>
+<p>某城市人口(单位:千人)近似为 $P(t)=500e^{0.02t}$,$t$ 以年计,从今年($t=0$)起算。求 $t=5$ 时的增长率,并估计一年后的人口。</p>
+<p><strong>第一步:求导。</strong></p>
+$$
+P'(t)=500\cdot 0.02\,e^{0.02t}=10e^{0.02t}
+$$
+<p><strong>第二步:代入 $t=5$。</strong></p>
+$$
+P'(5)=10e^{0.1}\approx 11.05 \text{(千人/年)}
+$$
+<p>即第 5 年时,人口每年约增加 11050 人。</p>
+<p><strong>第三步:线性近似。</strong>用切线估计未来值:</p>
+$$
+P(t+\Delta t)\approx P(t)+P'(t)\,\Delta t
+$$
+<p>已知 $P(5)=500e^{0.1}\approx 552.6$,所以</p>
+$$
+P(6)\approx 552.6+11.05\times 1\approx 563.7 \text{(千人)}
+$$
+<p>精确值为 $500e^{0.12}\approx 563.8$,误差很小,因为 $\Delta t=1$ 年相对于变化尺度较短。</p>
+<h3 id="应用-何时人口翻倍">应用:何时人口翻倍?</h3>
+<p><strong>问题:</strong>在上述模型下,人口多少年后翻倍?</p>
+<p>令 $P(t)=2P_0$:</p>
+$$
+500e^{0.02t}=1000 \;\Rightarrow\; e^{0.02t}=2 \;\Rightarrow\; t=\frac{\ln 2}{0.02}\approx 34.7 \text{年}
+$$
+<p>翻倍时间 $t_d=\frac{\ln 2}{k}$ 只取决于相对增长率 $k$,与初始人口无关。</p>
+<p><strong>增长率不是常数的情形:</strong>现实中资源有限,常用逻辑斯谛模型</p>
+$$
+\frac{dP}{dt}=kP\left(1-\frac{P}{M}\right)
+$$
+<p>其中 $M$ 为环境容纳量。当 $P$ 很小时,$1-\frac{P}{M}\approx 1$,近似指数增长;当 $P\to M$ 时,$\frac{dP}{dt}\to 0$,人口趋于稳定。增长最快的时刻出现在 $P=\frac{M}{2}$ 处,因为此时 $kP(1-P/M)$ 取最大值。</p>
+<h3 id="小结">小结</h3>
+<li>增长率 $P'(t)$ 是人口函数的导数,描述瞬时变化速度。</li>
+<li>用 $P(t+\Delta t)\approx P(t)+P'(t)\Delta t$ 可估计短期未来人口,预测期越短越准确。</li>
+<li>建立增长率与人口的关系(如 $P'=kP$)并求解,可以进行长期预测。</li>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch3: Chapter 3. Derivatives (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>
