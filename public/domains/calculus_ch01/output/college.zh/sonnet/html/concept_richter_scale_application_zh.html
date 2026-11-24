@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Richter Scale Application | Calculus Ch01</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="richter-scale-application">Richter Scale Application</h2>
+<p><strong>定义</strong></p>
+<p>里氏震级（Richter Scale）是一种以10为底的对数标度，用来比较地震释放能量的相对强度。地震仪记录到的地震波振幅 $A$ 与一个标准参考振幅 $A_0$（对应极微弱震动）之比，经过对数变换后得到震级：</p>
+$$
+M = \log_{10}\left(\frac{A}{A_0}\right)
+$$
+<p>之所以采用对数而非线性标度，是因为地震释放的能量跨越了极大的数量级范围——从几乎无法察觉的微震到摧毁城市的大震，线性标度无法在一张图表或一个简单数字上同时呈现如此悬殊的差异。对数把乘法关系转换成加法关系，使得数字更易读、易比较。</p>
+<p><strong>关键结论：每增加1级，振幅增大10倍</strong></p>
+<p>由对数的定义可直接推出：若 $M_2 - M_1 = 1$，则</p>
+$$
+\frac{A_2}{A_1} = 10^{(M_2-M_1)} = 10^1 = 10
+$$
+<p>即震级每上升1级，地震波的振幅是原来的10倍。但振幅不等于能量。地震学中能量 $E$（单位：焦耳）与震级的经验关系式为：</p>
+$$
+\log_{10} E = 4.8 + 1.5M
+$$
+<p>于是震级相差1级时，能量比为</p>
+$$
+\frac{E_2}{E_1} = 10^{1.5(M_2-M_1)} = 10^{1.5} \approx 31.6
+$$
+<p>也就是说，7级地震释放的能量大约是6级地震的31.6倍，而不是10倍。</p>
+<p><strong>问题求解应用</strong></p>
+<p>例：已知某地震的振幅是参考振幅的 $3.16\times 10^6$ 倍，求其震级。</p>
+$$
+M = \log_{10}(3.16\times 10^6) \approx 6.5
+$$
+<p>再例：若8.0级地震比6.0级地震释放的能量大多少倍？两级相差2，故能量比为</p>
+$$
+10^{1.5\times 2} = 10^{3} = 1000
+$$
+<p>即8.0级地震释放的能量是6.0级的1000倍。这类计算训练学生把"级数差"转换为"倍数差"的对数思维，是理解对数标度（如分贝、pH值）的通用技能。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch1: Chapter 1. Functions and Graphs (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

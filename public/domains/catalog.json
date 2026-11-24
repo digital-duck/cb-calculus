@@ -86,6 +86,12 @@
         "file": "output/intro.zh/sonnet/html/book_richter_scale_application_zh.html",
         "model": "sonnet",
         "language": "zh"
+      },
+      {
+        "target": "richter_scale_application",
+        "file": "output/college.zh/sonnet/html/book_richter_scale_application_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       }
     ],
     "generated_concepts": [
@@ -167,6 +173,13 @@
         "language": "en"
       },
       {
+        "name": "inverse_function_zh",
+        "label": "Inverse Function Zh",
+        "file": "output/college.zh/sonnet/html/concept_inverse_function_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "linear_function",
         "label": "Linear Function",
         "file": "output/college.en/sonnet/html/concept_linear_function.html",
@@ -200,6 +213,13 @@
         "file": "output/intro.en/sonnet/html/concept_logarithmic_function.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "logarithmic_function_zh",
+        "label": "Logarithmic Function Zh",
+        "file": "output/college.zh/sonnet/html/concept_logarithmic_function_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "mathematical_model",
@@ -279,6 +299,13 @@
         "language": "en"
       },
       {
+        "name": "one_to_one_function_zh",
+        "label": "One To One Function Zh",
+        "file": "output/college.zh/sonnet/html/concept_one_to_one_function_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
         "name": "polynomial_function",
         "label": "Polynomial Function",
         "file": "output/college.en/sonnet/html/concept_polynomial_function.html",
@@ -354,6 +381,13 @@
         "file": "output/intro.en/sonnet/html/concept_richter_scale_application.html",
         "model": "sonnet",
         "language": "en"
+      },
+      {
+        "name": "richter_scale_application_zh",
+        "label": "Richter Scale Application Zh",
+        "file": "output/college.zh/sonnet/html/concept_richter_scale_application_zh.html",
+        "model": "sonnet",
+        "language": "zh"
       },
       {
         "name": "slope",
