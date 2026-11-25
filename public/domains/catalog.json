@@ -34,24 +34,6 @@
         "language": "en"
       },
       {
-        "target": "mathematical_model",
-        "file": "output/intro.zh/sonnet/html/book_mathematical_model.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "target": "compound_interest_application",
-        "file": "output/intro.zh/sonnet/html/book_compound_interest_application.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "target": "richter_scale_application",
-        "file": "output/intro.zh/sonnet/html/book_richter_scale_application.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "target": "compound_interest_application",
         "file": "output/college.en/sonnet/html/book_compound_interest_application.html",
         "model": "sonnet",
@@ -90,6 +72,18 @@
       {
         "target": "richter_scale_application",
         "file": "output/college.zh/sonnet/html/book_richter_scale_application_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "target": "mathematical_model",
+        "file": "output/college.zh/sonnet/html/book_mathematical_model_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "target": "compound_interest_application",
+        "file": "output/college.zh/sonnet/html/book_compound_interest_application_zh.html",
         "model": "sonnet",
         "language": "zh"
       }
@@ -461,30 +455,6 @@
         "language": "en"
       },
       {
-        "target": "integral_calculus",
-        "file": "output/intro.zh/sonnet/html/book_integral_calculus.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "target": "intermediate_value_theorem",
-        "file": "output/intro.zh/sonnet/html/book_intermediate_value_theorem.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "target": "differential_calculus",
-        "file": "output/intro.zh/sonnet/html/book_differential_calculus.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "target": "multivariable_calculus",
-        "file": "output/intro.zh/sonnet/html/book_multivariable_calculus.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "target": "differential_calculus",
         "file": "output/college.en/sonnet/html/book_differential_calculus.html",
         "model": "sonnet",
@@ -529,6 +499,18 @@
       {
         "target": "multivariable_calculus",
         "file": "output/intro.zh/sonnet/html/book_multivariable_calculus_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "target": "integral_calculus",
+        "file": "output/college.zh/sonnet/html/book_integral_calculus_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "target": "intermediate_value_theorem",
+        "file": "output/college.zh/sonnet/html/book_intermediate_value_theorem_zh.html",
         "model": "sonnet",
         "language": "zh"
       }
@@ -795,30 +777,6 @@
         "language": "en"
       },
       {
-        "target": "velocity",
-        "file": "output/intro.zh/sonnet/html/book_velocity.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "target": "population_growth_rate",
-        "file": "output/intro.zh/sonnet/html/book_population_growth_rate.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "target": "marginal_functions",
-        "file": "output/intro.zh/sonnet/html/book_marginal_functions.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "target": "acceleration",
-        "file": "output/intro.zh/sonnet/html/book_acceleration.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "target": "acceleration",
         "file": "output/college.en/sonnet/html/book_acceleration.html",
         "model": "sonnet",
@@ -869,6 +827,12 @@
       {
         "target": "velocity",
         "file": "output/college.zh/sonnet/html/book_velocity_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "target": "population_growth_rate",
+        "file": "output/college.zh/sonnet/html/book_population_growth_rate_zh.html",
         "model": "sonnet",
         "language": "zh"
       }
@@ -1161,42 +1125,6 @@
         "language": "en"
       },
       {
-        "target": "propagated_error",
-        "file": "output/intro.zh/sonnet/html/book_propagated_error.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "target": "locating_absolute_extrema",
-        "file": "output/intro.zh/sonnet/html/book_locating_absolute_extrema.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "target": "growth_rates",
-        "file": "output/intro.zh/sonnet/html/book_growth_rates.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "target": "initial_value_problem",
-        "file": "output/intro.zh/sonnet/html/book_initial_value_problem.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "target": "applied_optimization",
-        "file": "output/intro.zh/sonnet/html/book_applied_optimization.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "target": "curve_sketching",
-        "file": "output/intro.zh/sonnet/html/book_curve_sketching.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "target": "applied_optimization",
         "file": "output/college.en/sonnet/html/book_applied_optimization.html",
         "model": "sonnet",
@@ -1265,6 +1193,18 @@
       {
         "target": "propagated_error",
         "file": "output/intro.zh/sonnet/html/book_propagated_error_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "target": "propagated_error",
+        "file": "output/college.zh/sonnet/html/book_propagated_error_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "target": "locating_absolute_extrema",
+        "file": "output/college.zh/sonnet/html/book_locating_absolute_extrema_zh.html",
         "model": "sonnet",
         "language": "zh"
       }
@@ -1751,18 +1691,6 @@
       },
       {
         "target": "displacement_from_velocity",
-        "file": "output/intro.zh/sonnet/html/book_displacement_from_velocity.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "target": "price_demand_application",
-        "file": "output/intro.zh/sonnet/html/book_price_demand_application.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "target": "displacement_from_velocity",
         "file": "output/college.en/sonnet/html/book_displacement_from_velocity.html",
         "model": "sonnet",
         "language": "en"
@@ -1782,6 +1710,18 @@
       {
         "target": "price_demand_application",
         "file": "output/intro.zh/sonnet/html/book_price_demand_application_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "target": "displacement_from_velocity",
+        "file": "output/college.zh/sonnet/html/book_displacement_from_velocity_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "target": "price_demand_application",
+        "file": "output/college.zh/sonnet/html/book_price_demand_application_zh.html",
         "model": "sonnet",
         "language": "zh"
       }
@@ -2111,30 +2051,6 @@
         "language": "en"
       },
       {
-        "target": "exponential_growth_model",
-        "file": "output/intro.zh/sonnet/html/book_exponential_growth_model.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "target": "exponential_decay_model",
-        "file": "output/intro.zh/sonnet/html/book_exponential_decay_model.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "target": "newtons_law_of_cooling",
-        "file": "output/intro.zh/sonnet/html/book_newtons_law_of_cooling.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
-        "target": "catenary",
-        "file": "output/intro.zh/sonnet/html/book_catenary.html",
-        "model": "sonnet",
-        "language": "zh"
-      },
-      {
         "target": "catenary",
         "file": "output/college.en/sonnet/html/book_catenary.html",
         "model": "sonnet",
@@ -2185,6 +2101,18 @@
       {
         "target": "natural_logarithm_integral_def",
         "file": "output/college.zh/sonnet/html/book_natural_logarithm_integral_def_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "target": "exponential_growth_model",
+        "file": "output/college.zh/sonnet/html/book_exponential_growth_model_zh.html",
+        "model": "sonnet",
+        "language": "zh"
+      },
+      {
+        "target": "exponential_decay_model",
+        "file": "output/college.zh/sonnet/html/book_exponential_decay_model_zh.html",
         "model": "sonnet",
         "language": "zh"
       }
