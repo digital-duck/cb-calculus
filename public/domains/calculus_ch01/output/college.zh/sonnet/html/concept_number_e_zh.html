@@ -50,7 +50,36 @@ $$e=\lim_{m\to\infty}\left(1+\frac1m\right)^m\approx 2.718282.$$
 $$e=\sum_{n=0}^{\infty}\frac1{n!}=1+1+\frac12+\frac16+\frac1{24}+\cdots$$
 <h3 id="为什么极限存在-连续复利">为什么极限存在:连续复利</h3>
 <p>设本金 1 元,年利率 100%,一年内把利息分成 $m$ 期复利,则年末本息和为 $\left(1+\frac1m\right)^m$。</p>
-<p>| $m$ | $\left(1+\frac1m\right)^m$ | |---|---| | 1 | 2.000000 | | 2 | 2.250000 | | 12 | 2.613035 | | 365 | 2.714567 | | 10000 | 2.718146 |</p>
+<table style="border-collapse: collapse; border: 1px solid #333;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #333; padding: 6px 12px;">$m$</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">$\left(1+\frac1m\right)^m$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">1</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">2.000000</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">2</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">2.250000</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">12</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">2.613035</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">365</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">2.714567</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">10000</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">2.718146</td>
+    </tr>
+  </tbody>
+</table>
 <p>数列单调递增且有上界(由二项式展开可得,它不超过 $\sum 1/n!<3$),因此由单调有界定理,极限存在。复利次数越多,收益增长越慢,最终趋向于 $e$,而不会无限增大。</p>
 <h3 id="例题">例题</h3>
 <p><strong>例 1</strong> 用级数估算 $e$,要求误差小于 $10^{-4}$。</p>

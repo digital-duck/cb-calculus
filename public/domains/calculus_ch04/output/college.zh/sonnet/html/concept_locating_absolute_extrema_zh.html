@@ -56,7 +56,32 @@ section:first-of-type{border-top:none;padding-top:0}
 <p><strong>例题。</strong> 求 $f(x)=x^3-3x^2+1$ 在 $[-1,4]$ 上的绝对极值。</p>
 <p>先求导:$f'(x)=3x^2-6x=3x(x-2)$。令 $f'(x)=0$,得 $x=0$ 或 $x=2$,二者都在 $(-1,4)$ 内。$f'$ 处处存在,所以没有其他临界点。</p>
 <p>计算函数值:</p>
-<p>| $x$ | $f(x)$ | |---|---| | $-1$(端点) | $-1-3+1=-3$ | | $0$ | $1$ | | $2$ | $8-12+1=-3$ | | $4$(端点) | $64-48+1=17$ |</p>
+<table style="border-collapse: collapse; border: 1px solid #333;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #333; padding: 6px 12px;">$x$</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">$f(x)$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$-1$(端点)</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$-1-3+1=-3$</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$0$</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$1$</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$2$</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$8-12+1=-3$</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$4$(端点)</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$64-48+1=17$</td>
+    </tr>
+  </tbody>
+</table>
 <p>比较得:绝对最大值为 $f(4)=17$,绝对最小值为 $-3$,在 $x=-1$ 和 $x=2$ 两处同时取得。</p>
 <p>注意,最值可以在多个点取得,但最值本身只有一个数值。</p>
 <p><strong>应用:问题求解。</strong> 一个物体沿直线运动,位置为 $s(t)=t^3-6t^2+9t$,$0\le t\le 5$(单位:秒)。求它离原点最远的时刻。</p>

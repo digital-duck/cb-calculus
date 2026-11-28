@@ -48,12 +48,50 @@ section:first-of-type{border-top:none;padding-top:0}
 <li>线性模型：$y = mx + b$，变化率恒定；</li>
 <li>二次模型：$y = ax^2 + bx + c$，变化率本身在变化，图像为抛物线。</li>
 <p><strong>例题。</strong> 某同学用手机记录一个盆栽的高度（单位：cm）：</p>
-<p>| 周数 $x$ | 0 | 2 | 4 | 6 | |---|---|---|---|---| | 高度 $y$ | 10 | 14 | 18.5 | 22 |</p>
+<table style="border-collapse: collapse; border: 1px solid #333;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #333; padding: 6px 12px;">周数 $x$</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">0</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">2</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">4</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">6</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">高度 $y$</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">10</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">14</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">18.5</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">22</td>
+    </tr>
+  </tbody>
+</table>
 <p>观察数据：每两周大约增加 $4$ cm，增量基本恒定，因此选择线性模型。取首尾两点求斜率：</p>
 $$m = \frac{22-10}{6-0} = 2,\qquad b = 10,$$
 <p>得到模型 $y = 2x + 10$。检验：当 $x=4$ 时，模型值为 $18$，实测 $18.5$，残差（实际值 − 预测值）为 $0.5$ cm，误差很小，模型可以接受。</p>
 <p><strong>问题解决应用。</strong> 一个球被竖直向上抛出，测得高度数据：</p>
-<p>| 时间 $t$（s） | 0 | 1 | 2 | 3 | |---|---|---|---|---| | 高度 $h$（m） | 2 | 17 | 22 | 17 |</p>
+<table style="border-collapse: collapse; border: 1px solid #333;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #333; padding: 6px 12px;">时间 $t$（s）</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">0</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">1</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">2</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">高度 $h$（m）</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">2</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">17</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">22</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">17</td>
+    </tr>
+  </tbody>
+</table>
 <p>一阶差分为 $15,\,5,\,-5$，不是常数；二阶差分为 $-10,\,-10$，是常数，因此应选二次模型 $h = at^2 + bt + c$。</p>
 <p>由 $t=0$ 得 $c=2$。代入 $t=1$：$a+b+2=17$，即 $a+b=15$；代入 $t=2$：$4a+2b+2=22$，即 $2a+b=10$。解得 $a=-5,\ b=20$：</p>
 $$h(t) = -5t^2 + 20t + 2.$$

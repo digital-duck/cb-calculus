@@ -45,7 +45,32 @@ $$R = \{(1,1),\,(1,2),\,(1,3),\,(2,2),\,(3,3)\}.$$
 <p>可验证：$(2, 3) \notin R$，因为 $2 \nmid 3$。</p>
 <hr>
 <p><strong>关系的性质．</strong> 设 $R$ 为集合 $A$ 上的关系，常见性质定义如下：</p>
-<p>| 性质 | 定义 | |------|------| | 自反性 | $\forall a \in A,\ a \mathrel{R} a$ | | 对称性 | $a \mathrel{R} b \Rightarrow b \mathrel{R} a$ | | 传递性 | $a \mathrel{R} b \land b \mathrel{R} c \Rightarrow a \mathrel{R} c$ | | 反对称性 | $a \mathrel{R} b \land b \mathrel{R} a \Rightarrow a = b$ |</p>
+<table style="border-collapse: collapse; border: 1px solid #333;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #333; padding: 6px 12px;">性质</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">定义</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">自反性</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$\forall a \in A,\ a \mathrel{R} a$</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">对称性</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$a \mathrel{R} b \Rightarrow b \mathrel{R} a$</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">传递性</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$a \mathrel{R} b \land b \mathrel{R} c \Rightarrow a \mathrel{R} c$</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">反对称性</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$a \mathrel{R} b \land b \mathrel{R} a \Rightarrow a = b$</td>
+    </tr>
+  </tbody>
+</table>
 <p>同时满足自反性、对称性与传递性的关系称为<strong>等价关系</strong>；同时满足自反性、反对称性与传递性的关系称为<strong>偏序关系</strong>。</p>
 <p><strong>定理（等价类划分）．</strong> 设 $\sim$ 为集合 $A$ 上的等价关系。对每个 $a \in A$，定义等价类 $[a] = \{x \in A \mid x \sim a\}$。则全体等价类构成 $A$ 的一个划分，即：$\bigcup_{a \in A} [a] = A$，且任意两个不同等价类互不相交。</p>
 <hr>
