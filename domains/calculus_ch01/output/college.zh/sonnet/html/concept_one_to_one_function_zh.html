@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>One To One Function | Calculus Ch01</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="one-to-one-function">One To One Function</h2>
+<p><strong>定义</strong></p>
+<p>设函数 $f$ 的定义域为 $D$。若对定义域中任意两个不同的输入 $x_1 \neq x_2$，都有 $f(x_1) \neq f(x_2)$，则称 $f$ 是<strong>一一函数</strong>（injective function，单射）。等价地，用逆否命题表述更便于验证：若 $f(x_1) = f(x_2)$，则必有 $x_1 = x_2$。这个性质保证了每一个输出值只对应唯一一个输入值——反过来查找"谁映射到这个输出"时答案是唯一确定的。这正是函数能够拥有反函数的必要条件：若 $f$ 不是一一的,就会有两个不同的 $x$ 争夺同一个输出,反函数就不知道该把这个输出送回哪个 $x$。</p>
+<p><strong>判别方法：水平线检验与代数验证</strong></p>
+<p>几何上,一一函数的图像与任意水平线 $y=k$ 至多相交一次（水平线检验,horizontal line test）。例如 $f(x)=x^3$ 是一一函数,因为它严格递增,任何水平线只穿过图像一次;而 $f(x)=x^2$（定义域为全体实数)不是一一函数,因为 $f(2)=f(-2)=4$,水平线 $y=4$ 与图像相交两次。</p>
+<p>代数验证时,假设 $f(x_1)=f(x_2)$,通过代数运算推导是否必然得到 $x_1=x_2$。例如证明 $f(x)=3x-5$ 是一一函数:</p>
+$$3x_1 - 5 = 3x_2 - 5 \implies 3x_1 = 3x_2 \implies x_1 = x_2$$
+<p>推导成立,故 $f$ 是一一的。</p>
+<p><strong>问题求解应用</strong></p>
+<p>一一性在实际问题中常用于判断某个过程是否"可逆"。例如,给定分段函数</p>
+$$f(x) = \begin{cases} x+1, & x < 0 \\ x^2, & x \geq 0 \end{cases}$$
+<p>检验时需分三种情况:两输入都在同一分段内,或分别落在不同分段。在 $x<0$ 段,$f$ 是一一的（线性递增)；在 $x\geq 0$ 段，$f(x)=x^2$ 在非负区间上也是一一的（递增)。但需检查跨段是否冲突:当 $x<0$ 时 $f(x)<1$，当 $x\geq 0$ 时 $f(x)\geq 0$，两段值域在 $[0,1)$ 处可能重叠,需逐一核实是否存在 $x_1<0,\ x_2\geq 0$ 使得 $x_1+1=x_2^2$。此类分析正是限制函数定义域以构造反函数（如三角函数的反函数)时的标准操作。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch1: Chapter 1. Functions and Graphs (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

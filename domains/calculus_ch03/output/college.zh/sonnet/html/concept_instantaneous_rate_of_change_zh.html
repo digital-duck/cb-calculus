@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Instantaneous Rate Of Change | Calculus Ch03</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="instantaneous-rate-of-change">Instantaneous Rate Of Change</h2>
+<p><strong>定义</strong></p>
+<p>函数 $f$ 在某一点 $a$ 处的<strong>瞬时变化率</strong>，就是导数 $f'(a)$，它衡量的是 $f$ 在 $x=a$ 这一"瞬间"变化的快慢。与之相对的是<strong>平均变化率</strong>，即在区间 $[a, a+h]$ 上函数值变化量与自变量变化量之比：</p>
+$$\frac{f(a+h) - f(a)}{h}$$
+<p>当区间长度 $h$ 不断缩小、趋于 $0$ 时，平均变化率会逼近一个极限值，这个极限就是瞬时变化率：</p>
+$$f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}$$
+<p>几何上，平均变化率是割线的斜率，而瞬时变化率是当割线绕点 $a$ 旋转、最终变成切线时的斜率。物理上，如果 $f(t)$ 表示位置随时间的变化，那么平均变化率是平均速度，瞬时变化率就是某一时刻的<strong>瞬时速度</strong>。</p>
+<p><strong>范例求解</strong></p>
+<p>设 $f(t) = t^2 + 3t$ 表示某物体的位置（单位：米），求 $t=2$ 秒时的瞬时速度。</p>
+<p>先计算平均变化率：</p>
+$$\frac{f(2+h) - f(2)}{h} = \frac{(2+h)^2 + 3(2+h) - (4+6)}{h} = \frac{4h + h^2 + 3h}{h} = 7 + h$$
+<p>令 $h \to 0$：</p>
+$$f'(2) = \lim_{h \to 0} (7 + h) = 7 \text{ 米/秒}$$
+<p>因此在 $t=2$ 秒时，物体的瞬时速度为每秒 7 米——这正是位置函数图像在该点切线的斜率。</p>
+<p><strong>问题解决应用</strong></p>
+<p>瞬时变化率的意义远不止求斜率，它是分析"变化中的变化"的基本工具。例如在经济学中，成本函数 $C(x)$ 在产量 $x$ 处的导数 $C'(x)$ 称为<strong>边际成本</strong>，代表多生产一单位产品所增加的成本，用于决定是否值得扩大生产。在生物学中，种群数量 $P(t)$ 的导数 $P'(t)$ 表示种群的瞬时增长率，可用来预测资源是否会被耗尽。求解这类问题的关键步骤是：先写出精确的函数表达式，再对其求导（或用极限定义直接计算），最后将导数值代入具体的点，并结合实际背景解释其单位和含义（如"米/秒"、"元/件"）。掌握这一转换过程——从平均到瞬时、从割线到切线——是理解微积分如何刻画连续变化世界的核心一步。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch3: Chapter 3. Derivatives (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

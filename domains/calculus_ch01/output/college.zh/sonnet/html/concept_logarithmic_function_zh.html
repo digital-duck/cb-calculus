@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logarithmic Function | Calculus Ch01</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="logarithmic-function">Logarithmic Function</h2>
+<p>指数函数 $b^x$（其中 $b>0$ 且 $b \neq 1$）将每个实数 $x$ 映射到一个正实数。由于这个映射是一一对应（单调且连续），它存在反函数——这就是<strong>对数函数</strong>，记作 $\log_b(x)$，定义为：</p>
+$$\log_b(x) = y \iff b^y = x$$
+<p>直观地说，$\log_b(x)$ 回答的问题是："$b$ 要自乘多少次才能得到 $x$？" 定义域要求 $x > 0$（因为 $b^y$ 永远是正数），值域是全体实数。</p>
+<p><strong>换底公式</strong>是对数运算的核心工具，因为计算器通常只内置 $\ln$（自然对数，底为 $e$）和 $\log_{10}$：</p>
+$$\log_b(x) = \frac{\ln(x)}{\ln(b)}$$
+<p><strong>例 1</strong>：求 $\log_2(32)$。设 $y = \log_2(32)$，则 $2^y = 32 = 2^5$，由指数相等得 $y = 5$。</p>
+<p><strong>例 2</strong>：求 $\log_5(12)$（不是整数次幂）。用换底公式：</p>
+$$\log_5(12) = \frac{\ln(12)}{\ln(5)} \approx \frac{2.4849}{1.6094} \approx 1.544$$
+<p><strong>问题求解应用</strong>：对数最强大的用途是把乘除运算降级为加减运算，把指数运算降级为乘法——这源于三条性质：</p>
+$$\log_b(mn) = \log_b(m) + \log_b(n), \quad \log_b\!\left(\frac{m}{n}\right) = \log_b(m) - \log_b(n), \quad \log_b(m^k) = k\log_b(m)$$
+<p><strong>实际问题</strong>：某细菌种群以 $P(t) = P_0 \cdot 2^{t/3}$ 增长（每 3 小时翻倍），问多久种群达到初始值的 100 倍？</p>
+<p>设 $P(t)/P_0 = 100$，即 $2^{t/3} = 100$。两边取对数：</p>
+$$\frac{t}{3}\ln 2 = \ln 100 \implies t = \frac{3\ln 100}{\ln 2} \approx \frac{3 \times 4.6052}{0.6931} \approx 19.93 \text{ 小时}$$
+<p>这正是对数在科学与工程中无处不在的原因——pH 值、地震震级（里氏震级）、分贝、半衰期计算，本质上都是在求解"指数方程中的未知指数"，而对数正是解开这个未知量的钥匙。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch1: Chapter 1. Functions and Graphs (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

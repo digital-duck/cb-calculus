@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Difference Quotient | Calculus Ch03</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="difference-quotient">Difference Quotient</h2>
+<p>For a function $f$, the <strong>difference quotient</strong> measures the average rate of change of $f$ over an interval. Two equivalent forms are used depending on context:</p>
+$$\frac{f(x) - f(a)}{x - a} \qquad \text{or} \qquad \frac{f(a+h) - f(a)}{h}$$
+<p>Geometrically, this ratio is the slope of the <strong>secant line</strong> connecting the points $(a, f(a))$ and $(x, f(x))$ (or $(a+h, f(a+h))$) on the graph of $f$. It answers the question: "on average, how fast did $f$ change between these two inputs?" The difference quotient is the algebraic bridge to the derivative — letting $h \to 0$ turns an <em>average</em> rate of change into an <em>instantaneous</em> one, which is precisely how the derivative is defined: $f'(a) = \lim_{h \to 0} \frac{f(a+h)-f(a)}{h}$.</p>
+<p><strong>Worked example.</strong> Let $f(x) = x^2 + 1$ and $a = 3$. Compute the difference quotient using the $h$-form:</p>
+$$\frac{f(3+h) - f(3)}{h} = \frac{(3+h)^2 + 1 - (9+1)}{h} = \frac{9 + 6h + h^2 + 1 - 10}{h} = \frac{6h + h^2}{h} = 6 + h$$
+<p>For $h = 1$, the average rate of change from $x=3$ to $x=4$ is $7$. As $h$ shrinks toward $0$, the expression $6+h$ approaches $6$, matching $f'(3) = 2(3) = 6$ from the power rule. This algebraic simplification step — canceling the factor of $h$ before taking the limit — is the core technique for computing derivatives directly from the limit definition, since plugging in $h=0$ before simplifying gives the indeterminate form $0/0$.</p>
+<p><strong>Problem-solving application.</strong> The difference quotient is the standard tool for finding derivatives from first principles and for estimating rates of change from tabulated (non-formulaic) data, such as measured velocity from position readings at two nearby times. When simplifying $\frac{f(a+h)-f(a)}{h}$ for polynomials, always expand fully, combine like terms, and factor out $h$ from the numerator before canceling — this avoids errors and reveals the limiting behavior as $h \to 0$.</p>
+<pre class="mermaid">graph LR
+    A["Secant line through (a, f(a)) and (a+h, f(a+h))<br/>slope = difference quotient"] --> B["h shrinks toward 0"]
+    B --> C["Secant line approaches<br/>tangent line at x = a"]
+    C --> D["Slope approaches f'(a)<br/>(the derivative)"]</pre>
+<p><em>As $h \to 0$, the secant line's slope (the difference quotient) converges to the tangent line's slope (the derivative).</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch3: Chapter 3. Derivatives (Level: College &middot; Language: EN &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

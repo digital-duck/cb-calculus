@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riemann Sum | Calculus Ch05</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="黎曼和">黎曼和</h2>
+<p><strong>定义。</strong> 设函数 $f$ 在闭区间 $[a,b]$ 上有定义。把区间划分为 $n$ 个小区间：</p>
+$$a=x_0<x_1<\cdots<x_n=b,\qquad \Delta x_i=x_i-x_{i-1}.$$
+<p>在每个小区间 $[x_{i-1},x_i]$ 中任取一点 $x_i^*$（左端点、右端点、中点或任意点均可），则</p>
+$$S_n=\sum_{i=1}^{n} f(x_i^*)\,\Delta x_i$$
+<p>称为 $f$ 的<strong>黎曼和</strong>。当 $f\ge 0$ 时，每一项 $f(x_i^<em>)\Delta x_i$ 是一个以 $\Delta x_i$ 为宽、$f(x_i^</em>)$ 为高的矩形面积，所以 $S_n$ 是这些矩形面积之和，用来近似曲线下的面积。若采用等分划分，则 $\Delta x=\dfrac{b-a}{n}$，$x_i=a+i\Delta x$。</p>
+<p><strong>取点方式的影响。</strong> 取 $x_i^<em>=x_{i-1}$ 得到左黎曼和 $L_n$，取 $x_i^</em>=x_i$ 得到右黎曼和 $R_n$，取中点得到中点和 $M_n$。对递增函数，$L_n$ 偏小，$R_n$ 偏大。</p>
+<p><strong>例题。</strong> 用 $n=4$ 的左、右黎曼和估计 $\displaystyle\int_0^2 x^2\,dx$。</p>
+<p>此时 $\Delta x=\dfrac{2-0}{4}=0.5$，分点为 $0,\,0.5,\,1,\,1.5,\,2$。</p>
+<li>左黎曼和：</li>
+$$L_4=0.5\,[f(0)+f(0.5)+f(1)+f(1.5)]=0.5\,(0+0.25+1+2.25)=1.75.$$
+<li>右黎曼和：</li>
+$$R_4=0.5\,[f(0.5)+f(1)+f(1.5)+f(2)]=0.5\,(0.25+1+2.25+4)=3.75.$$
+<p>由于 $f(x)=x^2$ 在 $[0,2]$ 上递增，真实面积夹在两者之间：$1.75<A<3.75$。精确值为 $\dfrac{8}{3}\approx 2.667$。取两者平均 $\dfrac{L_4+R_4}{2}=2.75$，误差已明显缩小。</p>
+<p><strong>问题求解应用。</strong> 一辆车在 $t=0,2,4,6$ 秒时的速度分别为 $0,\,3,\,5,\,6$ m/s（速度递增）。估计前 6 秒的位移。</p>
+<p>位移等于速度曲线下的面积。取 $\Delta t=2$：</p>
+<li>左和：$2\,(0+3+5)=16$ m（低估）；</li>
+<li>右和：$2\,(3+5+6)=28$ m（高估）。</li>
+<p>所以位移在 $16$ 到 $28$ m 之间，取平均得估计值 $22$ m。要缩小这个范围，就需要更密的测量数据，也就是增大 $n$。</p>
+<p><strong>与定积分的联系。</strong> 若 $f$ 在 $[a,b]$ 上连续，令最大小区间宽度 $\|P\|=\max_i\Delta x_i\to 0$（等分时即 $n\to\infty$），则无论 $x_i^*$ 如何选取，黎曼和都收敛到同一个极限：</p>
+$$\int_a^b f(x)\,dx=\lim_{\|P\|\to 0}\sum_{i=1}^{n} f(x_i^*)\,\Delta x_i.$$
+<p>这正是定积分的定义。因此，黎曼和既是数值估算面积的实用工具，也是积分理论的出发点。</p>
+<pre class="mermaid">flowchart LR
+A["划分区间 [a,b]"] --> B["在每个小区间取点 x_i*"]
+B --> C["计算矩形面积 f(x_i*)Δx"]
+C --> D["求和得到黎曼和 S_n"]
+D --> E["令 n→∞ 取极限"]
+E --> F["定积分"]</pre>
+<p><em>图：从划分区间到定积分的黎曼和构造流程。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch5: Chapter 5. Integration (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

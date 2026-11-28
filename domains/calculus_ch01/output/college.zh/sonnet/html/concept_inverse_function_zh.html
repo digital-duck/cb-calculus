@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inverse Function | Calculus Ch01</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="逆函数">逆函数</h2>
+<p>设 $f$ 是一个一一对应函数（one-to-one，即单射），也就是说，不同的输入永远产生不同的输出。这样的函数存在一个"逆函数" $f^{-1}$，它的作用恰好是把 $f$ 的输出还原为原来的输入。形式上，逆函数满足两个条件：</p>
+$$f^{-1}(f(x)) = x \quad \text{（对定义域中所有 } x\text{）}$$
+$$f(f^{-1}(y)) = y \quad \text{（对值域中所有 } y\text{）}$$
+<p>直观地说，如果 $f$ 把 $x$ "送到" $y$，那么 $f^{-1}$ 就把 $y$ "送回" $x$。这就是为什么逆函数的图像是原函数图像关于直线 $y = x$ 的镜像——因为求逆函数本质上是把 $(x, y)$ 这对坐标互换成 $(y, x)$。</p>
+<p><strong>为什么必须是一一对应？</strong> 如果 $f$ 不是一一对应的（例如 $f(x) = x^2$，因为 $f(2) = f(-2) = 4$），那么给定输出 $4$，我们无法唯一确定输入究竟是 $2$ 还是 $-2$。逆函数要求每个输出唯一对应一个输入，否则 $f^{-1}$ 根本不是一个合法的函数。</p>
+<p><strong>求解示例：</strong> 设 $f(x) = 3x + 5$。要求 $f^{-1}$，标准步骤是：</p>
+<li>把 $f(x)$ 写成 $y = 3x + 5$；</li>
+<li>交换 $x$ 与 $y$：$x = 3y + 5$；</li>
+<li>解出 $y$：$y = \dfrac{x - 5}{3}$。</li>
+<p>于是 $f^{-1}(x) = \dfrac{x-5}{3}$。验证：$f^{-1}(f(x)) = f^{-1}(3x+5) = \dfrac{(3x+5)-5}{3} = x$，条件成立。</p>
+<p><strong>应用实例：</strong> 逆函数在实际问题中常用于"反推输入"。例如，华氏温度转摄氏度的函数 $C(F) = \dfrac{5}{9}(F - 32)$，其逆函数 $C^{-1}(C) = \dfrac{9}{5}C + 32$ 可以把摄氏温度还原为华氏温度。在密码学、数据压缩、以及求解方程 $f(x) = k$（即寻找使函数等于某特定值的 $x$）时，逆函数都是核心工具：只要能显式求出 $f^{-1}$，方程的解就直接是 $x = f^{-1}(k)$，无需逐一试验。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch1: Chapter 1. Functions and Graphs (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

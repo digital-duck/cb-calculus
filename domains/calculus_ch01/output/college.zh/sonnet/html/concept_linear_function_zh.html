@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linear Function | Calculus Ch01</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="线性函数">线性函数</h2>
+<p><strong>定义。</strong> 形如</p>
+$$f(x) = ax + b \quad (a, b \in \mathbb{R})$$
+<p>的函数称为<strong>线性函数</strong>(一次函数)。它的图像是一条直线:$a$ 是<strong>斜率</strong>,表示 $x$ 每增加 1 个单位,函数值改变 $a$ 个单位;$b$ 是 <strong>$y$ 轴截距</strong>,即直线与 $y$ 轴交于点 $(0, b)$。</p>
+<p>斜率可由直线上任意两点 $(x_1, y_1)$、$(x_2, y_2)$($x_1 \ne x_2$)计算:</p>
+$$a = \frac{y_2 - y_1}{x_2 - x_1}.$$
+<li>$a > 0$:函数递增;$a < 0$:函数递减;$a = 0$:常数函数(水平线)。</li>
+<li>$|a|$ 越大,直线越陡。</li>
+<li>零点(与 $x$ 轴的交点)为 $x = -\dfrac{b}{a}$($a \neq 0$)。</li>
+<p><strong>为什么斜率处处相同?</strong> 对任意 $x$ 与增量 $h$,</p>
+$$f(x+h) - f(x) = a(x+h) + b - (ax + b) = ah,$$
+<p>变化量只取决于 $h$,与 $x$ 无关。这就是"线性"的本质:<strong>恒定的变化率</strong>。</p>
+<p><strong>例题。</strong> 已知直线经过点 $(1, 5)$ 和 $(3, 11)$,求其解析式,并求 $f(10)$。</p>
+<li>求斜率:$a = \dfrac{11-5}{3-1} = 3$。</li>
+<li>代入点 $(1,5)$:$5 = 3\cdot 1 + b$,得 $b = 2$。</li>
+<li>所以 $f(x) = 3x + 2$。</li>
+<li>验证点 $(3,11)$:$3\cdot 3 + 2 = 11$ ✓。</li>
+<li>$f(10) = 3\cdot 10 + 2 = 32$。</li>
+<p><strong>应用:出租车计费。</strong> 某出租车起步价 8 元,之后每公里 2.5 元。设行驶 $x$ 公里(在起步里程之外),费用为</p>
+$$C(x) = 2.5x + 8.$$
+<p>这里斜率 $a = 2.5$ 是"每公里的边际费用",截距 $b = 8$ 是固定的起步费。</p>
+<p>问题:预算 33 元,最多能行驶多远?</p>
+<p>解方程 $2.5x + 8 = 33$,得 $2.5x = 25$,$x = 10$ 公里。</p>
+<p>再比较另一家公司 $D(x) = 2x + 12$。何时两家费用相同?令 $2.5x + 8 = 2x + 12$,得 $0.5x = 4$,$x = 8$。因此行驶少于 8 公里时第一家更便宜,超过 8 公里则第二家更划算。几何上,这正是两条直线的交点 $(8, 28)$。</p>
+<p><strong>解题要点。</strong></p>
+<li>从题目中识别"固定量"($b$)与"每单位变化量"($a$)。</li>
+<li>已知两点时,先求斜率,再代入一点求截距。</li>
+<li>求交点或比较大小时,把问题化为一次方程或一次不等式。</li>
+<li>求出结果后,用原始数据验证。</li>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch1: Chapter 1. Functions and Graphs (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Price Demand Application | Calculus Ch05</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="价格需求应用">价格需求应用</h2>
+<p><strong>定义。</strong> 边际需求(或边际收益)函数描述价格随销量变化的瞬时变化率。设价格–需求函数为 $p(x)$,其中 $x$ 为需求量,$p'(x)$ 是已知的边际函数。由微积分基本定理,</p>
+$$p(x)=\int p'(x)\,dx = F(x)+C.$$
+<p>积分常数 $C$ 不能由导数本身确定,必须借助一个<strong>初始条件</strong>(例如“当需求量为 $x_0$ 时价格为 $p_0$”)来求出。这样得到的 $p(x)$ 才是唯一的价格–需求函数。</p>
+<p>同样的思路适用于所有“已知变化率、求总量”的问题:若种群数量 $P(t)$ 的增长率为 $P'(t)$,则</p>
+$$P(t)=P(0)+\int_0^t P'(s)\,ds.$$
+<p><strong>例题 1(价格–需求)。</strong> 某商品的边际价格函数为 $p'(x)=-\dfrac{900}{(3x+1)^2}$,且当 $x=3$ 时价格为 $p=40$ 元。求 $p(x)$,并求需求量为 $x=11$ 时的价格。</p>
+<p><em>第一步:积分。</em> 令 $u=3x+1$,则 $du=3\,dx$:</p>
+$$p(x)=\int -900(3x+1)^{-2}\,dx=-300\int u^{-2}\,du=\frac{300}{3x+1}+C.$$
+<p><em>第二步:用初始条件求 $C$。</em> 由 $p(3)=40$:</p>
+$$\frac{300}{10}+C=40\ \Rightarrow\ C=10.$$
+<p>所以 $p(x)=\dfrac{300}{3x+1}+10$。</p>
+<p><em>第三步:代入。</em> $p(11)=\dfrac{300}{34}+10\approx 18.82$ 元。价格随需求量增加而下降,符合需求定律($p'<0$)。</p>
+<p><strong>例题 2(细菌增长)。</strong> 某培养皿中细菌的增长率为 $\dfrac{dN}{dt}=200e^{0.5t}$(个/小时),初始数量 $N(0)=500$。求 $t=4$ 小时时的数量。</p>
+$$N(t)=500+\int_0^t 200e^{0.5s}\,ds=500+400\left(e^{0.5t}-1\right).$$
+<p>因此 $N(4)=500+400(e^{2}-1)\approx 500+400(6.389)\approx 3056$ 个。</p>
+<p><strong>问题求解步骤。</strong> </p>
+<li>辨认题目给出的是<strong>变化率</strong>(导数),所求的是<strong>总量</strong>(原函数)。</li>
+<li>求不定积分,保留常数 $C$;</li>
+<li>用初始条件(“当 $x=x_0$ 时 $p=p_0$”或 $N(0)=N_0$)解出 $C$;</li>
+<li>代入目标值,并检查结果的合理性(单位、符号、单调性)。</li>
+<p><strong>常见错误。</strong> 忘记使用初始条件、换元后漏掉因子 $\tfrac13$,或把“增长率”误当成“数量”直接代入。</p>
+<p><strong>练习。</strong> 已知边际价格 $p'(x)=-0.04x$,且 $p(0)=20$,求 $p(x)$,并求当价格降为 $p=4$ 时的需求量。(答案:$p(x)=20-0.02x^2$,$x\approx 28.3$。)</p>
+<pre class="mermaid">flowchart LR
+A[已知变化率] --> B[求不定积分]
+B --> C[得到含常数C的通解]
+C --> D[代入初始条件]
+D --> E[确定唯一函数]
+E --> F[预测或求值]</pre>
+<p><em>图示:由变化率恢复总量函数的求解流程。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch5: Chapter 5. Integration (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

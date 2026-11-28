@@ -1,0 +1,151 @@
+domain: calculus_ch02_limits
+primitives:
+  rate_of_change:
+    defines: A measure of how a function's output changes relative to its input, given for linear functions
+      by the slope.
+    tier: 0
+  limit:
+    defines: The real number L that the values of f(x) approach as x approaches a, provided such a value
+      exists.
+    tier: 0
+concepts:
+  secant_line:
+    defines: The line through two points (a, f(a)) and (x, f(x)) on a function's graph, with slope msec
+      = (f(x) - f(a))/(x - a).
+    composed_of:
+    - rate_of_change
+    tier: 1
+  average_velocity:
+    defines: The change in an object's position divided by the length of the time interval over which
+      the change occurred.
+    composed_of:
+    - rate_of_change
+    tier: 1
+  one_sided_limit:
+    defines: The value that f(x) approaches as x approaches a from only the left or only the right side.
+    composed_of:
+    - limit
+    tier: 1
+  infinite_limit:
+    defines: A description of a function's behavior in which f(x) increases or decreases without bound
+      as x approaches a.
+    composed_of:
+    - limit
+    tier: 1
+  limit_laws:
+    defines: A set of properties (sum, difference, constant multiple, product, quotient, power, root)
+      that allow limits to be evaluated by combining limits of simpler functions.
+    composed_of:
+    - limit
+    tier: 1
+  epsilon_delta_definition_of_limit:
+    defines: The formal definition stating that lim x→a f(x) = L if for every ε > 0 there exists δ > 0
+      such that 0 < |x - a| < δ implies |f(x) - L| < ε.
+    composed_of:
+    - limit
+    tier: 1
+  continuity_at_a_point:
+    defines: A function f(x) is continuous at a if f(a) is defined, lim x→a f(x) exists, and lim x→a f(x)
+      = f(a).
+    composed_of:
+    - limit
+    tier: 1
+  area_problem:
+    defines: The problem of determining the area between the graph of a function and the x-axis over an
+      interval, approximated by summing the areas of thin rectangles.
+    composed_of:
+    - limit
+    tier: 1
+  tangent_line:
+    defines: The line that secant lines through a point approach as the second point moves closer to the
+      first, whose slope measures the instantaneous rate of change of the function at that point.
+    composed_of:
+    - secant_line
+    - limit
+    tier: 2
+  instantaneous_velocity:
+    defines: The value that average velocities approach as the time interval used to compute them shrinks
+      toward a single instant.
+    composed_of:
+    - average_velocity
+    - limit
+    tier: 2
+  vertical_asymptote:
+    defines: A line x = a that a function's graph approaches when the function has an infinite limit (one-sided
+      or two-sided) at a.
+    composed_of:
+    - infinite_limit
+    - one_sided_limit
+    tier: 2
+  limits_of_polynomial_and_rational_functions:
+    defines: The result that for a polynomial p(x), lim x→a p(x) = p(a), and for a rational function p(x)/q(x),
+      the limit equals p(a)/q(a) when q(a) ≠ 0.
+    composed_of:
+    - limit_laws
+    tier: 2
+  indeterminate_form_evaluation:
+    defines: Techniques such as factoring, multiplying by a conjugate, or simplifying complex fractions
+      used to evaluate limits with the indeterminate form 0/0.
+    composed_of:
+    - limit_laws
+    tier: 2
+  squeeze_theorem:
+    defines: A theorem stating that if f(x) ≤ g(x) ≤ h(x) near a and f and h share a common limit L at
+      a, then g(x) also has limit L at a.
+    composed_of:
+    - limit_laws
+    tier: 2
+  discontinuity_types:
+    defines: Classification of points where a function fails to be continuous as removable, jump, or infinite
+      discontinuities.
+    composed_of:
+    - continuity_at_a_point
+    tier: 2
+  continuity_over_an_interval:
+    defines: A function is continuous over an interval if it is continuous at every point in the interval,
+      using one-sided continuity at closed endpoints.
+    composed_of:
+    - continuity_at_a_point
+    tier: 2
+  composite_function_theorem:
+    defines: A theorem stating that if f is continuous at L and lim x→a g(x) = L, then lim x→a f(g(x))
+      = f(L).
+    composed_of:
+    - continuity_at_a_point
+    tier: 2
+  derivative:
+    defines: The slope of the tangent line to a function at a point a, denoted f'(a), representing the
+      rate of change of the function at a.
+    composed_of:
+    - tangent_line
+    tier: 3
+  trigonometric_limits:
+    defines: A set of foundational limits, including lim θ→0 sinθ = 0, lim θ→0 cosθ = 1, and lim θ→0 (sinθ)/θ
+      = 1, established using the squeeze theorem.
+    composed_of:
+    - squeeze_theorem
+    tier: 3
+applications:
+  integral_calculus:
+    defines: The study of integrals, defined as limits of sums of rectangle areas, and their applications.
+    needs:
+    - area_problem
+    tier: 2
+  intermediate_value_theorem:
+    defines: A theorem stating that if f is continuous on a closed interval [a, b], then f takes on every
+      value between f(a) and f(b) at some point in [a, b].
+    needs:
+    - continuity_over_an_interval
+    tier: 3
+  differential_calculus:
+    defines: The field of calculus concerned with the study of derivatives and their applications.
+    needs:
+    - derivative
+    tier: 4
+  multivariable_calculus:
+    defines: The study of the calculus of functions of two or more variables, used for problems such as
+      volumes and motion in three dimensions.
+    needs:
+    - derivative
+    - integral_calculus
+    tier: 4

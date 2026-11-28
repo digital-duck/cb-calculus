@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Integration By Substitution | Calculus Ch05</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="换元积分法">换元积分法</h2>
+<p><strong>定义。</strong> 换元积分法(也称 $u$-代换)是求不定积分的一种技术,它把链式法则"倒着用"。若 $F'(x)=f(x)$,则由链式法则</p>
+$$\frac{d}{dx}F\big(g(x)\big)=f\big(g(x)\big)\,g'(x).$$
+<p>反过来就得到换元公式:</p>
+$$\int f\big(g(x)\big)\,g'(x)\,dx=\int f(u)\,du\Big|_{u=g(x)}=F\big(g(x)\big)+C.$$
+<p>关键在于:令 $u=g(x)$,则 $du=g'(x)\,dx$,被积表达式中的"内函数及其导数"就被整体换成了一个更简单的变量 $u$。</p>
+<p><strong>操作步骤。</strong></p>
+<li>在被积函数中找出"内层表达式" $u=g(x)$,且其导数(至多相差常数倍)也出现在被积函数中;</li>
+<li>计算 $du=g'(x)\,dx$,把 $x$ 全部换成 $u$;</li>
+<li>对 $u$ 积分;</li>
+<li>把 $u=g(x)$ 代回,得到关于 $x$ 的答案。</li>
+<p><strong>例题 1。</strong> 求 $\displaystyle\int 2x\cos(x^2)\,dx$。</p>
+<p>令 $u=x^2$,则 $du=2x\,dx$。于是</p>
+$$\int \cos u\,du=\sin u+C=\sin(x^2)+C.$$
+<p>验证:$\dfrac{d}{dx}\sin(x^2)=\cos(x^2)\cdot 2x$,与被积函数一致。</p>
+<p><strong>例题 2(需要补常数)。</strong> 求 $\displaystyle\int x\sqrt{1+3x^2}\,dx$。</p>
+<p>令 $u=1+3x^2$,则 $du=6x\,dx$,即 $x\,dx=\tfrac16\,du$。于是</p>
+$$\int \sqrt{u}\cdot\frac16\,du=\frac16\cdot\frac{2}{3}u^{3/2}+C=\frac19\,(1+3x^2)^{3/2}+C.$$
+<p><strong>定积分的换元。</strong> 计算定积分时,可以同时变换积分限,这样就不必代回 $x$:若 $u=g(x)$,则</p>
+$$\int_a^b f\big(g(x)\big)g'(x)\,dx=\int_{g(a)}^{g(b)} f(u)\,du.$$
+<p><strong>例题 3。</strong> 求 $\displaystyle\int_0^{2}\frac{x}{x^2+1}\,dx$。</p>
+<p>令 $u=x^2+1$,$du=2x\,dx$;当 $x=0$ 时 $u=1$,当 $x=2$ 时 $u=5$。所以</p>
+$$\int_1^{5}\frac{1}{2u}\,du=\frac12\ln|u|\Big|_1^5=\frac12\ln 5.$$
+<p><strong>解题应用与常见错误。</strong></p>
+<li><strong>选择 $u$ 的经验:</strong> 优先选括号内的部分、根号下的部分、分母、指数,并检查剩下的因子是否恰好是 $du$ 的常数倍。</li>
+<li><strong>必须消去所有 $x$:</strong> 若换元后仍残留 $x$,说明 $u$ 选得不合适(或需要用 $u$ 表示 $x$,例如 $u=x+1\Rightarrow x=u-1$)。</li>
+<li><strong>定积分不要混用变量:</strong> 换了积分限就用 $u$ 的值求结果;若保留原限 $a,b$,则必须先代回 $x$。</li>
+<li><strong>自检:</strong> 对结果求导,应当还原被积函数。</li>
+<p><strong>练习。</strong> 求 $\displaystyle\int \frac{e^{x}}{1+e^{x}}\,dx$。提示:令 $u=1+e^{x}$,则 $du=e^{x}dx$,结果为 $\ln(1+e^{x})+C$。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch5: Chapter 5. Integration (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

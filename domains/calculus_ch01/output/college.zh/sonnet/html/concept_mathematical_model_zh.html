@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mathematical Model | Calculus Ch01</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="数学模型">数学模型</h2>
+<p><strong>定义。</strong> 数学模型（mathematical model）是用数学语言（方程、函数、不等式等）来描述现实情境中变量之间关系的方法。我们先根据数据选择函数类型（线性、二次、指数等），再通过拟合确定参数，最后用模型进行<strong>模拟</strong>与<strong>预测</strong>。建模的基本循环是：提出问题 → 选择函数形式 → 拟合参数 → 检验 → 预测与修正。</p>
+<p>常见的两类模型：</p>
+<li>线性模型：$y = mx + b$，变化率恒定；</li>
+<li>二次模型：$y = ax^2 + bx + c$，变化率本身在变化，图像为抛物线。</li>
+<p><strong>例题。</strong> 某同学用手机记录一个盆栽的高度（单位：cm）：</p>
+<table style="border-collapse: collapse; border: 1px solid #333;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #333; padding: 6px 12px;">周数 $x$</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">0</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">2</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">4</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">6</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">高度 $y$</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">10</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">14</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">18.5</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">22</td>
+    </tr>
+  </tbody>
+</table>
+<p>观察数据：每两周大约增加 $4$ cm，增量基本恒定，因此选择线性模型。取首尾两点求斜率：</p>
+$$m = \frac{22-10}{6-0} = 2,\qquad b = 10,$$
+<p>得到模型 $y = 2x + 10$。检验：当 $x=4$ 时，模型值为 $18$，实测 $18.5$，残差（实际值 − 预测值）为 $0.5$ cm，误差很小，模型可以接受。</p>
+<p><strong>问题解决应用。</strong> 一个球被竖直向上抛出，测得高度数据：</p>
+<table style="border-collapse: collapse; border: 1px solid #333;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #333; padding: 6px 12px;">时间 $t$（s）</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">0</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">1</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">2</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">高度 $h$（m）</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">2</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">17</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">22</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">17</td>
+    </tr>
+  </tbody>
+</table>
+<p>一阶差分为 $15,\,5,\,-5$，不是常数；二阶差分为 $-10,\,-10$，是常数，因此应选二次模型 $h = at^2 + bt + c$。</p>
+<p>由 $t=0$ 得 $c=2$。代入 $t=1$：$a+b+2=17$，即 $a+b=15$；代入 $t=2$：$4a+2b+2=22$，即 $2a+b=10$。解得 $a=-5,\ b=20$：</p>
+$$h(t) = -5t^2 + 20t + 2.$$
+<p>检验 $t=3$：$-45+60+2=17$，与数据吻合。</p>
+<p>用模型回答问题：</p>
+<li>最高点在顶点 $t = -\dfrac{b}{2a} = 2$ s，最大高度 $h(2)=22$ m；</li>
+<li>落地时 $h=0$：$-5t^2+20t+2=0$，解得 $t = 2+\sqrt{4.4}\approx 4.1$ s（取正根）。</li>
+<p><strong>注意事项。</strong></p>
+<li><strong>内插与外推</strong>：在数据范围内预测（内插）通常可靠；超出范围（外推）风险很大。例如盆栽不会永远以每周 $1$ cm 的速度长高。</li>
+<li><strong>模型选择</strong>：先看散点图或差分，再选函数类型；一阶差分近似恒定 → 线性，二阶差分近似恒定 → 二次。</li>
+<li><strong>定义域限制</strong>：球的模型只在 $0 \le t \le 4.1$ 内有物理意义。</li>
+<p>模型总是现实的简化：好的模型不是"绝对正确"，而是在明确的适用范围内"足够准确且有用"。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch1: Chapter 1. Functions and Graphs (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

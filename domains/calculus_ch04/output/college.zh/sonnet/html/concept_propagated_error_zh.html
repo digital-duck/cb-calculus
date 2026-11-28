@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propagated Error | Calculus Ch04</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="传播误差">传播误差</h2>
+<p><strong>定义。</strong> 设某个量由测量值 $x$ 通过函数 $y=f(x)$ 计算得到。若测量存在误差 $\Delta x = dx$,则计算结果的误差 $\Delta y = f(x+\Delta x)-f(x)$ 称为<strong>传播误差</strong>。当 $|\Delta x|$ 很小时,可用微分近似:</p>
+$$
+\Delta y \approx dy = f'(x)\,dx .
+$$
+<p>常用两种度量:</p>
+<li><strong>绝对误差</strong>:$|dy|$;</li>
+<li><strong>相对误差</strong>:$\left|\dfrac{dy}{y}\right|$,<strong>百分比误差</strong>为其乘以 $100\%$。</li>
+<p>多变量情形 $z=f(x_1,\dots,x_n)$ 下,全微分给出</p>
+$$
+dz=\sum_{i=1}^{n}\frac{\partial f}{\partial x_i}\,dx_i .
+$$
+<p><strong>例题。</strong> 测得球的半径为 $r=10\ \text{cm}$,测量误差不超过 $0.1\ \text{cm}$。估计体积 $V=\tfrac43\pi r^3$ 的传播误差。</p>
+<p>解:$V'(r)=4\pi r^2$,故</p>
+$$
+dV = 4\pi r^2\,dr = 4\pi(10)^2(0.1)=40\pi\approx 125.7\ \text{cm}^3 .
+$$
+<p>而 $V=\tfrac43\pi(10)^3\approx 4188.8\ \text{cm}^3$,所以相对误差</p>
+$$
+\frac{dV}{V}=\frac{40\pi}{\tfrac{4000}{3}\pi}=0.03=3\%.
+$$
+<p>注意半径的相对误差仅为 $1\%$,体积的相对误差却是 $3\%$。原因是 $\dfrac{dV}{V}=3\,\dfrac{dr}{r}$:幂函数 $r^n$ 会把相对误差放大 $n$ 倍。</p>
+<p><strong>问题求解应用。</strong> </p>
+<p><em>(1)反向设计精度。</em> 要使球体积的相对误差不超过 $2\%$,半径的相对误差最多允许多大?由 $\dfrac{dV}{V}=3\dfrac{dr}{r}\le 0.02$ 得 $\dfrac{dr}{r}\le 0.67\%$,即当 $r=10\ \text{cm}$ 时需保证 $|dr|\le 0.067\ \text{cm}$。</p>
+<p><em>(2)多变量误差。</em> 矩形边长测得 $a=5\pm0.02$,$b=8\pm0.03$,面积 $A=ab$。则</p>
+$$
+dA = b\,da + a\,db,\qquad |dA|\le 8(0.02)+5(0.03)=0.31 .
+$$
+<p>最坏情况下面积误差约为 $0.31$,相对误差约 $0.31/40\approx0.78\%$。</p>
+<pre class="mermaid">flowchart LR
+    A["测量值 x 与误差 dx"] --> B["计算导数 f'(x)"]
+    B --> C["微分 dy = f'(x)dx"]
+    C --> D["相对误差 dy/y"]
+    D --> E["判断精度是否达标"]</pre>
+<p><em>图:由测量误差到传播误差的估计流程。</em></p>
+<p><strong>要点。</strong> 微分近似只在 $|dx|$ 足够小时可靠;$|f'(x)|$ 越大,函数对测量误差越敏感。解题时先求导,再代入 $x$ 与 $dx$,最后比较相对误差,即可判断结果是否可信。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch4: Chapter 4. Applications of Derivatives (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

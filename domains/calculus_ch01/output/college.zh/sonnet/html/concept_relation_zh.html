@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relation | Calculus Ch01</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="关系">关系</h2>
+<p><strong>定义。</strong> 设 $A$、$B$ 是两个集合。从 $A$ 到 $B$ 的<strong>关系</strong> $R$ 是笛卡尔积 $A\times B$ 的任意子集：</p>
+$$R\subseteq A\times B=\{(x,y)\mid x\in A,\ y\in B\}.$$
+<p>若 $(x,y)\in R$，记作 $xRy$，读作"$x$ 与 $y$ 有关系 $R$"。$A$ 称为<strong>定义域所在集合</strong>，$B$ 称为<strong>陪域</strong>。实际取到的第一分量集合 $\operatorname{dom}R=\{x\mid \exists y,\ (x,y)\in R\}$ 称为<strong>定义域</strong>，实际取到的第二分量集合 $\operatorname{ran}R=\{y\mid \exists x,\ (x,y)\in R\}$ 称为<strong>值域</strong>。若 $A=B$，称 $R$ 为 $A$ 上的关系。</p>
+<p>注意：关系对"配对方式"没有任何限制。一个 $x$ 可以对应多个 $y$，也可以不对应任何 $y$。当每个 $x\in A$ 恰好对应一个 $y$ 时，关系才成为<strong>函数</strong>，所以函数是一种特殊的关系。</p>
+<p><strong>例题。</strong> 设 $A=\{1,2,3,4\}$，定义 $A$ 上的关系 $R=\{(x,y)\mid x\text{ 整除 }y\}$。</p>
+<p>列出所有满足条件的有序对：</p>
+$$R=\{(1,1),(1,2),(1,3),(1,4),(2,2),(2,4),(3,3),(4,4)\}.$$
+<p>共 $8$ 个有序对，而 $|A\times A|=16$，所以 $R$ 是 $A\times A$ 的真子集。</p>
+<p>读出性质：</p>
+<li>$\operatorname{dom}R=\{1,2,3,4\}$，$\operatorname{ran}R=\{1,2,3,4\}$。</li>
+<li>$1$ 对应 4 个 $y$，所以 $R$ <strong>不是</strong>函数。</li>
+<li>对每个 $x$ 都有 $(x,x)\in R$（自反性）；$(1,2)\in R$ 但 $(2,1)\notin R$（非对称）。</li>
+<p><strong>问题求解应用。</strong> </p>
+<p><em>问题：</em> 某课程中，$A=\{\text{小明},\text{小红},\text{小刚}\}$ 为学生集合，$B=\{\text{数学},\text{物理},\text{化学}\}$ 为课程集合。已知选课关系为</p>
+$$R=\{(\text{小明},\text{数学}),(\text{小明},\text{物理}),(\text{小红},\text{物理}),(\text{小刚},\text{化学})\}.$$
+<p>问：(1) 选修物理的学生有哪些？(2) $R$ 是否为从 $A$ 到 $B$ 的函数？(3) 若要使 $R$ 成为函数，最少需要删除几个有序对？</p>
+<p><em>解：</em></p>
+<li>找出第二分量为"物理"的有序对：$(\text{小明},\text{物理})$ 与 $(\text{小红},\text{物理})$，所以是小明和小红。</li>
+<li>小明出现在两个有序对中，对应两门课，违反"每个 $x$ 恰好一个 $y$"，所以 $R$ 不是函数。</li>
+<li>其余学生都只对应一门课，只有小明重复。删除 $(\text{小明},\text{数学})$ 或 $(\text{小明},\text{物理})$ 中的任意一个即可，最少删除 $1$ 个。</li>
+<p><strong>小结。</strong> 判断一个集合是不是关系，只需检查它的元素是否都是 $A\times B$ 中的有序对。要判断它是否为函数，再检查每个 $x$ 是否恰有一个 $y$。把关系写成有序对列表，是后续研究自反、对称、传递等性质的起点。</p>
+<pre class="mermaid">graph LR
+  A1["1"] --> B1["1"]
+  A1 --> B2["2"]
+  A2["2"] --> B2
+  A2 --> B4["4"]
+  A3["3"] --> B3["3"]
+  A4["4"] --> B4</pre>
+<p><em>图示：集合 $\{1,2,3,4\}$ 上"整除"关系的部分箭头图（左列为 $x$，右列为 $y$），一个 $x$ 可指向多个 $y$。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch1: Chapter 1. Functions and Graphs (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,168 @@
+domain: calculus_ch05_integration
+primitives:
+  sigma_notation:
+    defines: A compact notation using the Greek letter sigma to express the sum of a sequence of terms
+      indexed by a dummy variable.
+    tier: 0
+  partition:
+    defines: A set of points dividing a closed interval [a, b] into subintervals; a regular partition
+      has subintervals of equal width.
+    tier: 0
+  antiderivative:
+    defines: A function F(x) whose derivative equals a given function f(x); the basis for evaluating definite
+      integrals via the Fundamental Theorem of Calculus.
+    tier: 0
+concepts:
+  left_endpoint_approximation:
+    defines: An estimate of the area under a curve formed by summing the areas of rectangles whose heights
+      equal the function value at the left endpoint of each subinterval.
+    composed_of:
+    - sigma_notation
+    - partition
+    tier: 1
+  right_endpoint_approximation:
+    defines: An estimate of the area under a curve formed by summing the areas of rectangles whose heights
+      equal the function value at the right endpoint of each subinterval.
+    composed_of:
+    - sigma_notation
+    - partition
+    tier: 1
+  riemann_sum:
+    defines: A sum of the form Σ f(x_i*)Δx approximating the area under a curve by evaluating the function
+      at an arbitrary point in each subinterval of a partition.
+    composed_of:
+    - sigma_notation
+    - partition
+    tier: 1
+  upper_lower_sums:
+    defines: Riemann sums formed by choosing the maximum (upper sum) or minimum (lower sum) function value
+      on each subinterval, giving guaranteed overestimates or underestimates of the area.
+    composed_of:
+    - riemann_sum
+    tier: 2
+  area_under_curve_limit:
+    defines: The exact area under a curve is defined as the limit of a Riemann sum as the number of subintervals
+      n approaches infinity.
+    composed_of:
+    - riemann_sum
+    tier: 2
+  definite_integral:
+    defines: The limit of a Riemann sum as n approaches infinity, written ∫ from a to b of f(x)dx, generalizing
+      the area under a curve to functions that may be negative or discontinuous.
+    composed_of:
+    - area_under_curve_limit
+    tier: 3
+  integrable_function:
+    defines: A function for which the limit defining the definite integral exists; continuous functions
+      on a closed interval are always integrable.
+    composed_of:
+    - definite_integral
+    tier: 4
+  net_signed_area:
+    defines: The value of a definite integral interpreted as the area above the x-axis minus the area
+      below the x-axis over the interval of integration.
+    composed_of:
+    - definite_integral
+    tier: 4
+  total_area:
+    defines: The area between a function and the x-axis found by integrating the absolute value of the
+      function, adding rather than subtracting area below the axis.
+    composed_of:
+    - net_signed_area
+    tier: 5
+  properties_of_definite_integrals:
+    defines: Rules governing definite integrals, including behavior under reversed limits, sums/differences
+      of functions, constant multiples, and splitting the interval of integration.
+    composed_of:
+    - definite_integral
+    tier: 4
+  comparison_theorem:
+    defines: A theorem relating the relative sizes of definite integrals to the relative sizes of the
+      integrands over the same interval.
+    composed_of:
+    - definite_integral
+    tier: 4
+  average_value_of_function:
+    defines: The average value of a continuous function f over [a, b], computed as 1/(b−a) times the definite
+      integral of f over that interval.
+    composed_of:
+    - definite_integral
+    tier: 4
+  mean_value_theorem_integrals:
+    defines: Guarantees that for a continuous function on [a, b], there exists a point c where f(c) equals
+      the average value of the function on that interval.
+    composed_of:
+    - average_value_of_function
+    tier: 5
+  fundamental_theorem_calculus_part1:
+    defines: States that if F(x) is defined as the definite integral of a continuous function f from a
+      to x, then F is an antiderivative of f, i.e., F'(x) = f(x).
+    composed_of:
+    - definite_integral
+    - antiderivative
+    tier: 4
+  fundamental_theorem_calculus_part2:
+    defines: States that a definite integral of f over [a, b] can be evaluated as F(b) − F(a), where F
+      is any antiderivative of f.
+    composed_of:
+    - fundamental_theorem_calculus_part1
+    - antiderivative
+    tier: 5
+  net_change_theorem:
+    defines: States that the new value of a quantity equals its initial value plus the integral of its
+      rate of change over the interval.
+    composed_of:
+    - fundamental_theorem_calculus_part2
+    tier: 6
+  even_odd_function_integrals:
+    defines: Rules stating that the integral of an even function over [−a, a] equals twice the integral
+      over [0, a], while the integral of an odd function over [−a, a] equals zero.
+    composed_of:
+    - properties_of_definite_integrals
+    tier: 5
+  integration_by_substitution:
+    defines: A technique for finding antiderivatives by substituting a variable u for an expression in
+      the integrand, reversing the chain rule of differentiation.
+    composed_of:
+    - antiderivative
+    tier: 1
+  substitution_definite_integrals:
+    defines: Applying u-substitution to a definite integral, including converting the limits of integration
+      into the new variable u.
+    composed_of:
+    - integration_by_substitution
+    - fundamental_theorem_calculus_part2
+    tier: 6
+  integrals_exponential_functions:
+    defines: Formulas and substitution techniques for finding antiderivatives of exponential functions
+      such as e^x and a^x.
+    composed_of:
+    - integration_by_substitution
+    tier: 2
+  integrals_logarithmic_functions:
+    defines: Formulas and substitution techniques for integrating functions that produce natural or other-base
+      logarithms, such as 1/x and ln(x).
+    composed_of:
+    - integration_by_substitution
+    tier: 2
+  integrals_inverse_trig_functions:
+    defines: Integration formulas that yield inverse sine, tangent, and secant functions, derived from
+      the derivatives of inverse trigonometric functions.
+    composed_of:
+    - antiderivative
+    tier: 1
+applications:
+  displacement_from_velocity:
+    defines: An application of the definite integral in which integrating a velocity function gives net
+      displacement, and integrating its absolute value gives total distance traveled.
+    needs:
+    - definite_integral
+    - net_change_theorem
+    tier: 7
+  price_demand_application:
+    defines: Applications of integration to real-world rate problems such as recovering a price–demand
+      function from its marginal function or modeling population/bacterial growth from a growth rate.
+    needs:
+    - net_change_theorem
+    - integrals_exponential_functions
+    tier: 7

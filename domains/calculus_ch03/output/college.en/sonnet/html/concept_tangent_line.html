@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tangent Line | Calculus Ch03</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="tangent-line">Tangent Line</h2>
+<p>The tangent line to a curve $y = f(x)$ at a point $P = (a, f(a))$ is the straight line that best approximates the curve near $P$ — it touches the curve at that point and points in the same instantaneous direction the curve is heading. To make this precise, start with something easier to compute: a <strong>secant line</strong>, which passes through two points on the curve, $P = (a, f(a))$ and $Q = (a+h, f(a+h))$. The slope of this secant is the familiar difference quotient:</p>
+$$
+m_{\text{sec}} = \frac{f(a+h) - f(a)}{h}.
+$$
+<p>As $h \to 0$, the point $Q$ slides along the curve toward $P$, and the secant line rotates until it settles into the tangent line. The slope of the tangent is defined as the limit of the secant slopes:</p>
+$$
+m_{\text{tan}} = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h} = f'(a).
+$$
+<p>This limit is precisely the derivative of $f$ at $a$ — the tangent line is the geometric meaning of the derivative.</p>
+<p><strong>Worked example.</strong> Find the tangent line to $f(x) = x^2$ at $a = 3$.</p>
+<p>First compute the slope: $f'(x) = 2x$, so $f'(3) = 6$. The point of tangency is $(3, f(3)) = (3, 9)$. Using point-slope form:</p>
+$$
+y - 9 = 6(x - 3) \quad \Longrightarrow \quad y = 6x - 9.
+$$
+<p><strong>Problem-solving application.</strong> Tangent lines are the standard tool for <em>local linear approximation</em>: near $x = a$, $f(x) \approx f(a) + f'(a)(x-a)$. For instance, to estimate $\sqrt{4.1}$ without a calculator, let $f(x) = \sqrt{x}$, $a = 4$. Then $f(4) = 2$, $f'(x) = \frac{1}{2\sqrt{x}}$, so $f'(4) = 0.25$. The tangent line gives $\sqrt{4.1} \approx 2 + 0.25(0.1) = 2.025$ — very close to the true value $2.0248\ldots$. This same idea underlies Newton's method for root-finding and error estimation in physics and engineering.</p>
+<pre class="mermaid">flowchart LR
+    A["Secant through P and Q"] --> B["Q slides toward P as h shrinks"]
+    B --> C["Secant slope = difference quotient"]
+    C --> D["h → 0"]
+    D --> E["Secant becomes tangent line"]
+    E --> F["Slope = f'(a)"]</pre>
+<p><em>As the second point $Q$ slides toward $P$ along the curve, the secant line rotates and converges to the tangent line, with slope given by the limit $\lim_{h\to 0}$ of the difference quotient.</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch3: Chapter 3. Derivatives (Level: College &middot; Language: EN &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

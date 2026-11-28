@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secant Line | Calculus Ch03</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="secant-line">Secant Line</h2>
+<p>A secant line is a line that passes through two distinct points on a curve. Given a function $f$ and two points $x = a$ and $x = a+h$ on its domain (with $h \neq 0$), the secant line connects $(a, f(a))$ and $(a+h, f(a+h))$. Its slope is given by the <strong>difference quotient</strong>:</p>
+$$
+m_{\text{sec}} = \frac{f(a+h) - f(a)}{h}
+$$
+<p>This slope represents the <strong>average rate of change</strong> of $f$ over the interval $[a, a+h]$ — how much the function's output changes, on average, per unit change in input. Unlike a tangent line, which touches the curve at a single point and captures instantaneous behavior, a secant line always requires two points and describes change over an interval.</p>
+<p><strong>Worked example.</strong> Let $f(x) = x^2$, with $a = 1$ and $h = 2$, so the second point is $x = 3$.</p>
+$$
+m_{\text{sec}} = \frac{f(3) - f(1)}{3 - 1} = \frac{9 - 1}{2} = 4
+$$
+<p>The secant line through $(1, 1)$ and $(3, 9)$ has slope 4. Using point-slope form, its equation is $y - 1 = 4(x - 1)$, or $y = 4x - 3$. This line approximates how steeply the parabola rises between $x=1$ and $x=3$, though the curve itself is steeper near $x=3$ and less steep near $x=1$ — the secant slope is an <em>average</em>, smoothing out that variation.</p>
+<p><strong>Problem-solving application.</strong> Secant lines are the foundation for computing instantaneous rates of change. If you shrink the interval — letting $h \to 0$ — the secant line's slope approaches the slope of the tangent line at $x = a$, which is the derivative $f'(a)$. This is precisely why the difference quotient appears in the formal definition of the derivative:</p>
+$$
+f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}
+$$
+<p>In practice, secant lines are useful even without taking a limit: physicists use them to estimate average velocity from position data at two times, and economists use them to estimate average growth rate between two data points. Whenever you only have discrete measurements rather than a continuous formula, the secant slope is often the best rate-of-change estimate available — and computing it well is a prerequisite skill before tackling limits and derivatives.</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch3: Chapter 3. Derivatives (Level: College &middot; Language: EN &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Continuity Over An Interval | Calculus Ch02</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="区间上的连续性">区间上的连续性</h2>
+<p><strong>定义。</strong> 设函数 $f$ 定义在区间 $I$ 上。若 $f$ 在 $I$ 的每一点处都连续,则称 $f$ <strong>在区间 $I$ 上连续</strong>。具体规定如下:</p>
+<li>对开区间 $(a,b)$ 内的每一点 $c$,要求 $\displaystyle\lim_{x\to c} f(x)=f(c)$。</li>
+<li>对闭区间 $[a,b]$,除内部各点外,还需在端点处满足<strong>单侧连续</strong>:</li>
+$$\lim_{x\to a^+} f(x)=f(a),\qquad \lim_{x\to b^-} f(x)=f(b).$$
+<p>在端点处只能从区间内部一侧逼近,所以只能使用单侧极限。</p>
+<p><strong>例题。</strong> 判断 $f(x)=\sqrt{4-x^2}$ 在 $[-2,2]$ 上是否连续。</p>
+<p><em>第一步:内部各点。</em> 当 $-2<c<2$ 时,$4-c^2>0$。多项式连续,而平方根函数在正数处连续,所以复合函数在 $c$ 处连续,即</p>
+$$\lim_{x\to c}\sqrt{4-x^2}=\sqrt{4-c^2}.$$
+<p><em>第二步:左端点。</em> </p>
+$$\lim_{x\to -2^+}\sqrt{4-x^2}=\sqrt{0}=0=f(-2).$$
+<p><em>第三步:右端点。</em> </p>
+$$\lim_{x\to 2^-}\sqrt{4-x^2}=0=f(2).$$
+<p>三项都成立,因此 $f$ 在 $[-2,2]$ 上连续。它的图像是上半圆,一笔画成,中间没有断点。</p>
+<p><strong>反例。</strong> 设</p>
+$$g(x)=\begin{cases}x+1, & 0\le x<1,\\ 3-x, & 1\le x\le 2.\end{cases}$$
+<p>在 $x=1$ 处,$\displaystyle\lim_{x\to1^-}g(x)=2$,而 $\displaystyle\lim_{x\to1^+}g(x)=2$,且 $g(1)=2$,所以 $g$ 在 $x=1$ 处连续。再检验端点:$\lim_{x\to0^+}g(x)=1=g(0)$,$\lim_{x\to2^-}g(x)=1=g(2)$。因此 $g$ 在 $[0,2]$ 上连续。</p>
+<p>若把第二段改为 $4-x$,则 $\lim_{x\to1^+}g(x)=3\ne 2$,$g$ 在 $x=1$ 处不连续,也就不在 $[0,2]$ 上连续。</p>
+<p><strong>问题求解应用。</strong> 已知 $h(x)=\begin{cases}kx+1, & x<2,\\ x^2-k, & x\ge 2\end{cases}$ 在 $(-\infty,\infty)$ 上连续,求 $k$。</p>
+<p>两段各自都是多项式,在各自的区间内部已连续,只需在分界点 $x=2$ 处使左右极限相等:</p>
+$$\lim_{x\to2^-}h(x)=2k+1,\qquad \lim_{x\to2^+}h(x)=4-k=h(2).$$
+<p>令 $2k+1=4-k$,得 $3k=3$,即 $k=1$。</p>
+<p><strong>为什么这个概念重要?</strong> 区间上的连续性是<strong>介值定理</strong>与<strong>最值定理</strong>的前提:若 $f$ 在<strong>闭区间</strong> $[a,b]$ 上连续,则 $f$ 取到 $f(a)$ 与 $f(b)$ 之间的每一个值,并且在 $[a,b]$ 上取得最大值与最小值。若漏掉端点处的单侧连续条件,这些结论可能失效。</p>
+<p><strong>小结。</strong> 判断区间上的连续性分三步:(1)内部逐点用极限检验,或借助"连续函数的和、积、商、复合仍连续"这一事实;(2)闭端点用单侧极限检验;(3)分段函数在分界点处令左右极限与函数值相等。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch2: Chapter 2. Limits (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

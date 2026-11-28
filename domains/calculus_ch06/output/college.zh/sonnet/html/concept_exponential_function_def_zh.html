@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exponential Function Def | Calculus Ch06</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="指数函数的定义">指数函数的定义</h2>
+<h3 id="定义">定义</h3>
+<p>对数函数 $\ln x=\int_1^x \frac{1}{t}\,dt$（$x>0$）在 $(0,\infty)$ 上严格单调递增，值域为全体实数 $\mathbb{R}$，因此存在反函数。<strong>指数函数</strong>就定义为自然对数的反函数：</p>
+$$
+y=e^x \iff x=\ln y,\qquad x\in\mathbb{R},\ y>0 .
+$$
+<p>于是有两条基本恒等式：</p>
+$$
+\ln(e^x)=x\ (x\in\mathbb{R}),\qquad e^{\ln y}=y\ (y>0).
+$$
+<p>数 $e$ 由 $\ln e=1$ 确定，即 $e=e^1\approx 2.71828$。</p>
+<p>这个定义把"乘方"推广到了所有实数指数：对有理数 $r=p/q$，$e^{r}$ 与通常的根式乘方一致；对无理数 $x$（如 $\sqrt2$），$e^x$ 也有了确切含义，不再依赖"极限逼近"的模糊说法。对任意 $a>0$，进一步定义 $a^x=e^{x\ln a}$。</p>
+<h3 id="性质的推导">性质的推导</h3>
+<p>由 $\ln(uv)=\ln u+\ln v$，令 $u=e^{a},\ v=e^{b}$，得</p>
+$$
+\ln(e^a e^b)=a+b\ \Rightarrow\ e^{a}e^{b}=e^{a+b}.
+$$
+<p>再由反函数求导法则，设 $y=e^x$，则 $\dfrac{dx}{dy}=\dfrac1y$，所以</p>
+$$
+\frac{d}{dx}e^x=y=e^x .
+$$
+<p>这说明 $e^x$ 的导数就是它自身，这也是它在微积分中如此重要的原因。</p>
+<h3 id="例题">例题</h3>
+<p><strong>例 1</strong> 解方程 $e^{2x-1}=5$。</p>
+<p>两边取 $\ln$：$2x-1=\ln 5$，所以 $x=\dfrac{1+\ln 5}{2}\approx 1.305$。</p>
+<p><strong>例 2</strong> 化简 $\ln\!\left(e^{3x}\cdot e^{-x}\right)$。</p>
+<p>由指数律，$e^{3x}e^{-x}=e^{2x}$，故结果为 $2x$。</p>
+<h3 id="问题求解应用">问题求解应用</h3>
+<p><strong>问题</strong> 某放射性样品的质量满足 $m(t)=m_0e^{-kt}$，已知 $10$ 小时后剩余 $60\%$，求半衰期。</p>
+<li>由 $e^{-10k}=0.6$ 得 $k=-\dfrac{\ln 0.6}{10}\approx 0.0511\ \text{h}^{-1}$。</li>
+<li>半衰期满足 $e^{-kT}=\tfrac12$，所以 $T=\dfrac{\ln 2}{k}=\dfrac{10\ln 2}{-\ln 0.6}\approx 13.57$ 小时。</li>
+<p><strong>解题要点</strong>：遇到未知量在指数上，先用 $\ln$ "取下"指数；遇到含 $\ln$ 的方程，则用 $e^{(\cdot)}$ 还原。两者互为反函数，正是该定义的直接应用。</p>
+<pre class="mermaid">flowchart LR
+    A["实数 x"] -->|"指数函数 e^x"| B["正实数 y"]
+    B -->|"自然对数 ln y"| A</pre>
+<p><em>图示：指数函数与自然对数互为反函数，定义域与值域相互对调（$\mathbb{R}\leftrightarrow(0,\infty)$）。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch6: Chapter 6. Applications of Integration (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

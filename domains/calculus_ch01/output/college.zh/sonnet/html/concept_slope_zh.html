@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slope | Calculus Ch01</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="斜率">斜率</h2>
+<p><strong>定义。</strong> 斜率(slope)衡量一条直线的陡峭程度与倾斜方向。对直线上任意两个不同的点 $(x_1, y_1)$ 与 $(x_2, y_2)$,斜率定义为纵坐标的变化量与横坐标的变化量之比:</p>
+$$m = \frac{\Delta y}{\Delta x} = \frac{y_2 - y_1}{x_2 - x_1}, \quad x_2 \neq x_1.$$
+<p>直观地说,斜率表示"$x$ 每增加 1 个单位,$y$ 改变多少"。</p>
+<li>$m > 0$:直线从左向右上升;</li>
+<li>$m < 0$:直线从左向右下降;</li>
+<li>$m = 0$:水平线;</li>
+<li>竖直线的 $\Delta x = 0$,斜率<strong>不存在</strong>(未定义)。</li>
+<p>$|m|$ 越大,直线越陡。对于直线,任取哪两个点,所得斜率都相同,这正是直线"变化率恒定"的含义。</p>
+<p><strong>例题。</strong> 求经过点 $A(1, 2)$ 和 $B(4, 8)$ 的直线的斜率。</p>
+$$m = \frac{8 - 2}{4 - 1} = \frac{6}{3} = 2.$$
+<p>斜率为 $2$,表示每向右移动 1 个单位,图像上升 2 个单位。若交换两点的顺序,则 $m = \frac{2-8}{1-4} = \frac{-6}{-3} = 2$,结果不变。但要注意分子、分母必须采用<strong>相同的点顺序</strong>,否则符号会出错。</p>
+<p><strong>问题解决中的应用。</strong></p>
+<p><em>问题:</em> 某出租车的收费由起步价加里程费组成。行驶 2 km 时费用为 11 元,行驶 6 km 时费用为 23 元。求每公里的单价,并预测行驶 10 km 的费用。</p>
+<p><em>解:</em> 把(里程,费用)看作点 $(2, 11)$ 与 $(6, 23)$。此时斜率就是单价:</p>
+$$m = \frac{23 - 11}{6 - 2} = \frac{12}{4} = 3 \text{ (元/km)}.$$
+<p>由于收费随里程线性变化,斜率恒定,所以从 6 km 到 10 km 增加 $4$ km,费用增加 $3 \times 4 = 12$ 元,即</p>
+$$23 + 12 = 35 \text{ 元}.$$
+<p><em>检验:</em> 起步价为 $11 - 3 \times 2 = 5$ 元,故费用函数为 $y = 3x + 5$;当 $x = 10$ 时,$y = 35$,与上面一致。</p>
+<p><strong>要点。</strong> 在应用题中,斜率的<strong>单位</strong>是"$y$ 的单位 / $x$ 的单位"(这里是元/km),它给出了实际意义:速度、单价、增长率等都是斜率。再看另一个判断:若两条直线斜率相等($m_1 = m_2$),则它们平行;若 $m_1 m_2 = -1$,则它们互相垂直。这两条结论常用于几何证明与求直线方程。</p>
+<pre class="mermaid">graph LR
+    A["m 大于 0:上升"] --- B["m 等于 0:水平"]
+    B --- C["m 小于 0:下降"]
+    C --- D["竖直线:斜率不存在"]</pre>
+<p><em>斜率符号与直线方向的对应关系。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch1: Chapter 1. Functions and Graphs (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Absolute Extrema | Calculus Ch04</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="绝对极值">绝对极值</h2>
+<p><strong>定义。</strong> 设函数 $f$ 在区间 $I$ 上有定义。若存在 $c\in I$,使得对所有 $x\in I$ 都有 $f(x)\le f(c)$,则称 $f(c)$ 为 $f$ 在 $I$ 上的<strong>绝对最大值</strong>。若对所有 $x\in I$ 都有 $f(x)\ge f(c)$,则称 $f(c)$ 为<strong>绝对最小值</strong>。二者统称绝对极值。它们描述的是整个区间上的"最高点"和"最低点",而不只是某个点附近的局部高低。</p>
+<p><strong>极值定理。</strong> 若 $f$ 在<strong>闭区间</strong> $[a,b]$ 上连续,则 $f$ 在 $[a,b]$ 上一定同时取得绝对最大值和绝对最小值。这一定理保证了极值存在。若区间是开区间,或函数有间断点,极值可能不存在。例如 $f(x)=x$ 在 $(0,1)$ 上既无最大值也无最小值。</p>
+<p><strong>闭区间法。</strong> 对 $[a,b]$ 上的连续函数 $f$:</p>
+<li>求出 $(a,b)$ 内所有<strong>临界点</strong>,即 $f'(x)=0$ 或 $f'(x)$ 不存在的点。</li>
+<li>计算 $f$ 在这些临界点和两个端点 $a$、$b$ 处的值。</li>
+<li>其中最大的是绝对最大值,最小的是绝对最小值。</li>
+<p><strong>例题。</strong> 求 $f(x)=x^3-3x^2+1$ 在 $[-1,3]$ 上的绝对极值。</p>
+<p>先求导:$f'(x)=3x^2-6x=3x(x-2)$,令其为零,得临界点 $x=0$ 和 $x=2$,二者都在 $(-1,3)$ 内。</p>
+<p>计算候选点处的函数值:</p>
+<table style="border-collapse: collapse; border: 1px solid #333;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #333; padding: 6px 12px;">$x$</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">$-1$</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">$0$</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">$2$</th>
+      <th style="border: 1px solid #333; padding: 6px 12px;">$3$</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$f(x)$</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$-3$</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$1$</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$-3$</td>
+      <td style="border: 1px solid #333; padding: 6px 12px;">$1$</td>
+    </tr>
+  </tbody>
+</table>
+<p>因此绝对最大值为 $1$,在 $x=0$ 与 $x=3$ 处取得。绝对最小值为 $-3$,在 $x=-1$ 与 $x=2$ 处取得。注意,极值可以在多个点取得,而且端点也可能是极值点。</p>
+<p><strong>问题求解应用。</strong> 用一张长 $12$ cm、宽 $12$ cm 的方形纸板,在四角各剪去边长为 $x$ 的小正方形,折成无盖盒子。求体积最大时的 $x$。</p>
+<p>体积为 $V(x)=x(12-2x)^2$,定义域为 $[0,6]$,$V$ 在其上连续。展开求导:</p>
+$$V'(x)=(12-2x)^2-4x(12-2x)=(12-2x)(12-6x)=12(6-x)(2-x)\cdot 1.$$
+<p>令 $V'(x)=0$,得 $x=2$ 或 $x=6$,其中 $x=2$ 在区间内部。比较三个候选值:</p>
+$$V(0)=0,\qquad V(2)=2\cdot 8^2=128,\qquad V(6)=0.$$
+<p>故当 $x=2$ cm 时,体积最大,为 $128\ \text{cm}^3$。</p>
+<p><strong>要点回顾。</strong> 解题时要先确认区间是否闭合、函数是否连续,再用闭区间法比较候选点。常见错误是漏掉端点,或只求出临界点就停止,而没有比较函数值。</p>
+<pre class="mermaid">flowchart TD
+    A[连续函数 f 与闭区间] --> B[求 f 的导数]
+    B --> C[找出内部临界点]
+    C --> D[加入两个端点]
+    D --> E[计算各候选点的函数值]
+    E --> F[最大者为绝对最大值]
+    E --> G[最小者为绝对最小值]</pre>
+<p><em>图:闭区间法求绝对极值的流程。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch4: Chapter 4. Applications of Derivatives (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

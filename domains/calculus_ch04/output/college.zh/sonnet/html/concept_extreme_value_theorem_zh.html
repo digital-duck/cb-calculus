@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Extreme Value Theorem | Calculus Ch04</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="极值定理">极值定理</h2>
+<p><strong>定义。</strong> 若函数 $f$ 在闭区间 $[a,b]$ 上连续,则存在 $c,d\in[a,b]$,使得对任意 $x\in[a,b]$,都有</p>
+$$f(c)\le f(x)\le f(d).$$
+<p>即 $f(c)$ 是绝对最小值,$f(d)$ 是绝对最大值。这里的三个条件缺一不可:<strong>连续</strong>、<strong>闭区间</strong>(包含端点)、<strong>有界</strong>(区间长度有限)。</p>
+<p><strong>为什么条件不能省。</strong></p>
+<li>去掉闭区间:$f(x)=x$ 在 $(0,1)$ 上连续,但取不到最大值也取不到最小值。</li>
+<li>去掉有界:$f(x)=x$ 在 $[0,\infty)$ 上没有最大值。</li>
+<li>去掉连续:$f(x)=\begin{cases}x,&0\le x<1\\0,&x=1\end{cases}$ 在 $[0,1]$ 上取不到最大值,因为上确界 $1$ 从未被取到。</li>
+<p><strong>证明思路。</strong> 连续函数在 $[a,b]$ 上有界。设 $M=\sup f$,则可取点列 $x_n$ 使 $f(x_n)\to M$。由 Bolzano–Weierstrass 定理,它有收敛子列 $x_{n_k}\to d\in[a,b]$(闭区间保证极限仍在区间内)。由连续性,$f(d)=\lim f(x_{n_k})=M$,所以最大值被取到。最小值同理,对 $-f$ 使用同样的论证。</p>
+<p><strong>例题。</strong> 求 $f(x)=x^3-3x+1$ 在 $[-2,3]$ 上的最大值和最小值。</p>
+<p>因为 $f$ 连续且区间闭而有界,极值定理保证最大值和最小值存在。极值只可能出现在<strong>临界点</strong>或<strong>端点</strong>。</p>
+<li>求导:$f'(x)=3x^2-3=0$,得 $x=\pm1$。</li>
+<li>计算候选点的函数值:</li>
+<p>   - $f(-2)=-8+6+1=-1$    - $f(-1)=-1+3+1=3$    - $f(1)=1-3+1=-1$    - $f(3)=27-9+1=19$</p>
+<li>比较得:最大值为 $f(3)=19$,最小值为 $f(-2)=f(1)=-1$。</li>
+<p><strong>问题求解应用。</strong> 用 $100$ 米栅栏围一块矩形场地,设一边长为 $x$,面积为 $A(x)=x(50-x)$,定义域为 $[0,50]$。$A$ 连续且定义域闭而有界,所以最大面积一定存在。令 $A'(x)=50-2x=0$,得 $x=25$。比较 $A(0)=0$、$A(25)=625$、$A(50)=0$,最大面积为 $625\ \text{m}^2$。</p>
+<p><strong>使用要点。</strong> 极值定理只保证极值<strong>存在</strong>,而<strong>闭区间法</strong>(比较临界点与端点的函数值)告诉我们如何<strong>找到</strong>它。使用前先检验三个条件;若条件不满足,就不能断定极值存在,例如在开区间上必须另行分析。</p>
+<pre class="mermaid">flowchart TD
+A["给定 f 与区间"] --> B{"f 连续?"}
+B -->|否| X["定理不适用"]
+B -->|是| C{"区间闭且有界?"}
+C -->|否| X
+C -->|是| D["最大值与最小值存在"]
+D --> E["求临界点"]
+E --> F["比较临界点与端点的函数值"]
+F --> G["得到绝对最大值与最小值"]</pre>
+<p><em>图:应用极值定理的判断流程:先检验条件,再用闭区间法求出绝对极值。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch4: Chapter 4. Applications of Derivatives (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

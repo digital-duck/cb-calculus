@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tangent Line | Calculus Ch03</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="切线">切线</h2>
+<p>设函数 $f$ 在点 $x=a$ 处有定义。过曲线 $y=f(x)$ 上两点 $P(a, f(a))$ 与 $Q(a+h, f(a+h))$ 的直线称为<strong>割线</strong>，其斜率为差商</p>
+$$
+m_{\text{sec}} = \frac{f(a+h)-f(a)}{h}.
+$$
+<p>当 $Q$ 沿曲线滑向 $P$ 时，即 $h \to 0$，割线的斜率若趋于一个确定的极限值，这个极限位置的直线就称为曲线在点 $P$ 处的<strong>切线</strong>，其斜率定义为</p>
+$$
+m_{\tan} = \lim_{h \to 0} \frac{f(a+h)-f(a)}{h}.
+$$
+<p>这个极限正是导数 $f'(a)$ 的定义——切线斜率与导数是同一个数，只是几何与代数两种视角。切线方程可写为点斜式：</p>
+$$
+y - f(a) = f'(a)\,(x-a).
+$$
+<p><strong>范例。</strong> 求 $f(x)=x^2$ 在 $a=1$ 处的切线方程。</p>
+<p>先算差商：</p>
+$$
+\frac{f(1+h)-f(1)}{h} = \frac{(1+h)^2-1}{h} = \frac{2h+h^2}{h} = 2+h.
+$$
+<p>令 $h\to 0$，得 $f'(1)=2$。又 $f(1)=1$，所以切线方程为</p>
+$$
+y - 1 = 2(x-1) \quad\Longrightarrow\quad y = 2x - 1.
+$$
+<p><strong>解题应用。</strong> 切线的核心用途是<strong>局部线性近似</strong>：在 $a$ 附近，曲线几乎与切线重合，故</p>
+$$
+f(a+\Delta x) \approx f(a) + f'(a)\,\Delta x.
+$$
+<p>例如估计 $\sqrt{4.02}$：取 $f(x)=\sqrt{x}$，$a=4$，$f(4)=2$，$f'(x)=\dfrac{1}{2\sqrt{x}}$，故 $f'(4)=\dfrac14$。于是</p>
+$$
+\sqrt{4.02} \approx 2 + \frac14(0.02) = 2.005,
+$$
+<p>与真实值 $2.0049938\ldots$ 高度接近。这种"用切线代替曲线"的思想，正是后续学习微分近似、牛顿迭代法求根、以及优化问题中判断极值的基础。</p>
+<pre class="mermaid">flowchart LR
+    A["割线 P—Q<br/>斜率 = 差商"] -->|"Q 沿曲线滑向 P<br/>h → 0"| B["割线斜率收敛"]
+    B --> C["切线 P<br/>斜率 = 导数 f'(a)"]</pre>
+<p><em>图示：随着第二点 $Q$ 沿曲线趋近第一点 $P$（$h\to 0$），割线的斜率逐渐收敛为切线的斜率。</em></p>
+<p>理解切线不仅是几何直觉，更是微积分中"用简单（线性）对象逼近复杂（曲线）对象"这一核心策略的第一个具体实例。</p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch3: Chapter 3. Derivatives (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

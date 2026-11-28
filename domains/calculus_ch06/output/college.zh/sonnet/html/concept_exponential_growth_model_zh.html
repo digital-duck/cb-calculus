@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exponential Growth Model | Calculus Ch06</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="指数增长模型">指数增长模型</h2>
+<h3 id="定义">定义</h3>
+<p>如果某个量 $y$ 的变化率与其当前值成正比，即</p>
+$$\frac{dy}{dt} = ky \quad (k>0),$$
+<p>那么该量服从<strong>指数增长模型</strong>。用分离变量法求解：$\dfrac{dy}{y}=k\,dt$，两边积分得 $\ln|y| = kt + C$，代入初值 $y(0)=y_0$ 得</p>
+$$y = y_0 e^{kt}.$$
+<p>其中 $y_0$ 是初始值，$k$ 是<strong>连续增长率</strong>（单位为"每单位时间"），$t$ 是时间。若 $k<0$，则模型描述指数衰减（如放射性衰变）。</p>
+<p>两个常用性质：</p>
+<li><strong>倍增时间</strong>：令 $y=2y_0$，得 $e^{kT}=2$，所以 $T=\dfrac{\ln 2}{k}$。</li>
+<li><strong>等比性</strong>：时间每增加相同的间隔，$y$ 乘以相同的因子 $e^{k\Delta t}$。</li>
+<h3 id="例题">例题</h3>
+<p>一种细菌培养物初始有 $500$ 个细胞，$3$ 小时后增至 $2000$ 个。求 $k$，并预测 $5$ 小时后的数量。</p>
+<p><strong>第一步：求 $k$。</strong> 由 $2000 = 500\,e^{3k}$ 得 $e^{3k}=4$，故</p>
+$$k=\frac{\ln 4}{3}\approx 0.462\ \text{小时}^{-1}.$$
+<p><strong>第二步：预测。</strong> </p>
+$$y(5)=500\,e^{5k}=500\cdot 4^{5/3}\approx 500\times 10.08\approx 5040.$$
+<p><strong>检验：</strong> 倍增时间 $T=\ln 2/k = 1.5$ 小时，$3$ 小时恰好翻两番（$500\to2000$），与题设一致。</p>
+<h3 id="问题求解应用">问题求解应用</h3>
+<p><strong>连续复利投资。</strong> 本金 $P_0=\$10{,}000$，年利率 $6\%$ 连续复利，多少年后翻倍？</p>
+<p>模型为 $P(t)=10000\,e^{0.06t}$。令 $P=20000$：</p>
+$$t=\frac{\ln 2}{0.06}\approx 11.55\ \text{年}.$$
+<p>这与常用的"70 法则"（$70/6\approx 11.7$ 年）吻合，因为 $\ln 2\approx 0.693$。</p>
+<p><strong>建模步骤总结：</strong></p>
+<li>判断条件：变化率是否与当前值成正比？</li>
+<li>用两个数据点（通常是 $y_0$ 和另一时刻的值）确定 $k$：$k=\dfrac{1}{t}\ln\dfrac{y(t)}{y_0}$。</li>
+<li>代入模型预测，并用倍增时间等性质检验结果是否合理。</li>
+<p><strong>局限性：</strong> 现实中资源有限，种群不会无限增长。当 $y$ 接近环境容量时，需要改用逻辑斯谛模型 $\dfrac{dy}{dt}=ky\left(1-\dfrac{y}{M}\right)$。指数模型适用于增长的早期阶段。</p>
+<pre class="mermaid">flowchart LR
+    A["初始值 y0"] --> B["变化率与当前值成正比"]
+    B --> C["微分方程 dy/dt = ky"]
+    C --> D["解 y = y0 e^(kt)"]
+    D --> E["k大于0：增长"]
+    D --> F["k小于0：衰减"]</pre>
+<p><em>图示：从“变化率与当前值成正比”这一假设出发，推导出指数模型，并根据 $k$ 的符号区分增长与衰减。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch6: Chapter 6. Applications of Integration (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compound Interest Application | Calculus Ch01</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="复利应用">复利应用</h2>
+<h3 id="定义">定义</h3>
+<p>设本金为 $P_0$,年利率为 $r$(小数形式)。若利息<strong>连续复利</strong>,即把一年分成 $n$ 期并令 $n\to\infty$,则</p>
+$$
+\lim_{n\to\infty}P_0\left(1+\frac{r}{n}\right)^{nt}=P_0\,e^{rt}.
+$$
+<p>其中 $t$ 为时间(年),账户余额为 $A(t)=P_0e^{rt}$。该函数满足微分方程</p>
+$$
+\frac{dA}{dt}=rA,\qquad A(0)=P_0,
+$$
+<p>即余额的瞬时增长率与当前余额成正比。这正是自然指数函数的本质特征:$\dfrac{d}{dt}e^{rt}=re^{rt}$。</p>
+<p>与离散复利相比,连续复利是 $n$ 取极限的情形。例如 $r=0.05$ 时,年复利的实际年收益率为 $5\%$,而连续复利为 $e^{0.05}-1\approx5.127\%$。</p>
+<h3 id="例题">例题</h3>
+<p>存入 $P_0=5000$ 元,年利率 $6\%$,连续复利。求 8 年后的余额。</p>
+$$
+A(8)=5000\,e^{0.06\times 8}=5000\,e^{0.48}\approx5000\times1.6161\approx8080.6\ \text{元}.
+$$
+<p>作为对比,按年复利:$5000(1.06)^8\approx7969.2$ 元。连续复利多出约 $111$ 元,差距来自"利滚利"的频率提高。</p>
+<h3 id="问题求解应用">问题求解应用</h3>
+<p><strong>问题 1(求翻倍时间)。</strong> 令 $A(t)=2P_0$:</p>
+$$
+P_0e^{rt}=2P_0\;\Rightarrow\;e^{rt}=2\;\Rightarrow\;t=\frac{\ln 2}{r}\approx\frac{0.693}{r}.
+$$
+<p>当 $r=6\%$ 时,$t\approx11.55$ 年。这就是"70 法则"(翻倍年数 $\approx 70/$ 利率百分数)的来源。注意结果与本金 $P_0$ 无关。</p>
+<p><strong>问题 2(求所需利率)。</strong> 想在 10 年内把 $20000$ 元变为 $30000$ 元,求 $r$:</p>
+$$
+30000=20000\,e^{10r}\;\Rightarrow\;r=\frac{1}{10}\ln\frac{3}{2}\approx0.0405,
+$$
+<p>即约 $4.05\%$。</p>
+<p><strong>问题 3(现值)。</strong> 要在 5 年后得到 $10000$ 元,年利率 $4\%$,今天需存入多少?</p>
+$$
+P_0=10000\,e^{-0.04\times5}=10000\,e^{-0.2}\approx8187.3\ \text{元}.
+$$
+<p><strong>解题要点:</strong></p>
+<li>未知量在指数上时,两边取自然对数:$\ln(e^{x})=x$。</li>
+<li>先写出 $A=P_0e^{rt}$,代入已知量,再求未知量。</li>
+<li>利率 $r$ 必须化为小数,时间 $t$ 的单位须与 $r$ 的周期一致(年利率配以年)。</li>
+<li>用 $e^{r}-1$ 把连续复利换算成等效的年实际收益率,便于与其他产品比较。</li>
+<pre class="mermaid">flowchart LR
+A["本金 P0"] --> B["利率 r、时间 t"]
+B --> C["余额 A = P0 e^(rt)"]
+C --> D["求翻倍时间 ln2 / r"]
+C --> E["求利率 ln(A/P0) / t"]
+C --> F["求现值 A e^(-rt)"]</pre>
+<p><em>图:由同一个连续复利公式出发,可以求解翻倍时间、所需利率与现值三类问题。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch1: Chapter 1. Functions and Graphs (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

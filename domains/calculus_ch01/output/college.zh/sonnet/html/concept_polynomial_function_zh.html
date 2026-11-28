@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polynomial Function | Calculus Ch01</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="多项式函数">多项式函数</h2>
+<p><strong>定义。</strong> 形如</p>
+$$f(x)=a_n x^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0$$
+<p>的函数称为<strong>多项式函数</strong>,其中 $n$ 为非负整数,$a_0,a_1,\dots,a_n$ 为常数(称为<strong>系数</strong>)。当 $a_n\neq 0$ 时,$n$ 称为该多项式的<strong>次数</strong>,$a_n$ 称为<strong>首项系数</strong>,$a_0$ 称为<strong>常数项</strong>。例如:常数函数 $f(x)=5$ 次数为 $0$;线性函数 $f(x)=2x-1$ 次数为 $1$;二次函数 $f(x)=x^2-4x+3$ 次数为 $2$。</p>
+<p>注意,$\sqrt{x}$、$1/x$、$2^x$ 都<strong>不是</strong>多项式函数,因为 $x$ 的指数必须是非负整数,且 $x$ 不能出现在分母或指数位置。</p>
+<p><strong>例题。</strong> 设 $f(x)=2x^3-3x^2-11x+6$。</p>
+<li><em>判断次数与端点行为:</em> 次数为 $3$(奇数),首项系数 $2>0$,所以当 $x\to+\infty$ 时 $f(x)\to+\infty$,当 $x\to-\infty$ 时 $f(x)\to-\infty$。</li>
+<li><em>求零点:</em> 试 $x=3$:$f(3)=54-27-33+6=0$,故 $x=3$ 是零点。用综合除法(或长除法)得</li>
+$$f(x)=(x-3)(2x^2+3x-2)=(x-3)(2x-1)(x+2).$$
+<li>因此零点为 $x=3,\ \tfrac12,\ -2$。</li>
+<p><strong>问题求解应用。</strong> 一个无盖盒子由 $30\text{ cm}\times 20\text{ cm}$ 的纸板在四角各剪去边长为 $x$ 的正方形后折成,求体积函数并判断其合理定义域。</p>
+<p>体积为</p>
+$$V(x)=x(30-2x)(20-2x)=4x^3-100x^2+600x.$$
+<p>这是一个三次多项式函数。因为边长必须为正,且 $20-2x>0$,所以定义域为 $0<x<10$。</p>
+<p>令 $V(x)=0$:$4x(x-10)(x-15)=0$,零点为 $0,10,15$。在 $(0,10)$ 内 $V>0$,且 $V(0)=V(10)=0$,所以体积在区间内部必有最大值。求导得 $V'(x)=12x^2-200x+600=0$,即 $3x^2-50x+150=0$,解得</p>
+$$x=\frac{50\pm\sqrt{2500-1800}}{6}=\frac{50\pm 26.46}{6},$$
+<p>取落在定义域内的 $x\approx 3.92$ cm,此时 $V\approx 1056\ \text{cm}^3$。</p>
+<p><strong>要点归纳。</strong></p>
+<li>次数决定函数的整体形状:次数为 $n$ 的多项式最多有 $n$ 个实零点,图像最多有 $n-1$ 个转折点。</li>
+<li>奇数次与偶数次的端点行为不同:奇数次两端走向相反,偶数次两端走向相同,符号由首项系数决定。</li>
+<li>多项式函数处处连续、可导,这使得我们可以用零点分析和导数来求解实际优化问题。</li>
+<pre class="mermaid">flowchart TD
+    A[多项式函数] --> B{次数 n 的奇偶}
+    B -->|奇数| C[两端走向相反]
+    B -->|偶数| D[两端走向相同]
+    C --> E{首项系数符号}
+    D --> E
+    E -->|正| F[右端趋向正无穷]
+    E -->|负| G[右端趋向负无穷]</pre>
+<p><em>图:根据次数奇偶与首项系数符号判断多项式函数端点行为的流程。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch1: Chapter 1. Functions and Graphs (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>

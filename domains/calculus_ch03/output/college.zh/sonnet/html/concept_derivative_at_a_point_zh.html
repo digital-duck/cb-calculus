@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Derivative At A Point | Calculus Ch03</title>
+<script>
+MathJax = {
+  tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,serif;background:#fafaf8;color:#1a1a1a;line-height:1.7}
+h2{font-size:1.45rem;color:#1e3a5f;margin-bottom:12px}
+h3{font-size:1.1rem;color:#2e4a7f;margin:20px 0 8px}
+h4{font-size:1rem;color:#3a5a8f;margin:16px 0 6px}
+p{margin-bottom:16px;font-size:1rem}
+li{margin-bottom:6px;margin-left:24px;font-size:1rem}
+pre{background:#f4f4f0;border:1px solid #d8d8d0;border-radius:6px;
+    padding:16px 20px;overflow-x:auto;margin:16px 0}
+code{font-family:Menlo,Consolas,monospace;font-size:.87em}
+p code{background:#f0f0ea;padding:1px 4px;border-radius:3px}
+footer.spl-credit{margin-top:32px;padding-top:16px;border-top:1px solid #e0e0d8;
+      font-family:system-ui,sans-serif;font-size:.78rem;color:#999;text-align:center}
+footer.spl-credit a{color:#2563eb;text-decoration:none}
+footer.spl-credit span{display:block}
+footer.spl-credit .spl-credit__meta{margin-bottom:4px}
+.cb-figure{margin:24px 0;text-align:center}
+.cb-figure img{max-width:100%;height:auto;border:1px solid #e0e0d8;border-radius:6px}
+figcaption{font-size:.82rem;color:#666;margin-top:8px;font-style:italic;text-align:center}
+pre.mermaid{background:none;border:none;padding:0;overflow:visible;margin:16px 0}
+.page{max-width:780px;margin:0 auto;padding:40px 32px}
+section{margin-bottom:48px;border-top:1px solid #e0e0d8;padding-top:36px}
+section:first-of-type{border-top:none;padding-top:0}
+</style>
+</head>
+<body>
+<div class="page">
+  <main>
+    <h2 id="derivative-at-a-point">Derivative At A Point</h2>
+<p><strong>定义</strong></p>
+<p>设函数 $f$ 在点 $a$ 附近有定义。$f$ 在 $a$ 处的导数，记作 $f'(a)$，定义为差商的极限：</p>
+$$
+f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}
+$$
+<p>等价地，令 $x = a + h$，也可以写成：</p>
+$$
+f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x - a}
+$$
+<p>这个极限的几何意义是：连接曲线上两点 $(a, f(a))$ 和 $(a+h, f(a+h))$ 的割线，其斜率恰好就是差商 $\dfrac{f(a+h)-f(a)}{h}$。当 $h \to 0$ 时，第二个点沿曲线滑向第一个点，割线逐渐逼近曲线在 $a$ 处的切线，$f'(a)$ 就是这条切线的斜率。如果这个极限不存在（比如函数在 $a$ 处有尖角、间断或垂直切线），就说 $f$ 在 $a$ 处不可导。</p>
+<p><strong>例题</strong></p>
+<p>求 $f(x) = x^2$ 在 $a = 3$ 处的导数。</p>
+<p>按定义代入：</p>
+$$
+f'(3) = \lim_{h \to 0} \frac{(3+h)^2 - 3^2}{h} = \lim_{h \to 0} \frac{9 + 6h + h^2 - 9}{h} = \lim_{h \to 0} \frac{6h + h^2}{h} = \lim_{h \to 0}(6+h) = 6
+$$
+<p>所以 $f'(3) = 6$，即曲线 $y = x^2$ 在点 $(3, 9)$ 处的切线斜率为 $6$，切线方程为 $y - 9 = 6(x-3)$。</p>
+<p><strong>解题应用</strong></p>
+<p>导数在一点处的定义不仅是计算工具，更是分析瞬时变化率的基础：物理中的瞬时速度是位置函数在某时刻的导数，经济中的边际成本是成本函数在某产量处的导数。做题时，若直接用极限定义计算较繁琐，可先展开差商、化简分子中的公因子 $h$，再令 $h \to 0$；若遇到分母含根号，通常需要有理化处理。掌握这一点定义是后续学习导数函数 $f'(x)$（即在每一点都求一次此极限）的必要前提。</p>
+<pre class="mermaid">flowchart LR
+    A["割线：过 (x, f(x)) 与 (x+h, f(x+h))"] --> B["h 逐渐趋近于 0"]
+    B --> C["切线：在 x 处"]</pre>
+<p><em>图示：割线斜率 $\dfrac{f(x+h)-f(x)}{h}$ 随 $h \to 0$ 逐步逼近切线，即该点处的导数。</em></p>
+  </main>
+  <footer class="spl-credit"><span class="spl-credit__meta">Calculus Ch3: Chapter 3. Derivatives (Level: College &middot; Language: ZH &middot; Model: sonnet)</span><span class="spl-credit__powered">Generated and Powered by <a href="https://github.com/digital-duck/SPL.py" target="_blank" rel="noopener">SPL</a></span></footer>
+</div>
+</body>
+</html>
